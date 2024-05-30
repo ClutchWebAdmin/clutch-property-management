@@ -26,8 +26,8 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="p-5">
-      <h2>Home Page</h2>
+    <main>
+      <h2 className="p-5">Home Page</h2>
     </main>
   );
 }
