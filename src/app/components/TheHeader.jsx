@@ -6,7 +6,7 @@ export default function TheHeader() {
     <header>
       <nav className="bg-gray-400 flex flex-row items-start justify-between w-full p-5">
         <Link href="/">Logo</Link>
-        <div className="space-x-10">
+        <div className="space-x-10 hidden lg:flex flex-row">
           <Link href="/">Link</Link>
           <Link href="/">Link</Link>
           <Link href="/">Link</Link>
