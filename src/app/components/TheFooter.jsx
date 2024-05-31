@@ -4,7 +4,7 @@ import { navLinks } from "../data/navLinks";
 export default function TheFooter() {
   return (
     <footer className="flex flex-row justify-between w-full h-fit p-5 bg-gray-400">
-      <p>The Footer</p>
+      <p>Clutch Property Management</p>
       <div className="flex flex-col lg:flex-row gap-10">
         {navLinks.map((item, index) => (
           <Link key={index} href={item.linkTo}>
