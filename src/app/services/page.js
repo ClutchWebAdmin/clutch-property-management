@@ -1,17 +1,14 @@
-import Hero from "./components/Hero";
-import TheHeader from "./components/TheHeader";
-
 export const metadata = {
-  title: "Clutch Property Management",
+  title: "Services | Clutch Property Management",
   description: "",
   keywords: "",
   openGraph: {
-    title: "Clutch Property Management",
+    title: "Services | Clutch Property Management",
     description: "",
     siteName: "Clutch Property Management",
     type: "website",
     locale: "en_US",
-    url: "https://clutchpropertymanagement.com",
+    url: "https://clutchpropertymanagement.com/services",
     images: [
       {
         url: "https://clutchpropertymanagement.com/images/og-image.png",
@@ -27,15 +24,10 @@ export const metadata = {
   ],
 };
 
-export default function HomePage() {
+export default function ServicesPage() {
   return (
-    <>
-      <TheHeader variant="light" />
-      <main>
-        <Hero />
-
-        <section className="h-[900px]">Section 1</section>
-      </main>
-    </>
+    <main className="pt-[103px] md:pt-[115px]">
+      <section className="h-[900px] px-5">Services Page</section>
+    </main>
   );
 }

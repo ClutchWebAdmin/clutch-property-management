@@ -1,11 +1,8 @@
-import { Inter } from "next/font/google";
+import { switzer } from "./styles/fonts";
 import "animate.css";
 import "./globals.css";
-import TheHeader from "@/app/components/TheHeader";
 import TheFooter from "@/app/components/TheFooter";
 import AOSLoader from "@/app/utils/AOSLoader";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Clutch Property Management",
@@ -37,9 +34,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`min-h-svh max-w-screen flex flex-col mx-auto relative ${inter.className} antialiased`}
+        className={`min-h-svh max-w-screen flex flex-col mx-auto relative ${switzer.className} antialiased`}
       >
-        <TheHeader />
         {children}
         <TheFooter />
         <AOSLoader />
