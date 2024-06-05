@@ -34,7 +34,9 @@ export default function HomePage() {
       <main>
         <Hero />
 
-        <section className="h-[900px]">Section 1</section>
+        <section className="h-[900px] p-5 bg-primaryLight text-primaryDark">
+          Section 1
+        </section>
       </main>
     </>
   );

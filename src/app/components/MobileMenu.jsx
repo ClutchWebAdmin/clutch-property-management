@@ -30,9 +30,7 @@ export default function MobileMenu() {
     <>
       <div
         className={
-          isMobileMenuOpen
-            ? "hidden"
-            : "lg:hidden absolute top-5 right-5 flex flex-row gap-4"
+          isMobileMenuOpen ? "hidden" : "lg:hidden flex flex-row gap-4 p-5"
         }
       >
         <button
@@ -49,14 +47,14 @@ export default function MobileMenu() {
           id="close-mobile-menu"
           aria-label="close-mobile-menu"
           onClick={toggleMobileMenu}
-          className="lg:hidden fixed top-5 right-5 z-[9998] animate__animated animate__rotateIn"
+          className="lg:hidden p-5 z-[9998] animate__animated animate__rotateIn"
         >
           <AiOutlineClose className="h-8 w-8" />
         </button>
       )}
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed flex flex-col h-full inset-0 bg-primaryGold text-white font-medium z-[9000] animate__animated animate__slideInDown">
+        <div className="lg:hidden fixed flex flex-col h-full inset-0 bg-primaryDark font-medium z-[9000] animate__animated animate__slideInDown">
           <Image
             src={clutchLogo}
             alt="Clutch Property Management"

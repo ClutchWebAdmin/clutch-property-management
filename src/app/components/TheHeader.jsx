@@ -1,99 +1,125 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import clutchLogoLight from "../../../public/logos/clutch-logo-light.png";
-import clutchLogoDark from "../../../public/logos/clutch-logo-dark.png";
 import MobileMenu from "./MobileMenu";
+import LinkButton from "./UI/LinkButton";
+import { FaArrowDownLong } from "react-icons/fa6";
 
-export default function TheHeader({ variant }) {
-  if (variant === "light") {
-    return (
-      <header>
-        <nav className="flex flex-row w-full justify-between z-50 p-5 absolute top-0 text-white font-medium text-lg">
-          <div className="flex w-full lg:w-1/5">
-            <Link href="/" className="flex">
-              <Image
-                src={clutchLogoLight}
-                alt="Clutch Property Management"
-                className="w-[200px]"
-              />
-            </Link>
-          </div>
-          <div className="hidden lg:flex flex-row justify-center gap-10 lg:w-3/5">
-            <Link
-              href={`/about`}
-              className="w-fit h-fit px-2 py-1 hover:bg-gray-600/20 rounded-md"
-            >
-              About
-            </Link>
-            <Link
-              href={`/services`}
-              className="w-fit h-fit px-2 py-1 hover:bg-gray-600/20 rounded-md"
-            >
+export default function TheHeader() {
+  const [dropdown, setDropdown] = useState(null);
+
+  const toggleDropdown = (dropdownType) => {
+    setDropdown((prev) => (prev === dropdownType ? null : dropdownType));
+  };
+
+  const closeDropdown = () => {
+    setDropdown(null);
+  };
+
+  return (
+    <header className="flex flex-col">
+      <nav className="flex flex-row w-full justify-between z-50 absolute top-0 font-medium text-lg border-b border-secondaryBlue h-[var(--header-height)]">
+        <div className="flex w-fit lg:w-1/4 md:border-r border-secondaryBlue p-5">
+          <Link href="/" className="flex">
+            <Image
+              src={clutchLogoLight}
+              alt="Clutch Property Management"
+              className="w-[175px]"
+            />
+          </Link>
+        </div>
+        <div className="hidden lg:flex flex-grow flex-row justify-start gap-10 pl-5">
+          <button
+            onClick={() => toggleDropdown("services")}
+            onMouseEnter={() => toggleDropdown("services")}
+            className="flex flex-row items-start gap-2 h-2/3 mt-auto"
+          >
+            <div className="flex flex-row gap-2 items-center">
               Services
-            </Link>
-            <Link
-              href={`/properties`}
-              className="w-fit h-fit px-2 py-1 hover:bg-gray-600/20 rounded-md"
-            >
+              <FaArrowDownLong className="text-sm" />
+            </div>
+          </button>
+          <button
+            onClick={() => toggleDropdown("properties")}
+            onMouseEnter={() => toggleDropdown("properties")}
+            className="flex flex-row items-start gap-2 h-2/3 mt-auto"
+          >
+            <div className="flex flex-row gap-2 items-center">
               Properties
-            </Link>
-          </div>
-          <div className="hidden lg:flex flex-row justify-end gap-10 lg:w-1/5">
-            <a
-              href="https://appfolio.com"
-              className="px-4 py-2 w-fit h-fit border border-white hover:bg-primaryGold hover:border-primaryGold hover:shadow-md transition-colors duration-200 rounded-lg"
-            >
-              Pay Rent
-            </a>
-          </div>
-          <MobileMenu />
-        </nav>
-      </header>
-    );
-  } else if (variant === "dark") {
-    return (
-      <header>
-        <nav className="flex flex-row w-full justify-between z-50 p-5 absolute top-0 font-medium text-lg">
-          <div className="flex w-full lg:w-1/5">
-            <Link href="/" className="flex">
-              <Image
-                src={clutchLogoDark}
-                alt="Clutch Property Management"
-                className="w-[200px]"
-              />
-            </Link>
-          </div>
-          <div className="hidden lg:flex flex-row justify-center gap-10 lg:w-3/5">
-            <Link
-              href={`/about`}
-              className="w-fit h-fit px-2 py-1 hover:bg-gray-500/10 rounded-md"
-            >
-              About
-            </Link>
-            <Link
-              href={`/services`}
-              className="w-fit h-fit px-2 py-1 hover:bg-gray-500/10 rounded-md"
-            >
-              Services
-            </Link>
-            <Link
-              href={`/properties`}
-              className="w-fit h-fit px-2 py-1 hover:bg-gray-500/10 rounded-md"
-            >
-              Properties
-            </Link>
-          </div>
-          <div className="hidden lg:flex flex-row justify-end gap-10 lg:w-1/5">
-            <a
-              href="https://appfolio.com"
-              className="px-4 py-2 w-fit h-fit border border-primaryDark hover:bg-primaryGold hover:border-primaryGold hover:shadow-md hover:text-primaryLight transition-colors duration-200 rounded-lg"
-            >
-              Pay Rent
-            </a>
-          </div>
-          <MobileMenu />
-        </nav>
-      </header>
-    );
-  }
+              <FaArrowDownLong className="text-sm" />
+            </div>
+          </button>
+        </div>
+        <div className="hidden lg:flex flex-row justify-end items-center gap-10 w-fit p-5">
+          <Link href={`/contact`}>Contact Us</Link>
+          <LinkButton
+            variant={`secondary`}
+            text={`Pay Rent`}
+            linkTo={`https://appfolio.com`}
+            isExternalLink
+          />
+        </div>
+        <MobileMenu />
+      </nav>
+      {dropdown === "services" && (
+        <div
+          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5"
+          onMouseLeave={closeDropdown}
+        >
+          <Link
+            href={`/services`}
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+          >
+            Service 1
+          </Link>
+          <Link
+            href={`/services`}
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+          >
+            Service 2
+          </Link>
+          <Link
+            href={`/services`}
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+          >
+            Service 3
+          </Link>
+        </div>
+      )}
+      {dropdown === "properties" && (
+        <div
+          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5"
+          onMouseLeave={closeDropdown}
+        >
+          <Link
+            href={`/properties`}
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+          >
+            Property 1
+          </Link>
+          <Link
+            href={`/properties`}
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+          >
+            Property 2
+          </Link>
+          <Link
+            href={`/properties`}
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+          >
+            Property 3
+          </Link>
+          <Link
+            href={`/properties`}
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+          >
+            Property 4
+          </Link>
+        </div>
+      )}
+    </header>
+  );
 }

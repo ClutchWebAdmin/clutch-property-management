@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --primaryLight: white;
+  --primaryLight: #f8f6f2;
   --primaryDark: #272b27;
-  --primaryBlue: #1e3392;
-  --primaryGold: #665536;
+  --primaryBlue: #053d76;
+  --secondaryBlue: #597d9f;
+  --header-height: 105px;
 }
 
 body {
-  background-color: var(--primaryLight);
-  color: var(--primaryDark);
+  background-color: var(--primaryBlue);
+  color: var(--primaryLight);
 }
 
 main {

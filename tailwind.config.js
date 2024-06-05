@@ -11,7 +11,7 @@ module.exports = {
         primaryDark: "var(--primaryDark)",
         primaryLight: "var(--primaryLight)",
         primaryBlue: "var(--primaryBlue)",
-        primaryGold: "var(--primaryGold)",
+        secondaryBlue: "var(--secondaryBlue)",
       },
     },
   },
