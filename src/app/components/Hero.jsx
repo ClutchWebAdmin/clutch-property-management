@@ -14,8 +14,8 @@ export default function Hero() {
           </h1>
         </div>
         <div className="flex flex-col lg:flex-row gap-5 lg:justify-between w-full h-fit p-5 border-t border-secondaryBlue">
-          <div className="w-full flex flex-col justify-between gap-5 items-start lg:w-1/3 order-2 lg:order-1">
-            <p className="md:text-2xl">
+          <div className="w-full flex flex-col justify-between gap-5 items-start lg:w-2/5 xl:w-1/3 order-2 lg:order-1">
+            <p className="md:text-2xl 2xl:text-3xl">
               Faucibus et molestie ac feugiat sed lectus vestibulum mattis
               ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
               eget.
@@ -26,8 +26,8 @@ export default function Hero() {
               text={`View Properties`}
             />
           </div>
-          <div className="hidden lg:flex w-full lg:w-1/6 lg:order-2"></div>
-          <div className="w-full flex flex-row gap-5 lg:w-1/2 pr-5 order-1 lg:order-3">
+          <div className="hidden xl:flex w-full xl:w-1/6 lg:order-2"></div>
+          <div className="w-full flex flex-row gap-5 lg:w-1/2 lg:pr-5 order-1 lg:order-3">
             <Image
               src={placeholder}
               alt="placeholder"
