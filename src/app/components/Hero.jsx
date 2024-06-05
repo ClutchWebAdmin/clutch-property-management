@@ -32,11 +32,13 @@ export default function Hero() {
               src={placeholder}
               alt="placeholder"
               className="w-full lg:w-3/5 object-cover rounded-xl"
+              priority
             />
             <Image
               src={placeholder}
               alt="placeholder"
               className="hidden lg:flex w-2/5 object-cover rounded-xl"
+              priority
             />
           </div>
         </div>
