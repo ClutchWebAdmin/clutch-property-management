@@ -28,6 +28,7 @@ export default function TheHeader() {
               src={clutchLogoLight}
               alt="Clutch Property Management"
               className="w-[175px]"
+              priority
             />
           </Link>
         </div>
