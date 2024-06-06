@@ -3,11 +3,12 @@ import HeadingSection from "../components/HeadingSection";
 
 export const metadata = {
   title: "Properties | Clutch Property Management",
-  description: "",
-  keywords: "",
+  description: "Premier properties, professionally managed.",
+  keywords:
+    "property management, property managers, salem oregon, commercial property management, residential property management",
   openGraph: {
-    title: "Properties | Clutch Property Management",
-    description: "",
+    title: "Clutch Property Management",
+    description: "Premier properties, professionally managed.",
     siteName: "Clutch Property Management",
     type: "website",
     locale: "en_US",

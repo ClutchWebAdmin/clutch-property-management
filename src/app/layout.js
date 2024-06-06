@@ -6,11 +6,12 @@ import AOSLoader from "@/app/utils/AOSLoader";
 
 export const metadata = {
   title: "Clutch Property Management",
-  description: "",
-  keywords: "",
+  description: "Premier properties, professionally managed.",
+  keywords:
+    "property management, property managers, salem oregon, commercial property management, residential property management",
   openGraph: {
     title: "Clutch Property Management",
-    description: "",
+    description: "Premier properties, professionally managed.",
     siteName: "Clutch Property Management",
     type: "website",
     locale: "en_US",

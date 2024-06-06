@@ -12,6 +12,7 @@ module.exports = {
         primaryLight: "var(--primaryLight)",
         primaryBlue: "var(--primaryBlue)",
         secondaryBlue: "var(--secondaryBlue)",
+        accentBlue: "var(--accentBlue)",
       },
     },
   },
