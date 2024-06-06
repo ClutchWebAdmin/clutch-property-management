@@ -1,3 +1,4 @@
+import HeadingSection from "./components/HeadingSection";
 import Hero from "./components/Hero";
 import TheHeader from "./components/TheHeader";
 
@@ -33,10 +34,7 @@ export default function HomePage() {
       <TheHeader variant="light" />
       <main>
         <Hero />
-
-        <section className="h-[900px] p-5 bg-primaryLight text-primaryDark">
-          Section 1
-        </section>
+        {/* <HeadingSection variant={`white`} text={`Heading text here`} /> */}
       </main>
     </>
   );

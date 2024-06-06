@@ -1,6 +1,18 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { PiArrowElbowRightDown } from "react-icons/pi";
 
 export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered((prevState) => !prevState);
+  };
+
+  const buttonClasses = isHovered ? "mb-2 transition-all duration-300" : "";
+
   if (variant === "primary") {
     return (
       <Link
@@ -38,6 +50,18 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
       >
         {text}
       </a>
+    );
+  } else if (variant === "rounded") {
+    return (
+      <Link
+        href={linkTo}
+        className="flex flex-row gap-2 items-center justify-center px-8 py-2 w-fit h-fit border border-white bg-primaryblue text-primaryLight  rounded-full text-lg font-medium"
+        onMouseEnter={handleHover}
+        onMouseLeave={handleHover}
+      >
+        {text}
+        <PiArrowElbowRightDown className={`${buttonClasses} text-sm`} />
+      </Link>
     );
   }
 }

@@ -66,7 +66,7 @@ export default function TheHeader() {
         <MobileMenu />
       </nav>
       {dropdown === "services" && (
-        <div
+        <nav
           className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5"
           onMouseLeave={closeDropdown}
         >
@@ -88,38 +88,38 @@ export default function TheHeader() {
           >
             Service 3
           </Link>
-        </div>
+        </nav>
       )}
       {dropdown === "properties" && (
-        <div
+        <nav
           className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5"
           onMouseLeave={closeDropdown}
         >
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
           >
-            Property 1
+            All Properties
           </Link>
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
           >
-            Property 2
+            Residential Properties
           </Link>
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
           >
-            Property 3
+            Commerical Properties
           </Link>
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
           >
-            Property 4
+            Mixed-Use Properties
           </Link>
-        </div>
+        </nav>
       )}
     </header>
   );

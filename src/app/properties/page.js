@@ -1,3 +1,6 @@
+import AlternateHero from "../components/AlternateHero";
+import HeadingSection from "../components/HeadingSection";
+
 export const metadata = {
   title: "Properties | Clutch Property Management",
   description: "",
@@ -26,8 +29,13 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="pt-[103px] md:pt-[115px]">
-      <section className="h-[900px] px-5">Properties Page</section>
+    <main>
+      <AlternateHero />
+      <HeadingSection
+        id={`all-properties`}
+        variant={`white`}
+        text={`All Properties`}
+      />
     </main>
   );
 }
