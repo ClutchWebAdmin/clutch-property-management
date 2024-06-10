@@ -91,6 +91,7 @@ export default function FilterSection() {
       maxSqFootage: "",
       bedrooms: "",
       bathrooms: "",
+      type: "",
     });
     router.push(`/properties`, { scroll: false });
   };
@@ -99,7 +100,7 @@ export default function FilterSection() {
     <section className="bg-primaryLight text-primaryDark">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-wrap gap-5 px-5 py-10 border-b-secondaryBlue text-sm"
+        className="flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
       >
         <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
           Available:
@@ -144,6 +145,7 @@ export default function FilterSection() {
           Max Price:
           <input
             type="number"
+            step={100}
             name="maxPrice"
             value={filters.maxPrice}
             onChange={handleChange}
@@ -155,6 +157,7 @@ export default function FilterSection() {
           Min ft²:
           <input
             type="number"
+            step={100}
             name="minSqFootage"
             value={filters.minSqFootage}
             onChange={handleChange}
@@ -213,17 +216,23 @@ export default function FilterSection() {
         </div>
       </form>
 
-      <div className="grid lg:grid-cols-4 gap-5 border-b-secondaryBlue px-5 pb-10">
-        {filteredProperties.map((property) => (
-          <div key={property.id} className="property border p-5">
-            <h3>{property.name}</h3>
-            <p>Price: ${property.price.toLocaleString()}</p>
-            <p>Sq Footage: {property.sqFootage.toLocaleString()} ft²</p>
-            <p>Bedrooms: {property.bedrooms}</p>
-            <p>Bathrooms: {property.bathrooms}</p>
-            <p>Available: {property.available ? "Yes" : "No"}</p>
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 border-b-secondaryBlue px-5 py-10 border-b border-secondaryBlue">
+        {filteredProperties.length === 0 ? (
+          <div className="col-span-full">
+            <p className="text-3xl xl:text-4xl">No results.</p>
           </div>
-        ))}
+        ) : (
+          filteredProperties.map((property) => (
+            <div key={property.id} className="property border p-5">
+              <h3>{property.name}</h3>
+              <p>Price: ${property.price.toLocaleString()}</p>
+              <p>Sq Footage: {property.sqFootage.toLocaleString()} ft²</p>
+              <p>Bedrooms: {property.bedrooms}</p>
+              <p>Bathrooms: {property.bathrooms}</p>
+              <p>Available: {property.available ? "Yes" : "No"}</p>
+            </div>
+          ))
+        )}
       </div>
     </section>
   );
