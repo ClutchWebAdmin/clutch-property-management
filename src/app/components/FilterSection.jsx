@@ -97,8 +97,8 @@ export default function FilterSection() {
   };
 
   return (
-    <section className="bg-primaryLight text-primaryDark">
-      <Suspense fallback={<div>Loading...</div>}>
+    <Suspense>
+      <section className="bg-primaryLight text-primaryDark">
         <form
           onSubmit={handleSubmit}
           className="flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
@@ -235,7 +235,7 @@ export default function FilterSection() {
             ))
           )}
         </div>
-      </Suspense>
-    </section>
+      </section>
+    </Suspense>
   );
 }
