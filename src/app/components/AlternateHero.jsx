@@ -20,7 +20,7 @@ export default function AlternateHero() {
         </div>
         <div className="flex flex-row h-fit p-5">
           <LinkButton
-            variant={`rounded`}
+            variant={`withArrow`}
             linkTo={`#all-properties`}
             text={`View Portfolio`}
           />

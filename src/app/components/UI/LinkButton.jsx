@@ -17,7 +17,7 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
     return (
       <Link
         href={linkTo}
-        className="px-8 py-2 w-fit h-fit border border-transparent bg-secondaryBlue bg-opacity-80 text-primaryLight hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded text-lg font-medium"
+        className="px-8 py-2 w-fit h-fit border border-transparent bg-secondaryBlue bg-opacity-80 text-primaryLight hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded-full text-lg font-medium"
       >
         {text}
       </Link>
@@ -27,7 +27,7 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
       <a
         href={linkTo}
         target="_blank"
-        className="px-8 py-2 w-fit h-fit border border-transparent bg-secondaryBlue bg-opacity-80 text-primaryLight hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded text-lg font-medium"
+        className="px-8 py-2 w-fit h-fit border border-transparent bg-secondaryBlue bg-opacity-80 text-primaryLight hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded-full text-lg font-medium"
       >
         {text}
       </a>
@@ -36,7 +36,7 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
     return (
       <Link
         href={linkTo}
-        className="px-8 py-2 w-fit h-fit border border-white bg-primaryLight text-primaryDark hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded text-lg font-medium"
+        className="px-8 py-2 w-fit h-fit border border-white bg-primaryLight text-primaryDark hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded-full text-lg font-medium"
       >
         {text}
       </Link>
@@ -46,12 +46,12 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
       <a
         href={linkTo}
         target="_blank"
-        className="px-8 py-2 w-fit h-fit border border-white bg-primaryLight text-primaryDark hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded text-lg font-medium"
+        className="px-8 py-2 w-fit h-fit border border-white bg-primaryLight text-primaryDark hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight transition-colors duration-200 rounded-full text-lg font-medium"
       >
         {text}
       </a>
     );
-  } else if (variant === "rounded") {
+  } else if (variant === "withArrow") {
     return (
       <Link
         href={linkTo}
