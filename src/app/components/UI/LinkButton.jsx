@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PiArrowElbowRightDown } from "react-icons/pi";
+import { FaArrowDownLong } from "react-icons/fa6";
 
 export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -55,12 +55,12 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
     return (
       <Link
         href={linkTo}
-        className="flex flex-row gap-2 items-center justify-center px-8 py-2 w-fit h-fit border border-white bg-primaryblue text-primaryLight  rounded-full text-lg font-medium"
+        className="flex flex-row gap-2 items-center justify-center px-8 py-2 w-fit h-fit border border-white bg-primaryblue text-primaryLight rounded-full text-lg font-medium"
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
       >
         {text}
-        <PiArrowElbowRightDown className={`${buttonClasses} text-sm`} />
+        <FaArrowDownLong className={`${buttonClasses} text-sm`} />
       </Link>
     );
   }

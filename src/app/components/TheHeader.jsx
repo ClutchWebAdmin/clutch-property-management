@@ -10,13 +10,20 @@ import { FaArrowDownLong } from "react-icons/fa6";
 
 export default function TheHeader() {
   const [dropdown, setDropdown] = useState(null);
+  const [hoveredButton, setHoveredButton] = useState(null);
 
-  const toggleDropdown = (dropdownType) => {
-    setDropdown((prev) => (prev === dropdownType ? null : dropdownType));
+  const handleMouseEnter = (buttonType) => {
+    setHoveredButton(buttonType);
+    setDropdown(buttonType);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredButton(null);
   };
 
   const closeDropdown = () => {
     setDropdown(null);
+    setHoveredButton(null);
   };
 
   return (
@@ -34,23 +41,35 @@ export default function TheHeader() {
         </div>
         <div className="hidden lg:flex flex-grow flex-row justify-start gap-10 pl-5">
           <button
-            onClick={() => toggleDropdown("services")}
-            onMouseEnter={() => toggleDropdown("services")}
+            onMouseEnter={() => handleMouseEnter("services")}
+            onMouseLeave={handleMouseLeave}
             className="flex flex-row items-start gap-2 h-2/3 mt-auto"
           >
             <div className="flex flex-row gap-2 items-center">
               Services
-              <FaArrowDownLong className="text-sm" />
+              <FaArrowDownLong
+                className={`text-sm ${
+                  hoveredButton === "services"
+                    ? "mb-2 transition-all duration-300"
+                    : ""
+                }`}
+              />
             </div>
           </button>
           <button
-            onClick={() => toggleDropdown("properties")}
-            onMouseEnter={() => toggleDropdown("properties")}
+            onMouseEnter={() => handleMouseEnter("properties")}
+            onMouseLeave={handleMouseLeave}
             className="flex flex-row items-start gap-2 h-2/3 mt-auto"
           >
             <div className="flex flex-row gap-2 items-center">
               Properties
-              <FaArrowDownLong className="text-sm" />
+              <FaArrowDownLong
+                className={`text-sm ${
+                  hoveredButton === "properties"
+                    ? "mb-2 transition-all duration-300"
+                    : ""
+                }`}
+              />
             </div>
           </button>
         </div>
@@ -67,24 +86,24 @@ export default function TheHeader() {
       </nav>
       {dropdown === "services" && (
         <nav
-          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5"
+          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10"
           onMouseLeave={closeDropdown}
         >
           <Link
             href={`/services`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Service 1
           </Link>
           <Link
             href={`/services`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Service 2
           </Link>
           <Link
             href={`/services`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80"
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Service 3
           </Link>
@@ -92,30 +111,30 @@ export default function TheHeader() {
       )}
       {dropdown === "properties" && (
         <nav
-          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5"
+          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10"
           onMouseLeave={closeDropdown}
         >
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             All Properties
           </Link>
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Residential Properties
           </Link>
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Commerical Properties
           </Link>
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5"
+            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Mixed-Use Properties
           </Link>
