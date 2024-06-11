@@ -1,3 +1,5 @@
+import placeholderPhoto from "../../../../public/images/property-placeholder.png";
+
 const properties = [
   {
     id: 1,
@@ -8,6 +10,9 @@ const properties = [
     bathrooms: 3,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 2,
@@ -18,6 +23,9 @@ const properties = [
     bathrooms: 1,
     available: false,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 3,
@@ -28,6 +36,9 @@ const properties = [
     bathrooms: 2,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 4,
@@ -38,6 +49,9 @@ const properties = [
     bathrooms: 2,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 5,
@@ -48,6 +62,9 @@ const properties = [
     bathrooms: 4,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 6,
@@ -58,6 +75,9 @@ const properties = [
     bathrooms: 2,
     available: false,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 7,
@@ -68,6 +88,9 @@ const properties = [
     bathrooms: 2,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 8,
@@ -78,6 +101,9 @@ const properties = [
     bathrooms: 3,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 9,
@@ -88,6 +114,9 @@ const properties = [
     bathrooms: 2,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 10,
@@ -98,6 +127,9 @@ const properties = [
     bathrooms: 2,
     available: true,
     type: "residential",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 11,
@@ -107,7 +139,10 @@ const properties = [
     bedrooms: 4,
     bathrooms: 3,
     available: false,
-    type: "residential",
+    type: "mixed-use",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 12,
@@ -117,7 +152,10 @@ const properties = [
     bedrooms: 3,
     bathrooms: 2,
     available: true,
-    type: "residential",
+    type: "mixed-use",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 13,
@@ -127,7 +165,10 @@ const properties = [
     bedrooms: 6,
     bathrooms: 4,
     available: true,
-    type: "residential",
+    type: "commercial",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 14,
@@ -137,7 +178,10 @@ const properties = [
     bedrooms: 2,
     bathrooms: 1,
     available: true,
-    type: "residential",
+    type: "commercial",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
   {
     id: 15,
@@ -147,7 +191,10 @@ const properties = [
     bedrooms: 4,
     bathrooms: 3,
     available: true,
-    type: "residential",
+    type: "commerical",
+    managedByThirdParty: true,
+    url: "https://verdacrossing.com",
+    photo: placeholderPhoto,
   },
 ];
 

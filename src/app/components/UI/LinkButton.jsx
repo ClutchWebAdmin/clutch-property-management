@@ -13,13 +13,21 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
 
   const buttonClasses = isHovered ? "mb-2 transition-all duration-300" : "";
 
-  const commonClasses = "px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200";
-  const primaryClasses = "border border-transparent bg-secondaryBlue bg-opacity-80 text-primaryLight hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight";
-  const secondaryClasses = "border border-white bg-primaryLight text-primaryDark hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight";
+  const commonClasses =
+    "px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200";
+  const primaryClasses =
+    "border border-transparent bg-secondaryBlue bg-opacity-80 text-primaryLight hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight";
+  const secondaryClasses =
+    "border border-white bg-primaryLight text-primaryDark hover:bg-primaryBlue hover:text-primaryLight hover:border-primaryLight";
 
   if (variant === "primary") {
     return isExternalLink ? (
-      <a href={linkTo} target="_blank" rel="noopener noreferrer" className={`${commonClasses} ${primaryClasses}`}>
+      <a
+        href={linkTo}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${commonClasses} ${primaryClasses}`}
+      >
         {text}
       </a>
     ) : (
@@ -29,7 +37,12 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
     );
   } else if (variant === "secondary") {
     return isExternalLink ? (
-      <a href={linkTo} target="_blank" rel="noopener noreferrer" className={`${commonClasses} ${secondaryClasses}`}>
+      <a
+        href={linkTo}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${commonClasses} ${secondaryClasses}`}
+      >
         {text}
       </a>
     ) : (

@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import properties from "./data/dummyData";
+import PropertyCard from "./PropertyCard";
 
 export default function FilterSection() {
   const router = useRouter();
@@ -229,14 +230,7 @@ export default function FilterSection() {
             </div>
           ) : (
             filteredProperties.map((property) => (
-              <div key={property.id} className="property border p-5">
-                <h3>{property.name}</h3>
-                <p>Price: ${property.price.toLocaleString()}</p>
-                <p>Sq Footage: {property.sqFootage.toLocaleString()} ft²</p>
-                <p>Bedrooms: {property.bedrooms}</p>
-                <p>Bathrooms: {property.bathrooms}</p>
-                <p>Available: {property.available ? "Yes" : "No"}</p>
-              </div>
+              <PropertyCard key={property.id} property={property} />
             ))
           )}
         </div>

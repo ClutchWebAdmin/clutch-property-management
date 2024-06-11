@@ -22,7 +22,7 @@ export default function TheFooter() {
         </div>
 
         <ul className="flex flex-col text-lg gap-2 p-5 xl:p-10 border-r border-b border-secondaryBlue">
-          <li className="font-medium text-2xl lg:text-3xl text-accentBlue mb-2">
+          <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
             Properties
           </li>
           <Link
@@ -52,7 +52,7 @@ export default function TheFooter() {
         </ul>
 
         <ul className="flex flex-col text-lg gap-2 p-5 xl:p-10 border-b border-secondaryBlue">
-          <li className="font-medium text-2xl lg:text-3xl text-accentBlue mb-2">
+          <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
             Services
           </li>
           <Link
@@ -76,7 +76,7 @@ export default function TheFooter() {
         </ul>
 
         <ul className="flex flex-col col-span-full md:col-span-1 lg:col-span-1 text-lg gap-2 p-5 xl:p-10 border-b lg:border-b-0 md:border-r border-secondaryBlue">
-          <li className="font-medium text-2xl lg:text-3xl text-accentBlue mb-2">
+          <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
             Other
           </li>
           <Link
@@ -106,12 +106,17 @@ export default function TheFooter() {
         </ul>
 
         <div className="col-span-full md:col-span-1 flex flex-col gap-3 p-5 xl:p-10 border-b lg:border-b-0 lg:border-r border-secondaryBlue">
-          <div className="flex flex-col gap-5 text-accentBlue">
-            <p className="font-medium text-2xl lg:text-3xl text-accentBlue mb-2">
+          <div className="flex flex-col gap-5">
+            <p className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
               Contact Us
             </p>
             <div className="flex flex-row items-start gap-3">
-              <FaLocationDot className="text-2xl hover:text-secondaryBlue transition-colors duration-200" />
+              <a
+                href="https://www.google.com/maps/place/Clutch+Industries/@44.9504676,-123.0366476,16z/data=!3m1!4b1!4m6!3m5!1s0x54bfff07e04c7031:0xc8cc5d1878b3290f!8m2!3d44.9504638!4d-123.0340727!16s%2Fg%2F11c5sv6knd?entry=tts"
+                target="_blank"
+              >
+                <FaLocationDot className="text-2xl hover:text-secondaryBlue transition-colors duration-200" />
+              </a>
               <a
                 href="https://www.google.com/maps/place/Clutch+Industries/@44.9504676,-123.0366476,16z/data=!3m1!4b1!4m6!3m5!1s0x54bfff07e04c7031:0xc8cc5d1878b3290f!8m2!3d44.9504638!4d-123.0340727!16s%2Fg%2F11c5sv6knd?entry=tts"
                 target="_blank"
@@ -124,7 +129,9 @@ export default function TheFooter() {
               </a>
             </div>
             <div className="flex flex-row items-start gap-3">
-              <FaPhone className="text-2xl hover:text-secondaryBlue transition-colors duration-200" />
+              <a href="tel:+15039675228" target="_blank">
+                <FaPhone className="text-2xl hover:text-secondaryBlue transition-colors duration-200" />
+              </a>
               <a href="tel:+15039675228" target="_blank">
                 <p className="text-primaryLight hover:text-accentBlue transition-colors duration-200">
                   503-967-5228
@@ -132,7 +139,10 @@ export default function TheFooter() {
               </a>
             </div>
             <div className="flex flex-row items-start gap-3">
-              <AiOutlineMail className="text-2xl hover:text-accentBlue transition-colors duration-200" />
+              <a href="mailto:office@clutchindustries.com" target="_blank">
+                <AiOutlineMail className="text-2xl hover:text-accentBlue transition-colors duration-200" />
+              </a>
+
               <a href="mailto:office@clutchindustries.com" target="_blank">
                 <p className="text-primaryLight hover:text-accentBlue transition-colors duration-200">
                   office@clutchindustries.com
@@ -143,7 +153,7 @@ export default function TheFooter() {
         </div>
 
         <div className="col-span-full md:col-span-1 flex flex-col gap-3 p-5 xl:p-10 md:border-r border-secondaryBlue">
-          <p className="font-medium text-2xl lg:text-3xl text-accentBlue mb-2">
+          <p className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
             Follow Us
           </p>
           <div className="flex flex-row items-baseline gap-5 text-2xl text-primaryLight">
