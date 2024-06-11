@@ -1,5 +1,4 @@
 import AlternateHero from "../components/AlternateHero";
-import HeadingSection from "../components/HeadingSection";
 import FilterSection from "../components/FilterSection";
 
 export const metadata = {
@@ -33,11 +32,6 @@ export default function ServicesPage() {
   return (
     <main>
       <AlternateHero />
-      <HeadingSection
-        id={`all-properties`}
-        variant={`white`}
-        text={`Search Properties`}
-      />
       <FilterSection />
     </main>
   );

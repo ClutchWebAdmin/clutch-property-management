@@ -22,6 +22,11 @@ export default function FilterSection() {
   useEffect(() => {
     const query = Object.fromEntries(searchParams.entries());
 
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      ...query,
+    }));
+
     const filtered = properties.filter((property) => {
       const available = query.available
         ? property.available.toString() === query.available
@@ -98,7 +103,7 @@ export default function FilterSection() {
 
   return (
     <Suspense>
-      <section className="bg-primaryLight text-primaryDark">
+      <section id="all-properties" className="bg-primaryLight text-primaryDark">
         <form
           onSubmit={handleSubmit}
           className="flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"

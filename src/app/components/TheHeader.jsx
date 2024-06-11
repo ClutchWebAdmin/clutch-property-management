@@ -41,22 +41,6 @@ export default function TheHeader() {
         </div>
         <div className="hidden lg:flex flex-grow flex-row justify-start gap-10 pl-5">
           <button
-            onMouseEnter={() => handleMouseEnter("services")}
-            onMouseLeave={handleMouseLeave}
-            className="flex flex-row items-start gap-2 h-2/3 mt-auto"
-          >
-            <div className="flex flex-row gap-2 items-center">
-              Services
-              <FaArrowDownLong
-                className={`text-sm ${
-                  hoveredButton === "services"
-                    ? "mb-2 transition-all duration-300"
-                    : ""
-                }`}
-              />
-            </div>
-          </button>
-          <button
             onMouseEnter={() => handleMouseEnter("properties")}
             onMouseLeave={handleMouseLeave}
             className="flex flex-row items-start gap-2 h-2/3 mt-auto"
@@ -72,6 +56,22 @@ export default function TheHeader() {
               />
             </div>
           </button>
+          <button
+            onMouseEnter={() => handleMouseEnter("services")}
+            onMouseLeave={handleMouseLeave}
+            className="flex flex-row items-start gap-2 h-2/3 mt-auto"
+          >
+            <div className="flex flex-row gap-2 items-center">
+              Services
+              <FaArrowDownLong
+                className={`text-sm ${
+                  hoveredButton === "services"
+                    ? "mb-2 transition-all duration-300"
+                    : ""
+                }`}
+              />
+            </div>
+          </button>
         </div>
         <div className="hidden lg:flex flex-row justify-end items-center gap-10 w-fit p-5">
           <Link href={`/contact`}>Contact Us</Link>
@@ -79,7 +79,7 @@ export default function TheHeader() {
             variant={`secondary`}
             text={`Pay Rent`}
             linkTo={`https://appfolio.com`}
-            isExternalLink
+            isExternalLink={true}
           />
         </div>
         <MobileMenu />
@@ -121,19 +121,19 @@ export default function TheHeader() {
             All Properties
           </Link>
           <Link
-            href={`/properties`}
+            href={`/properties?type=residential`}
             className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Residential Properties
           </Link>
           <Link
-            href={`/properties`}
+            href={`/properties?type=commercial`}
             className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Commerical Properties
           </Link>
           <Link
-            href={`/properties`}
+            href={`/properties?type=mixed-use`}
             className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Mixed-Use Properties
