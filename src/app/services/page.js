@@ -39,7 +39,7 @@ export default function ServicesPage() {
         linkTo={`/services/#view-all-services`}
         linkText={`View All Services`}
       />
-      <ServicesSection id={`view-all-services`} />
+      <ServicesSection id={`view-all-services`} variant={`grid`} />
     </main>
   );
 }

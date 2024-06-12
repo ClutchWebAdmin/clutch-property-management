@@ -15,11 +15,11 @@ export default function TwoColumnSection({
         <div className="flex flex-col lg:flex-row h-full">
           <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-secondaryBlue p-5">
             <p className="md:text-2xl 2xl:text-3xl pb-32">{text}</p>
-            <div className="flex flex-col w-full h-[250px] justify-end items-start bg-secondaryBlue text-primaryLight rounded-lg p-5 mb-5">
+            <div className="flex flex-col w-full h-[250px] justify-end items-start bg-primaryMid text-primaryDark rounded-lg p-5 mb-5">
               <h3 className="text-9xl -ml-1.5">{metric1}</h3>
               <p>{metric1Text}</p>
             </div>
-            <div className="flex flex-col w-full h-[250px] justify-end items-start bg-secondaryBlue text-primaryLight rounded-lg p-5">
+            <div className="flex flex-col w-full h-[250px] justify-end items-start bg-primaryMid text-primaryDark rounded-lg p-5">
               <h3 className="text-9xl -ml-1.5">{metric2}</h3>
               <p>{metric2Text}</p>
             </div>

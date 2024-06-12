@@ -50,8 +50,8 @@ export default function HomePage() {
           metric2={`350+`}
           metric2Text={`Residential and commercial spaces`}
         />
-        <HeadingSection variant={`white`} text={`Our Services`} />
-        <ServicesSection id={`all-services`} />
+        <HeadingSection variant={`blue`} text={`Our Services`} />
+        <ServicesSection id={`all-services`} variant={`list`} />
       </main>
     </>
   );

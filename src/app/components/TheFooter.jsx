@@ -23,9 +23,12 @@ export default function TheFooter() {
         </div>
 
         <ul className="flex flex-col text-base lg:text-lg gap-2 p-5 xl:p-10 border-r border-b border-secondaryBlue">
-          <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
-            Properties
-          </li>
+          <Link href={`/properties`}>
+            <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
+              Properties
+            </li>
+          </Link>
+
           <Link
             href={`/properties`}
             className="hover:text-accentBlue transition-colors duration-200"
@@ -47,9 +50,11 @@ export default function TheFooter() {
         </ul>
 
         <ul className="flex flex-col text-base lg:text-lg gap-2 p-5 xl:p-10 border-b border-secondaryBlue">
-          <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
-            Services
-          </li>
+          <Link href={`/services`}>
+            <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
+              Services
+            </li>
+          </Link>
           {services.map((service, index) => (
             <Link
               key={index}

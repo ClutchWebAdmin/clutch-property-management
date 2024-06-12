@@ -4,8 +4,9 @@
 
 :root {
   --primaryLight: #f8f6f2;
-  --primaryDark: #272b27;
-  --primaryBlue: #053d76;
+  --primaryDark: #1b1f27;
+  --primaryMid: #eae3d7;
+  --primaryBlue: #1c376d;
   --secondaryBlue: #597d9f;
   --accentBlue: #809fbd;
   --header-height: 105px;

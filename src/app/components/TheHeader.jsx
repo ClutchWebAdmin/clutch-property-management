@@ -7,6 +7,10 @@ import clutchLogoLight from "../../../public/logos/clutch-logo-light.png";
 import MobileMenu from "./MobileMenu";
 import LinkButton from "./UI/LinkButton";
 import { FaArrowDownLong } from "react-icons/fa6";
+import { BiBuildingHouse } from "react-icons/bi";
+import { PiWarehouseLight } from "react-icons/pi";
+import { BsHouses } from "react-icons/bs";
+
 import services from "./data/services";
 
 export default function TheHeader() {
@@ -87,16 +91,19 @@ export default function TheHeader() {
       </nav>
       {dropdown === "services" && (
         <nav
-          className="absolute hidden lg:grid grid-cols-2 lg:grid-cols-3 flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10"
+          className="absolute hidden lg:grid grid-cols-2 lg:grid-cols-3 flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-20"
           onMouseLeave={closeDropdown}
         >
           {services.map((service, index) => (
             <Link
               key={index}
               href={`/services/#${service.sectionId}`}
-              className="bg-secondaryBlue rounded-lg h-[200px] hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+              className="flex flex-col justify-between gap-2 bg-secondaryBlue rounded-lg h-[250px] hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
               onClick={closeDropdown}
             >
+              <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+                {service.icon}
+              </div>
               <h4 className="text-2xl font-medium">{service.name}</h4>
             </Link>
           ))}
@@ -104,29 +111,38 @@ export default function TheHeader() {
       )}
       {dropdown === "properties" && (
         <nav
-          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10 text-2xl font-medium"
+          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-20"
           onMouseLeave={closeDropdown}
         >
           <Link
             href={`/properties`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            className="flex flex-col justify-between w-1/3 h-[250px] bg-secondaryBlue rounded-lg hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
             onClick={closeDropdown}
           >
-            All Properties
+            <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+              <BiBuildingHouse />
+            </div>
+            <h4 className="text-2xl font-medium">All Properties</h4>
           </Link>
           <Link
             href={`/properties?type=residential`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            className="flex flex-col justify-between w-1/3 h-[250px] bg-secondaryBlue rounded-lg hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
             onClick={closeDropdown}
           >
-            Residential Properties
+            <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+              <BsHouses />
+            </div>
+            <h4 className="text-2xl font-medium">Residential Properties</h4>
           </Link>
           <Link
             href={`/properties?type=commercial`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            className="flex flex-col justify-between w-1/3 h-[250px] bg-secondaryBlue rounded-lg hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
             onClick={closeDropdown}
           >
-            Commerical Properties
+            <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+              <PiWarehouseLight />
+            </div>
+            <h4 className="text-2xl font-medium">Commercial Properties</h4>
           </Link>
         </nav>
       )}
