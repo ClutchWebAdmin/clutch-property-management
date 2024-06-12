@@ -61,14 +61,20 @@ export default function MobileMenu() {
             className="w-[200px] m-5"
           />
           <div className="flex flex-col h-full items-start justify-start gap-y-12 text-4xl p-5">
-            <Link href={`/about`} onClick={toggleMobileMenu}>
-              About
-            </Link>
             <Link href={`/services`} onClick={toggleMobileMenu}>
               Services
             </Link>
-            <Link href={`/properties`} onClick={toggleMobileMenu}>
-              Properties
+            <Link
+              href={`/properties?type=residential`}
+              onClick={toggleMobileMenu}
+            >
+              Residential
+            </Link>
+            <Link
+              href={`/properties?type=commercial`}
+              onClick={toggleMobileMenu}
+            >
+              Commercial
             </Link>
             <Link href={`/contact`} onClick={toggleMobileMenu}>
               Contact

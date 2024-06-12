@@ -1,5 +1,6 @@
 import HeadingSection from "./components/HeadingSection";
 import Hero from "./components/Hero";
+import ServicesSection from "./components/ServicesSection";
 import TheHeader from "./components/TheHeader";
 import TwoColumnSection from "./components/TwoColumnSection";
 
@@ -37,7 +38,20 @@ export default function HomePage() {
       <main>
         <Hero />
         <HeadingSection variant={`white`} text={`About us`} />
-        <TwoColumnSection id={`about-us`} />
+        <TwoColumnSection
+          id={`about-us`}
+          text={`Faucibus et molestie ac feugiat sed lectus vestibulum mattis
+              ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
+              eget. Faucibus et molestie ac feugiat sed lectus vestibulum mattis
+              ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
+              eget.`}
+          metric1={`8+`}
+          metric1Text={`Properties managed`}
+          metric2={`350+`}
+          metric2Text={`Residential and commercial spaces`}
+        />
+        <HeadingSection variant={`white`} text={`Our services`} />
+        <ServicesSection id={`all-services`} />
       </main>
     </>
   );

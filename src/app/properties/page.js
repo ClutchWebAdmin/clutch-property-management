@@ -28,10 +28,17 @@ export const metadata = {
   ],
 };
 
-export default function ServicesPage() {
+export default function PropertiesPage() {
   return (
     <main>
-      <AlternateHero />
+      <AlternateHero
+        heading={`Our Properties`}
+        text={`Faucibus et molestie ac feugiat sed lectus vestibulum mattis
+              ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
+              eget.`}
+        linkTo={`#search-properties`}
+        linkText={`Search Properties`}
+      />
       <FilterSection />
     </main>
   );

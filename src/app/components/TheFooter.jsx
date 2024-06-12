@@ -10,6 +10,7 @@ import {
   FaTwitter,
 } from "react-icons/fa6";
 import { AiOutlineMail } from "react-icons/ai";
+import services from "./data/services";
 
 export default function TheFooter() {
   return (
@@ -21,7 +22,7 @@ export default function TheFooter() {
           </Link>
         </div>
 
-        <ul className="flex flex-col text-lg gap-2 p-5 xl:p-10 border-r border-b border-secondaryBlue">
+        <ul className="flex flex-col text-base lg:text-lg gap-2 p-5 xl:p-10 border-r border-b border-secondaryBlue">
           <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
             Properties
           </li>
@@ -43,39 +44,24 @@ export default function TheFooter() {
           >
             <li>Commerical</li>
           </Link>
-          <Link
-            href={`/properties?type=mixed-use`}
-            className="hover:text-accentBlue transition-colors duration-200"
-          >
-            <li>Mixed-Use</li>
-          </Link>
         </ul>
 
-        <ul className="flex flex-col text-lg gap-2 p-5 xl:p-10 border-b border-secondaryBlue">
+        <ul className="flex flex-col text-base lg:text-lg gap-2 p-5 xl:p-10 border-b border-secondaryBlue">
           <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
             Services
           </li>
-          <Link
-            href={`/services`}
-            className="hover:text-accentBlue transition-colors duration-200"
-          >
-            <li>Service 1</li>
-          </Link>
-          <Link
-            href={`/services`}
-            className="hover:text-accentBlue transition-colors duration-200"
-          >
-            <li>Service 2</li>
-          </Link>
-          <Link
-            href={`/services`}
-            className="hover:text-accentBlue transition-colors duration-200"
-          >
-            <li>Service 3</li>
-          </Link>
+          {services.map((service, index) => (
+            <Link
+              key={index}
+              href={`/#${service.sectionId}`}
+              className="hover:text-accentBlue transition-colors duration-200"
+            >
+              <li>{service.name}</li>
+            </Link>
+          ))}
         </ul>
 
-        <ul className="flex flex-col col-span-full md:col-span-1 lg:col-span-1 text-lg gap-2 p-5 xl:p-10 border-b lg:border-b-0 md:border-r border-secondaryBlue">
+        <ul className="flex flex-col col-span-full md:col-span-1 lg:col-span-1 text-base lg:text-lg gap-2 p-5 xl:p-10 border-b lg:border-b-0 md:border-r border-secondaryBlue">
           <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
             Other
           </li>
@@ -106,7 +92,7 @@ export default function TheFooter() {
         </ul>
 
         <div className="col-span-full md:col-span-1 flex flex-col gap-3 p-5 xl:p-10 border-b lg:border-b-0 lg:border-r border-secondaryBlue">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col text-base lg:text-lg gap-5">
             <p className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
               Contact Us
             </p>

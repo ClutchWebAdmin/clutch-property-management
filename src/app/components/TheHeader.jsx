@@ -7,6 +7,7 @@ import clutchLogoLight from "../../../public/logos/clutch-logo-light.png";
 import MobileMenu from "./MobileMenu";
 import LinkButton from "./UI/LinkButton";
 import { FaArrowDownLong } from "react-icons/fa6";
+import services from "./data/services";
 
 export default function TheHeader() {
   const [dropdown, setDropdown] = useState(null);
@@ -86,57 +87,42 @@ export default function TheHeader() {
       </nav>
       {dropdown === "services" && (
         <nav
-          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10"
+          className="absolute hidden lg:grid grid-cols-2 lg:grid-cols-3 flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10"
           onMouseLeave={closeDropdown}
         >
-          <Link
-            href={`/services`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
-          >
-            Service 1
-          </Link>
-          <Link
-            href={`/services`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
-          >
-            Service 2
-          </Link>
-          <Link
-            href={`/services`}
-            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
-          >
-            Service 3
-          </Link>
+          {services.map((service, index) => (
+            <Link
+              key={index}
+              href={`/#${service.sectionId}`}
+              className="bg-secondaryBlue rounded-lg h-[200px] hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            >
+              <h4 className="text-2xl font-medium">{service.name}</h4>
+            </Link>
+          ))}
         </nav>
       )}
       {dropdown === "properties" && (
         <nav
-          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10"
+          className="absolute hidden lg:flex flex-row gap-5 top-[var(--header-height)] w-full border-b bg-primaryBlue border-secondaryBlue z-20 p-5 py-10 text-2xl font-medium"
           onMouseLeave={closeDropdown}
         >
           <Link
             href={`/properties`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             All Properties
           </Link>
           <Link
             href={`/properties?type=residential`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Residential Properties
           </Link>
           <Link
             href={`/properties?type=commercial`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
           >
             Commerical Properties
-          </Link>
-          <Link
-            href={`/properties?type=mixed-use`}
-            className="w-1/4 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
-          >
-            Mixed-Use Properties
           </Link>
         </nav>
       )}

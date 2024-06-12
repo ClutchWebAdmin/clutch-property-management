@@ -104,7 +104,10 @@ export default function FilterSection() {
 
   return (
     <Suspense>
-      <section id="all-properties" className="bg-primaryLight text-primaryDark">
+      <section
+        id="search-properties"
+        className="bg-primaryLight text-primaryDark"
+      >
         <form
           onSubmit={handleSubmit}
           className="flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
@@ -133,7 +136,6 @@ export default function FilterSection() {
               <option value="">Any</option>
               <option value="residential">Residential</option>
               <option value="commercial">Commercial</option>
-              <option value="mixed-use">Mixed-Use</option>
             </select>
           </label>
           <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
@@ -223,7 +225,7 @@ export default function FilterSection() {
           </div>
         </form>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 border-b-secondaryBlue px-5 py-10 border-b border-secondaryBlue">
+        <div className="grid md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 border-b-secondaryBlue px-5 py-10 border-b border-secondaryBlue">
           {filteredProperties.length === 0 ? (
             <div className="col-span-full">
               <p className="text-3xl xl:text-4xl">No results.</p>
