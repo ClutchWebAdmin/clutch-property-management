@@ -37,7 +37,7 @@ export default function HomePage() {
       <TheHeader variant="light" />
       <main>
         <Hero />
-        <HeadingSection variant={`white`} text={`About us`} />
+        <HeadingSection variant={`white`} text={`About Us`} />
         <TwoColumnSection
           id={`about-us`}
           text={`Faucibus et molestie ac feugiat sed lectus vestibulum mattis
@@ -50,7 +50,7 @@ export default function HomePage() {
           metric2={`350+`}
           metric2Text={`Residential and commercial spaces`}
         />
-        <HeadingSection variant={`white`} text={`Our services`} />
+        <HeadingSection variant={`white`} text={`Our Services`} />
         <ServicesSection id={`all-services`} />
       </main>
     </>

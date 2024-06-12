@@ -53,7 +53,7 @@ export default function TheFooter() {
           {services.map((service, index) => (
             <Link
               key={index}
-              href={`/#${service.sectionId}`}
+              href={`/services/#${service.sectionId}`}
               className="hover:text-accentBlue transition-colors duration-200"
             >
               <li>{service.name}</li>

@@ -93,8 +93,9 @@ export default function TheHeader() {
           {services.map((service, index) => (
             <Link
               key={index}
-              href={`/#${service.sectionId}`}
+              href={`/services/#${service.sectionId}`}
               className="bg-secondaryBlue rounded-lg h-[200px] hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+              onClick={closeDropdown}
             >
               <h4 className="text-2xl font-medium">{service.name}</h4>
             </Link>
@@ -109,18 +110,21 @@ export default function TheHeader() {
           <Link
             href={`/properties`}
             className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            onClick={closeDropdown}
           >
             All Properties
           </Link>
           <Link
             href={`/properties?type=residential`}
             className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            onClick={closeDropdown}
           >
             Residential Properties
           </Link>
           <Link
             href={`/properties?type=commercial`}
             className="w-1/3 bg-secondaryBlue rounded-lg aspect-square hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            onClick={closeDropdown}
           >
             Commerical Properties
           </Link>
