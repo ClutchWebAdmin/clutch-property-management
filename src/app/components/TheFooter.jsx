@@ -39,13 +39,13 @@ export default function TheFooter() {
             href={`/properties?type=residential`}
             className="hover:text-accentBlue transition-colors duration-200"
           >
-            <li>Residential</li>
+            <li>Residential Properties</li>
           </Link>
           <Link
             href={`/properties?type=commercial`}
             className="hover:text-accentBlue transition-colors duration-200"
           >
-            <li>Commerical</li>
+            <li>Commerical Properties</li>
           </Link>
         </ul>
 
@@ -97,8 +97,8 @@ export default function TheFooter() {
         </ul>
 
         <div className="col-span-full md:col-span-1 flex flex-col gap-3 p-5 xl:p-10 border-b lg:border-b-0 lg:border-r border-secondaryBlue">
-          <div className="flex flex-col text-base lg:text-lg gap-5">
-            <p className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
+          <div className="flex flex-col text-base lg:text-lg gap-3">
+            <p className="font-medium text-xl lg:text-2xl text-accentBlue mb-1">
               Contact Us
             </p>
             <div className="flex flex-row items-start gap-3">
@@ -119,7 +119,7 @@ export default function TheFooter() {
                 </p>
               </a>
             </div>
-            <div className="flex flex-row items-start gap-3">
+            <div className="flex flex-row items-center gap-3">
               <a href="tel:+15039675228" target="_blank">
                 <FaPhone className="text-2xl hover:text-secondaryBlue transition-colors duration-200" />
               </a>
@@ -129,7 +129,7 @@ export default function TheFooter() {
                 </p>
               </a>
             </div>
-            <div className="flex flex-row items-start gap-3">
+            <div className="flex flex-row items-center gap-3">
               <a href="mailto:office@clutchindustries.com" target="_blank">
                 <AiOutlineMail className="text-2xl hover:text-accentBlue transition-colors duration-200" />
               </a>

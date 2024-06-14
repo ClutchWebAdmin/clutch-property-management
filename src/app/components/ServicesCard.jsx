@@ -20,7 +20,7 @@ export default function ServicesCard({ service, variant }) {
     return (
       <div
         id={service.sectionId}
-        className="flex flex-col lg:flex-row h-full w-full border-b border-accentBlue bg-primaryBlue text-primaryLight"
+        className="flex flex-col lg:flex-row h-full w-full border-b border-secondaryBlue bg-primaryBlue text-primaryLight"
       >
         <div className="flex w-1/2 lg:w-2/12 p-5">
           <div className="text-4xl font-medium w-fit h-fit">{service.icon}</div>

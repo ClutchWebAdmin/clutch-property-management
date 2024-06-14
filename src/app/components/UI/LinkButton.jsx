@@ -54,7 +54,7 @@ export default function LinkButton({ variant, linkTo, text, isExternalLink }) {
     return (
       <Link
         href={linkTo}
-        className={`flex flex-row gap-2 items-center justify-center ${commonClasses} border border-white bg-primaryBlue text-primaryLight`}
+        className={`flex flex-row gap-2 items-center justify-center ${commonClasses} border border-primaryLight bg-primaryBlue text-primaryLight`}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
       >

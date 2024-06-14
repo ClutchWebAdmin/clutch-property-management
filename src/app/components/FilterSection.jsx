@@ -112,33 +112,33 @@ export default function FilterSection() {
           onSubmit={handleSubmit}
           className="flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
         >
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Available:
             <select
               name="available"
               value={filters.available}
               onChange={handleChange}
-              className="bg-transparent w-fit p-1"
+              className="bg-transparent w-fit p-1 font-medium"
             >
               <option value="">Any</option>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
           </label>
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Type:
             <select
               name="type"
               value={filters.type}
               onChange={handleChange}
-              className="bg-transparent w-fit p-1"
+              className="bg-transparent w-fit p-1 font-medium"
             >
               <option value="">Any</option>
               <option value="residential">Residential</option>
               <option value="commercial">Commercial</option>
             </select>
           </label>
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Min Price:
             <input
               type="number"
@@ -147,10 +147,10 @@ export default function FilterSection() {
               value={filters.minPrice}
               onChange={handleChange}
               placeholder="Min Price"
-              className="bg-transparent w-[100px] p-1"
+              className="bg-transparent w-[100px] p-1 font-medium"
             />
           </label>
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Max Price:
             <input
               type="number"
@@ -159,10 +159,10 @@ export default function FilterSection() {
               value={filters.maxPrice}
               onChange={handleChange}
               placeholder="Max Price"
-              className="bg-transparent w-[100px] p-1"
+              className="bg-transparent w-[100px] p-1 font-medium"
             />
           </label>
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Min ft²:
             <input
               type="number"
@@ -171,10 +171,10 @@ export default function FilterSection() {
               value={filters.minSqFootage}
               onChange={handleChange}
               placeholder="Min ft²"
-              className="bg-transparent w-[100px] p-1"
+              className="bg-transparent w-[100px] p-1 font-medium"
             />
           </label>
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Max ft²:
             <input
               type="number"
@@ -183,10 +183,10 @@ export default function FilterSection() {
               value={filters.maxSqFootage}
               onChange={handleChange}
               placeholder="Max ft²"
-              className="bg-transparent w-[100px] p-1"
+              className="bg-transparent w-[100px] p-1 font-medium"
             />
           </label>
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Bedrooms:
             <input
               type="number"
@@ -194,10 +194,10 @@ export default function FilterSection() {
               value={filters.bedrooms}
               onChange={handleChange}
               placeholder="Bedrooms"
-              className="bg-transparent flex w-[100px] p-1"
+              className="bg-transparent flex w-[100px] p-1 font-medium"
             />
           </label>
-          <label className="flex items-center border border-black px-4 py-2 rounded-full w-fit h-fit gap-1">
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
             Bathrooms:
             <input
               type="number"
@@ -205,7 +205,7 @@ export default function FilterSection() {
               value={filters.bathrooms}
               onChange={handleChange}
               placeholder="Bathrooms"
-              className="bg-transparent w-[100px] p-1"
+              className="bg-transparent w-[100px] p-1 font-medium"
             />
           </label>
           <div className="grid grid-cols-2 gap-5">
@@ -217,7 +217,7 @@ export default function FilterSection() {
             </button>
             <button
               type="button"
-              className="flex items-center bg-secondaryBlue text-primaryLight hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
+              className="flex items-center bg-accentBlue text-primaryLight hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
               onClick={clearFilters}
             >
               Clear Filters

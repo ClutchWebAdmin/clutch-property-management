@@ -54,7 +54,7 @@ export default function MobileMenu() {
       )}
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed flex flex-col h-full inset-0 bg-primaryBlue opacity-95 font-medium z-[9000] animate__animated animate__slideInDown">
+        <div className="lg:hidden fixed flex flex-col h-full inset-0 bg-primaryBlue opacity-[98%] font-medium z-[9000] animate__animated animate__slideInDown">
           <Image
             src={clutchLogo}
             alt="Clutch Property Management"

@@ -45,7 +45,8 @@ export default function TheHeader() {
           </Link>
         </div>
         <div className="hidden lg:flex flex-grow flex-row justify-start gap-10 pl-5">
-          <button
+          <Link
+            href={`/properties`}
             onMouseEnter={() => handleMouseEnter("properties")}
             onMouseLeave={handleMouseLeave}
             className="flex flex-row items-start gap-2 h-2/3 mt-auto"
@@ -60,8 +61,9 @@ export default function TheHeader() {
                 }`}
               />
             </div>
-          </button>
-          <button
+          </Link>
+          <Link
+            href={`/services`}
             onMouseEnter={() => handleMouseEnter("services")}
             onMouseLeave={handleMouseLeave}
             className="flex flex-row items-start gap-2 h-2/3 mt-auto"
@@ -76,7 +78,7 @@ export default function TheHeader() {
                 }`}
               />
             </div>
-          </button>
+          </Link>
         </div>
         <div className="hidden lg:flex flex-row justify-end items-center gap-10 w-fit p-5">
           <Link href={`/contact`}>Contact Us</Link>
@@ -101,7 +103,7 @@ export default function TheHeader() {
               className="flex flex-col justify-between gap-2 bg-secondaryBlue rounded-lg h-[250px] hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
               onClick={closeDropdown}
             >
-              <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+              <div className="text-3xl p-2 border border-secondaryBlue w-fit h-auto rounded-lg">
                 {service.icon}
               </div>
               <h4 className="text-2xl font-medium">{service.name}</h4>
@@ -119,7 +121,7 @@ export default function TheHeader() {
             className="flex flex-col justify-between w-1/3 h-[250px] bg-secondaryBlue rounded-lg hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
             onClick={closeDropdown}
           >
-            <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+            <div className="text-3xl p-2 border border-secondaryBlue w-fit h-auto rounded-lg">
               <BiBuildingHouse />
             </div>
             <h4 className="text-2xl font-medium">All Properties</h4>
@@ -129,7 +131,7 @@ export default function TheHeader() {
             className="flex flex-col justify-between w-1/3 h-[250px] bg-secondaryBlue rounded-lg hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
             onClick={closeDropdown}
           >
-            <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+            <div className="text-3xl p-2 border border-secondaryBlue w-fit h-auto rounded-lg">
               <BsHouses />
             </div>
             <h4 className="text-2xl font-medium">Residential Properties</h4>
@@ -139,7 +141,7 @@ export default function TheHeader() {
             className="flex flex-col justify-between w-1/3 h-[250px] bg-secondaryBlue rounded-lg hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
             onClick={closeDropdown}
           >
-            <div className="text-3xl p-2 border border-accentBlue w-fit h-auto rounded-lg">
+            <div className="text-3xl p-2 border border-secondaryBlue w-fit h-auto rounded-lg">
               <PiWarehouseLight />
             </div>
             <h4 className="text-2xl font-medium">Commercial Properties</h4>
