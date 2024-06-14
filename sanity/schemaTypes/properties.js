@@ -2,17 +2,21 @@ export default {
   name: "properties",
   title: "Properties",
   type: "document",
+  groups: [
+    {
+      name: "address",
+      title: "Address",
+    },
+    {
+      name: "availability",
+      title: "Availability",
+    },
+    {
+      name: "photos",
+      title: "Photos",
+    },
+  ],
   fields: [
-    {
-      name: "name",
-      title: "Name",
-      type: "string",
-    },
-    {
-      name: "available",
-      title: "Available",
-      type: "boolean",
-    },
     {
       name: "type",
       title: "Type",
@@ -23,6 +27,115 @@ export default {
           { title: "Commercial", value: "commercial" },
         ],
       },
+      validation: (Rule) => Rule.required().error("Type is required"),
+    },
+    {
+      name: "address",
+      title: "Address",
+      type: "object",
+      group: "address",
+      fields: [
+        {
+          name: "addressLine1",
+          title: "Address Line 1",
+          type: "string",
+          validation: (Rule) =>
+            Rule.required().error("Address Line 1 is required"),
+        },
+        {
+          name: "addressLine2",
+          title: "Address Line 2",
+          type: "string",
+        },
+        {
+          name: "city",
+          title: "City",
+          type: "string",
+          validation: (Rule) => Rule.required().error("City is required"),
+        },
+        {
+          name: "state",
+          title: "State",
+          type: "string",
+          validation: (Rule) => Rule.required().error("State is required"),
+        },
+        {
+          name: "zip",
+          title: "Zip Code",
+          type: "string",
+          validation: (Rule) => Rule.required().error("Zip Code is required"),
+        },
+      ],
+    },
+    {
+      name: "available",
+      title: "Available",
+      type: "boolean",
+      group: "availability",
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: (doc, options) => {
+          // Concatenate addressLine1 and addressLine2 if addressLine2 exists
+          const { addressLine1, addressLine2 } = doc.address || {};
+          return addressLine2
+            ? `${addressLine1}-${addressLine2}`.toLowerCase()
+            : `${addressLine1}`.toLowerCase();
+        },
+        maxLength: 200,
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+      },
+      validation: (Rule) => Rule.required().error("Slug is required"),
+    },
+    {
+      name: "featuredPhoto",
+      title: "Featured Photo",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      group: "photos",
+    },
+    {
+      name: "additionalPhotos",
+      title: "Additional Photos",
+      type: "array",
+      of: [
+        {
+          name: "image",
+          type: "image",
+        },
+      ],
+      group: "photos",
+    },
+    {
+      name: "price",
+      title: "Price",
+      type: "number",
+    },
+    {
+      name: "sqFootage",
+      title: "Square Footage",
+      type: "number",
+    },
+    {
+      name: "bedrooms",
+      title: "Bedrooms",
+      type: "number",
+    },
+    {
+      name: "bathrooms",
+      title: "Bathrooms",
+      type: "number",
+    },
+    {
+      name: "notes",
+      title: "Notes",
+      type: "string",
     },
     {
       name: "managedByThirdParty",
@@ -34,49 +147,11 @@ export default {
       title: "URL",
       type: "url",
     },
-    {
-      name: "photo",
-      title: "Photo",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: "minPrice",
-      title: "Min Price",
-      type: "number",
-    },
-    {
-      name: "maxPrice",
-      title: "Max Price",
-      type: "number",
-    },
-    {
-      name: "minSqFootage",
-      title: "Min Square Footage",
-      type: "number",
-    },
-    {
-      name: "maxSqFootage",
-      title: "Max Square Footage",
-      type: "number",
-    },
-    {
-      name: "minBedrooms",
-      title: "Min Bedrooms",
-      type: "number",
-    },
-    {
-      name: "maxBedrooms",
-      title: "Max Bedrooms",
-      type: "number",
-    },
-    {
-      name: "subProperties",
-      title: "Sub Properties",
-      type: "array",
-      of: [{ type: "subProperty" }],
-    },
   ],
+  preview: {
+    select: {
+      title: "address.addressLine1",
+      subtitle: "address.addressLine2",
+    },
+  },
 };
