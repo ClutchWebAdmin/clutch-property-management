@@ -1,3 +1,4 @@
+import { client } from "../../../sanity/lib/client";
 import AlternateHero from "../components/AlternateHero";
 import FilterSection from "../components/FilterSection";
 
@@ -28,7 +29,30 @@ export const metadata = {
   ],
 };
 
-export default function PropertiesPage() {
+export default async function PropertiesPage() {
+  const data = await client.fetch(`
+    *[_type == "properties"]{
+      _createdAt,
+      _updatedAt,
+      _id,
+      available,
+      price,
+      sqFootage,
+      "slug": slug.current,
+      "addressLine1": address.addressLine1,
+      "addressLine2": address.addressLine2,
+      "city": address.city,
+      "state": address.state,
+      "zip": address.zip,
+      notes,
+      photo,
+      managedByThirdParty,
+      url,
+    } | order(available asc)
+    `);
+
+  const properties = data;
+
   return (
     <main>
       <AlternateHero
@@ -39,7 +63,7 @@ export default function PropertiesPage() {
         linkTo={`#search-properties`}
         linkText={`Search Properties`}
       />
-      <FilterSection />
+      <FilterSection properties={properties} />
     </main>
   );
 }

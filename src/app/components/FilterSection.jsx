@@ -2,10 +2,9 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import properties from "./data/dummyData";
 import PropertyCard from "./PropertyCard";
 
-export default function FilterSection() {
+export default function FilterSection({ properties }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [filteredProperties, setFilteredProperties] = useState(properties);
@@ -232,7 +231,7 @@ export default function FilterSection() {
             </div>
           ) : (
             filteredProperties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
+              <PropertyCard key={property._id} property={property} />
             ))
           )}
         </div>

@@ -1,17 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
+import placeholder from "../../../public/images/property-placeholder.png";
 
 export default function PropertyCard({ property }) {
+  const roundToNearestDollar = (amount) => {
+    return Math.floor(amount);
+  };
+
+  const formattedPrice = roundToNearestDollar(property.price).toLocaleString(
+    "en-US",
+    { style: "currency", currency: "USD", maximumFractionDigits: 0 }
+  );
+
   return (
     <div
-      key={property.id}
+      key={property._id}
       className="rounded border hover:shadow-md hover:brightness-110 transition duration-300 h-fit w-auto"
     >
       {property.managedByThirdParty ? (
-        <a href={property.url} target="_blank" rel="noopener noreferrer">
+        <a href={property.url} target="_blank">
           <div className="relative">
             <Image
-              src={property.photo}
+              src={placeholder}
               alt="placeholder"
               className="object-fit w-full h-auto rounded-t-sm"
             />
@@ -27,9 +37,15 @@ export default function PropertyCard({ property }) {
           </div>
 
           <div className="flex flex-col p-5">
-            <h3 className="font-medium text-2xl md:text-xl">{property.name}</h3>
-            <p>Price: ${property.price.toLocaleString()}</p>
-            <p>Sq Footage: {property.sqFootage.toLocaleString()} ft²</p>
+            {formattedPrice && (
+              <h3 className="font-medium text-2xl md:text-xl">
+                {formattedPrice}
+              </h3>
+            )}
+            {property.addressLine1 && <p>{property.addressLine1}</p>}
+            {property.addressLine2 && <p>Unit #: {property.addressLine2}</p>}
+
+            {property.sqFootage && <p>Sq Footage: {property.sqFootage} ft²</p>}
             {property.type === "residential" && (
               <>
                 <p>Bedrooms: {property.bedrooms}</p>
@@ -39,10 +55,10 @@ export default function PropertyCard({ property }) {
           </div>
         </a>
       ) : (
-        <Link href={property.url} target="_blank" rel="noopener noreferrer">
+        <Link href={`properties/${property.slug}`}>
           <div className="relative">
             <Image
-              src={property.photo}
+              src={placeholder}
               alt="placeholder"
               className="object-fit w-full h-auto rounded-t-sm"
             />
@@ -58,9 +74,15 @@ export default function PropertyCard({ property }) {
           </div>
 
           <div className="flex flex-col p-5">
-            <h3 className="font-medium text-2xl md:text-xl">{property.name}</h3>
-            <p>Price: ${property.price.toLocaleString()}</p>
-            <p>Sq Footage: {property.sqFootage.toLocaleString()} ft²</p>
+            {formattedPrice && (
+              <h3 className="font-medium text-2xl md:text-xl">
+                {formattedPrice}
+              </h3>
+            )}
+            {property.addressLine1 && <p>{property.addressLine1}</p>}
+            {property.addressLine2 && <p>Unit #: {property.addressLine2}</p>}
+
+            {property.sqFootage && <p>Sq Footage: {property.sqFootage} ft²</p>}
             {property.type === "residential" && (
               <>
                 <p>Bedrooms: {property.bedrooms}</p>
