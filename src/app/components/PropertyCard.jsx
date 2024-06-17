@@ -19,76 +19,116 @@ export default function PropertyCard({ property }) {
     >
       {property.managedByThirdParty ? (
         <a href={property.url} target="_blank">
-          <div className="relative">
+          <div className="flex flex-col">
+            <div className="flex flex-row gap-3 items-center justify-between p-3">
+              {property.addressLine1 && (
+                <p className="font-medium text-lg md:text-2xl lg:text-xl">
+                  {property.addressLine1}
+                  <span>
+                    {property.addressLine2 && <>#{property.addressLine2}</>}
+                  </span>
+                </p>
+              )}
+              {property.available ? (
+                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-primaryBlue">
+                  Available
+                </div>
+              ) : (
+                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-gray-500/80">
+                  Leased
+                </div>
+              )}
+            </div>
+
             <Image
               src={placeholder}
               alt="placeholder"
               className="object-fit w-full h-auto rounded-t-sm"
             />
-            {property.available ? (
-              <div className="absolute top-0 right-0 py-1 px-2 font-medium text-sm rounded-bl-md rounded-tr-sm text-primaryLight bg-primaryBlue">
-                Vacant
-              </div>
-            ) : (
-              <div className="absolute top-0 right-0 py-1 px-2 font-medium text-sm rounded-bl-md rounded-tr-sm text-primaryLight bg-gray-500/80">
-                Leased
-              </div>
-            )}
-          </div>
 
-          <div className="flex flex-col p-5">
-            {formattedPrice && (
-              <h3 className="font-medium text-2xl md:text-xl">
-                {formattedPrice}
-              </h3>
-            )}
-            {property.addressLine1 && <p>{property.addressLine1}</p>}
-            {property.addressLine2 && <p>Unit #: {property.addressLine2}</p>}
+            <div className="flex flex-col gap-2 p-3">
+              {formattedPrice && (
+                <h3 className="font-medium text-3xl">{formattedPrice}/mo</h3>
+              )}
 
-            {property.sqFootage && <p>Sq Footage: {property.sqFootage} ft²</p>}
-            {property.type === "residential" && (
-              <>
-                <p>Bedrooms: {property.bedrooms}</p>
-                <p>Bathrooms: {property.bathrooms}</p>
-              </>
-            )}
+              {property.sqFootage && (
+                <div className="flex flex-row items-center justify-between">
+                  {property.type === "residential" && (
+                    <p className="font-semibold text-lg">
+                      {property.bedrooms}
+                      <span className="font-normal"> bd | </span>
+                      {property.bathrooms}
+                      <span className="font-normal"> ba</span>
+                    </p>
+                  )}
+                  <p className="font-medium text-lg">
+                    {property.sqFootage.toLocaleString()}
+                    <span className="font-normal"> sqft</span>
+                  </p>
+                </div>
+              )}
+
+              <p className="text-xs text-accentBlue">
+                {`${property.addressLine1}${property.addressLine2 ? ` #${property.addressLine2}` : ""}, ${property.city}, ${property.state}, ${property.zip}`}
+              </p>
+            </div>
           </div>
         </a>
       ) : (
         <Link href={`properties/${property.slug}`}>
-          <div className="relative">
+          <div className="flex flex-col">
+            <div className="flex flex-row gap-3 items-center justify-between p-3">
+              {property.addressLine1 && (
+                <p className="font-medium text-lg md:text-2xl lg:text-xl">
+                  {property.addressLine1}
+                  <span>
+                    {property.addressLine2 && <> #{property.addressLine2}</>}
+                  </span>
+                </p>
+              )}
+              {property.available ? (
+                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-primaryBlue">
+                  Available
+                </div>
+              ) : (
+                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-gray-500/80">
+                  Leased
+                </div>
+              )}
+            </div>
+
             <Image
               src={placeholder}
               alt="placeholder"
               className="object-fit w-full h-auto rounded-t-sm"
             />
-            {property.available ? (
-              <div className="absolute top-0 right-0 py-1 px-2 font-medium text-sm rounded-bl-md rounded-tr-sm text-primaryLight bg-primaryBlue">
-                Vacant
-              </div>
-            ) : (
-              <div className="absolute top-0 right-0 py-1 px-2 font-medium text-sm rounded-bl-md rounded-tr-sm text-primaryLight bg-gray-500/80">
-                Leased
-              </div>
-            )}
-          </div>
 
-          <div className="flex flex-col p-5">
-            {formattedPrice && (
-              <h3 className="font-medium text-2xl md:text-xl">
-                {formattedPrice}
-              </h3>
-            )}
-            {property.addressLine1 && <p>{property.addressLine1}</p>}
-            {property.addressLine2 && <p>Unit #: {property.addressLine2}</p>}
+            <div className="flex flex-col gap-2 p-3">
+              {formattedPrice && (
+                <h3 className="font-medium text-3xl">{formattedPrice}/mo</h3>
+              )}
 
-            {property.sqFootage && <p>Sq Footage: {property.sqFootage} ft²</p>}
-            {property.type === "residential" && (
-              <>
-                <p>Bedrooms: {property.bedrooms}</p>
-                <p>Bathrooms: {property.bathrooms}</p>
-              </>
-            )}
+              {property.sqFootage && (
+                <div className="flex flex-row items-center justify-between">
+                  {property.type === "residential" && (
+                    <p className="font-semibold text-lg">
+                      {property.bedrooms}
+                      <span className="font-normal"> bd | </span>
+                      {property.bathrooms}
+                      <span className="font-normal"> ba</span>
+                    </p>
+                  )}
+                  <p className="font-medium text-lg">
+                    {property.sqFootage.toLocaleString()}
+                    <span className="font-normal"> sqft</span>
+                  </p>
+                </div>
+              )}
+
+              <p className="text-xs text-accentBlue">
+                {`${property.addressLine1}${property.addressLine2 ? ` #${property.addressLine2}` : ""}, ${property.city}, ${property.state}, ${property.zip}`}
+              </p>
+            </div>
           </div>
         </Link>
       )}

@@ -64,7 +64,7 @@ export default function FilterSection({ properties }) {
     });
 
     setFilteredProperties(filtered);
-  }, [searchParams]);
+  }, [searchParams, properties]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -224,7 +224,7 @@ export default function FilterSection({ properties }) {
           </div>
         </form>
 
-        <div className="grid md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 border-b-secondaryBlue px-5 py-10 border-b border-secondaryBlue">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 border-b-secondaryBlue px-5 py-10 border-b border-secondaryBlue">
           {filteredProperties.length === 0 ? (
             <div className="col-span-full">
               <p className="text-3xl xl:text-4xl">No results.</p>
