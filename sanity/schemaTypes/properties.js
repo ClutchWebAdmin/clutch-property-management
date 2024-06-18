@@ -72,6 +72,7 @@ export default {
       title: "Available",
       type: "boolean",
       group: "availability",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -148,10 +149,24 @@ export default {
       type: "url",
     },
   ],
+  initialValue: {
+    available: false,
+  },
   preview: {
     select: {
-      title: "address.addressLine1",
-      subtitle: "address.addressLine2",
+      available: "available",
+      addressLine1: "address.addressLine1",
+      addressLine2: "address.addressLine2",
+    },
+    prepare(selection) {
+      const { available, addressLine1, addressLine2 } = selection;
+      const title = addressLine2
+        ? `${addressLine1} #${addressLine2}`
+        : addressLine1;
+      return {
+        title: title,
+        subtitle: available ? "Available" : "Not Available",
+      };
     },
   },
 };

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import placeholder from "../../../public/images/property-placeholder.png";
+import placeholder from "../../../public/images/placeholder.png";
 
 export default function PropertyCard({ property }) {
   const roundToNearestDollar = (amount) => {

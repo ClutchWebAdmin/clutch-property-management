@@ -51,7 +51,7 @@ export default async function PropertiesPage() {
       photo,
       managedByThirdParty,
       url,
-    } | order(available asc)
+    } | order(available desc)
     `);
 
   const properties = data;
