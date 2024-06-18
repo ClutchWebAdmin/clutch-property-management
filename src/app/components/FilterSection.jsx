@@ -230,7 +230,7 @@ export default function FilterSection({ properties }) {
             <>
               <div className="mb-10">
                 <p className="text-2xl md:text-3xl lg:text-4xl">
-                  {filteredProperties.length} results
+                  {filteredProperties.length} results.
                 </p>
               </div>
               <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
