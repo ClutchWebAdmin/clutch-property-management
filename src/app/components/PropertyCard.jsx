@@ -30,11 +30,11 @@ export default function PropertyCard({ property }) {
                 </p>
               )}
               {property.available ? (
-                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-primaryBlue">
+                <div className="py-1 px-2 font-medium text-sm rounded-full text-primaryLight bg-primaryBlue">
                   Available
                 </div>
               ) : (
-                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-gray-500/80">
+                <div className="py-1 px-2 font-medium text-sm rounded-full text-primaryLight bg-gray-500/80">
                   Leased
                 </div>
               )}
@@ -54,7 +54,7 @@ export default function PropertyCard({ property }) {
               {(property.sqFootage ||
                 property.bedrooms ||
                 property.bathrooms) && (
-                <div className="flex flex-row items-center justify-between">
+                <div className="flex flex-row items-start justify-between">
                   {property.type === "residential" &&
                     (property.bedrooms || property.bathrooms) && (
                       <p className="font-semibold text-lg">
@@ -96,7 +96,7 @@ export default function PropertyCard({ property }) {
       ) : (
         <Link href={`properties/${property.slug}`}>
           <div className="flex flex-col">
-            <div className="flex flex-row gap-3 items-center justify-between p-3">
+            <div className="flex flex-row gap-3 items-start justify-between p-3">
               {property.addressLine1 && (
                 <p className="font-medium text-lg md:text-2xl lg:text-xl">
                   {property.addressLine1}
@@ -106,11 +106,11 @@ export default function PropertyCard({ property }) {
                 </p>
               )}
               {property.available ? (
-                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-primaryBlue">
+                <div className="py-1 px-2 font-medium text-sm rounded-full text-primaryLight bg-primaryBlue">
                   Available
                 </div>
               ) : (
-                <div className="py-1 px-2 font-medium text-xs rounded-full text-primaryLight bg-gray-500/80">
+                <div className="py-1 px-2 font-medium text-sm rounded-full text-primaryLight bg-gray-500/80">
                   Leased
                 </div>
               )}
