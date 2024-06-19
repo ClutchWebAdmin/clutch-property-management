@@ -151,6 +151,7 @@ export default {
   ],
   initialValue: {
     available: false,
+    managedByThirdParty: false,
   },
   preview: {
     select: {
@@ -159,13 +160,11 @@ export default {
       addressLine2: "address.addressLine2",
     },
     prepare(selection) {
-      const { available, addressLine1, addressLine2 } = selection;
-      const title = addressLine2
-        ? `${addressLine1} #${addressLine2}`
-        : addressLine1;
+      const { addressLine1, addressLine2 } = selection;
+
       return {
-        title: title,
-        subtitle: available ? "Available" : "Not Available",
+        title: addressLine1,
+        subtitle: addressLine2,
       };
     },
   },

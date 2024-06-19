@@ -15,7 +15,7 @@ export default function PropertyCard({ property }) {
   return (
     <div
       key={property._id}
-      className="rounded border hover:shadow-md hover:brightness-110 transition duration-300 h-fit w-auto"
+      className="rounded border hover:shadow-md hover:brightness-105 transition duration-300 h-fit w-auto"
     >
       {property.managedByThirdParty ? (
         <a href={property.url} target="_blank">
@@ -51,20 +51,36 @@ export default function PropertyCard({ property }) {
                 <h3 className="font-medium text-3xl">{formattedPrice}/mo</h3>
               )}
 
-              {property.sqFootage && (
+              {(property.sqFootage ||
+                property.bedrooms ||
+                property.bathrooms) && (
                 <div className="flex flex-row items-center justify-between">
-                  {property.type === "residential" && (
-                    <p className="font-semibold text-lg">
-                      {property.bedrooms}
-                      <span className="font-normal"> bd | </span>
-                      {property.bathrooms}
-                      <span className="font-normal"> ba</span>
+                  {property.type === "residential" &&
+                    (property.bedrooms || property.bathrooms) && (
+                      <p className="font-semibold text-lg">
+                        {property.bedrooms && (
+                          <>
+                            {property.bedrooms}
+                            <span className="font-normal"> bd</span>
+                            {property.bathrooms && (
+                              <span className="font-normal"> | </span>
+                            )}
+                          </>
+                        )}
+                        {property.bathrooms && (
+                          <>
+                            {property.bathrooms}
+                            <span className="font-normal"> ba</span>
+                          </>
+                        )}
+                      </p>
+                    )}
+                  {property.sqFootage && (
+                    <p className="font-medium text-lg">
+                      {property.sqFootage.toLocaleString()}
+                      <span className="font-normal"> sqft</span>
                     </p>
                   )}
-                  <p className="font-medium text-lg">
-                    {property.sqFootage.toLocaleString()}
-                    <span className="font-normal"> sqft</span>
-                  </p>
                 </div>
               )}
 

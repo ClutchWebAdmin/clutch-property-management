@@ -4,6 +4,15 @@ import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import PropertyCard from "./PropertyCard";
 
+const breakpoints = [
+  { width: 1536, itemsPerPage: 12 }, // 2xl
+  { width: 1280, itemsPerPage: 9 }, // xl
+  { width: 1024, itemsPerPage: 6 }, // lg
+  { width: 768, itemsPerPage: 6 }, // md
+  { width: 640, itemsPerPage: 4 }, // sm
+  { width: 0, itemsPerPage: 4 }, // xs and default
+];
+
 export default function FilterSection({ properties }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -18,6 +27,23 @@ export default function FilterSection({ properties }) {
     bathrooms: "",
     type: "",
   });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(4); // default value
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const { itemsPerPage } = breakpoints.find(
+        (breakpoint) => width >= breakpoint.width
+      );
+      setItemsPerPage(itemsPerPage);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const query = Object.fromEntries(searchParams.entries());
@@ -86,6 +112,7 @@ export default function FilterSection({ properties }) {
     });
 
     router.push(`/properties?${query.toString()}`, { scroll: false });
+    setCurrentPage(1); // Reset to first page on new filter submission
   };
 
   const clearFilters = () => {
@@ -100,7 +127,27 @@ export default function FilterSection({ properties }) {
       type: "",
     });
     router.push(`/properties`, { scroll: false });
+    setCurrentPage(1); // Reset to first page on clear filters
   };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) =>
+      Math.min(
+        prevPage + 1,
+        Math.ceil(filteredProperties.length / itemsPerPage)
+      )
+    );
+  };
+
+  const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
+  const displayedProperties = filteredProperties.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <Suspense>
@@ -234,9 +281,35 @@ export default function FilterSection({ properties }) {
                 </p>
               </div>
               <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
-                {filteredProperties.map((property) => (
+                {displayedProperties.map((property) => (
                   <PropertyCard key={property._id} property={property} />
                 ))}
+              </div>
+
+              <div className="flex flex-row justify-between md:justify-center items-center gap-10 mt-10">
+                <button
+                  onClick={handlePreviousPage}
+                  disabled={currentPage === 1}
+                  className={`px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200 border border-primaryBlue bg-primaryBlue text-primaryLight hover:bg-primaryLight hover:text-primaryDark hover:border-primaryBlue ${
+                    currentPage === 1 ? "invisible" : ""
+                  }`}
+                >
+                  Previous
+                </button>
+
+                <span className="font-medium">
+                  Page {currentPage} of {totalPages}
+                </span>
+
+                <button
+                  onClick={handleNextPage}
+                  disabled={currentPage === totalPages}
+                  className={`px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200 border border-primaryBlue bg-primaryBlue text-primaryLight hover:bg-primaryLight hover:text-primaryDark hover:border-primaryBlue ${
+                    currentPage === totalPages ? "invisible" : ""
+                  }`}
+                >
+                  Next
+                </button>
               </div>
             </>
           ) : (
