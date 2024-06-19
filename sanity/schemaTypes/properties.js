@@ -18,6 +18,12 @@ export default {
   ],
   fields: [
     {
+      name: "name",
+      title: "Name",
+      type: "string",
+      validation: (Rule) => Rule.required().error("Name is required"),
+    },
+    {
       name: "type",
       title: "Type",
       type: "string",
@@ -72,7 +78,7 @@ export default {
       title: "Available",
       type: "boolean",
       group: "availability",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().error("Availability is required"),
     },
     {
       name: "slug",
@@ -100,6 +106,7 @@ export default {
         hotspot: true,
       },
       group: "photos",
+      // validation: (Rule) => Rule.required().error("Featured photo is required"),
     },
     {
       name: "additionalPhotos",
@@ -117,54 +124,68 @@ export default {
       name: "price",
       title: "Price",
       type: "number",
+      validation: (Rule) =>
+        Rule.positive().error("Price must be a positive number"),
     },
     {
       name: "sqFootage",
       title: "Square Footage",
       type: "number",
+      validation: (Rule) =>
+        Rule.positive().error("Square Footage must be a positive number"),
     },
     {
       name: "bedrooms",
       title: "Bedrooms",
       type: "number",
+      validation: (Rule) =>
+        Rule.positive().error("Bedrooms must be a positive number"),
     },
     {
       name: "bathrooms",
       title: "Bathrooms",
       type: "number",
+      validation: (Rule) =>
+        Rule.positive().error("Bathrooms must be a positive number"),
     },
     {
-      name: "notes",
-      title: "Notes",
-      type: "string",
-    },
-    {
-      name: "managedByThirdParty",
-      title: "Managed by Third Party",
+      name: "isExternallyLinked",
+      title: "Externally Linked?",
       type: "boolean",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "url",
-      title: "URL",
+      title: "External URL",
       type: "url",
+      validation: (Rule) =>
+        Rule.custom((url, context) => {
+          if (context.document.isExternallyLinked && !url) {
+            return "URL is required when externally linked.";
+          }
+          return true;
+        }),
     },
   ],
   initialValue: {
     available: false,
-    managedByThirdParty: false,
+    isExternallyLinked: false,
   },
   preview: {
     select: {
-      available: "available",
+      name: "name",
       addressLine1: "address.addressLine1",
       addressLine2: "address.addressLine2",
     },
     prepare(selection) {
-      const { addressLine1, addressLine2 } = selection;
+      const { name, addressLine1, addressLine2 } = selection;
+      const formattedAddress = addressLine2
+        ? `${addressLine1} #${addressLine2}`
+        : addressLine1;
 
       return {
-        title: addressLine1,
-        subtitle: addressLine2,
+        title: formattedAddress,
+        subtitle: name,
       };
     },
   },

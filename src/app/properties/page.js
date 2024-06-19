@@ -35,6 +35,7 @@ export default async function PropertiesPage() {
       _createdAt,
       _updatedAt,
       _id,
+      name,
       available,
       price,
       sqFootage,
@@ -47,9 +48,8 @@ export default async function PropertiesPage() {
       "city": address.city,
       "state": address.state,
       "zip": address.zip,
-      notes,
       photo,
-      managedByThirdParty,
+      isExternallyLinked,
       url,
     } | order(available desc)
     `);

@@ -21,6 +21,7 @@ export default async function PropertyDetailPage({ params }) {
       _createdAt,
       _updatedAt,
       _id,
+      name,
       available,
       price,
       sqFootage,
@@ -30,9 +31,8 @@ export default async function PropertyDetailPage({ params }) {
       "city": address.city,
       "state": address.state,
       "zip": address.zip,
-      notes,
       photo,
-      managedByThirdParty,
+      isExternallyLinked,
       url,
     }
   `,
@@ -55,7 +55,6 @@ export default async function PropertyDetailPage({ params }) {
           <p>Zip: {property.zip}</p>
           <p>Price: {property.price}</p>
           <p>Sq Footage: {property.sqFootage}</p>
-          <p>Notes: {property.notes}</p>
         </div>
       </section>
     </main>

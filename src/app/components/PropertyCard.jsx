@@ -17,7 +17,7 @@ export default function PropertyCard({ property }) {
       key={property._id}
       className="rounded border hover:shadow-md hover:brightness-105 transition duration-300 h-fit w-auto"
     >
-      {property.managedByThirdParty ? (
+      {property.isExternallyLinked ? (
         <a href={property.url} target="_blank">
           <div className="flex flex-col">
             <div className="flex flex-row gap-3 items-center justify-between p-3">
@@ -141,7 +141,10 @@ export default function PropertyCard({ property }) {
                 </div>
               )}
 
-              <p className="text-xs text-accentBlue">
+              <p className="text-sm text-gray-400 -mb-1 font-medium">
+                {property.name}
+              </p>
+              <p className="text-xs text-gray-400">
                 {`${property.addressLine1}${property.addressLine2 ? ` #${property.addressLine2}` : ""}, ${property.city}, ${property.state}, ${property.zip}`}
               </p>
             </div>
