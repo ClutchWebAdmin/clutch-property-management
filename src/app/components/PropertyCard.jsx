@@ -84,7 +84,10 @@ export default function PropertyCard({ property }) {
                 </div>
               )}
 
-              <p className="text-xs text-accentBlue">
+              <p className="text-sm text-gray-400 -mb-1 font-medium">
+                {property.name}
+              </p>
+              <p className="text-xs text-gray-400">
                 {`${property.addressLine1}${property.addressLine2 ? ` #${property.addressLine2}` : ""}, ${property.city}, ${property.state}, ${property.zip}`}
               </p>
             </div>
