@@ -48,7 +48,11 @@ export default async function PropertiesPage() {
       "city": address.city,
       "state": address.state,
       "zip": address.zip,
-      featuredPhoto,
+      "imageUrl": featuredPhoto.asset->url,
+      "altText": featuredPhoto.alt,
+      "height": featuredPhoto.asset->metadata.dimensions.height,
+      "width": featuredPhoto.asset->metadata.dimensions.width,
+      "blurDataURL": featuredPhoto.asset->metadata.lqip,
       isExternallyLinked,
       url,
     } | order(available desc)

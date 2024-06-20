@@ -7,7 +7,7 @@ import PropertyCard from "./PropertyCard";
 const breakpoints = [
   { width: 1536, itemsPerPage: 12 }, // 2xl
   { width: 1280, itemsPerPage: 9 }, // xl
-  { width: 1024, itemsPerPage: 6 }, // lg
+  { width: 1024, itemsPerPage: 9 }, // lg
   { width: 768, itemsPerPage: 6 }, // md
   { width: 640, itemsPerPage: 4 }, // sm
   { width: 0, itemsPerPage: 4 }, // xs and default
@@ -280,13 +280,13 @@ export default function FilterSection({ properties }) {
                   {filteredProperties.length} results.
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
                 {displayedProperties.map((property) => (
                   <PropertyCard key={property._id} property={property} />
                 ))}
               </div>
 
-              <div className="flex flex-row justify-between md:justify-center items-center gap-10 mt-10">
+              <div className="flex flex-row justify-between md:justify-center items-center gap-5 mt-10">
                 <button
                   onClick={handlePreviousPage}
                   disabled={currentPage === 1}
@@ -294,11 +294,11 @@ export default function FilterSection({ properties }) {
                     currentPage === 1 ? "invisible" : ""
                   }`}
                 >
-                  Previous
+                  Prev
                 </button>
 
                 <span className="font-medium">
-                  Page {currentPage} of {totalPages}
+                  {currentPage} of {totalPages}
                 </span>
 
                 <button
