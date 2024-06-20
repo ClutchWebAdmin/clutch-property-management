@@ -86,7 +86,6 @@ export default {
       type: "slug",
       options: {
         source: (doc, options) => {
-          // Concatenate addressLine1 and addressLine2 if addressLine2 exists
           const { addressLine1, addressLine2 } = doc.address || {};
           return addressLine2
             ? `${addressLine1}-${addressLine2}`.toLowerCase()
@@ -106,7 +105,14 @@ export default {
         hotspot: true,
       },
       group: "photos",
-      // validation: (Rule) => Rule.required().error("Featured photo is required"),
+      fields: [
+        {
+          name: "alt",
+          title: "Alternative Text",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        },
+      ],
     },
     {
       name: "additionalPhotos",
@@ -114,8 +120,37 @@ export default {
       type: "array",
       of: [
         {
-          name: "image",
-          type: "image",
+          type: "object",
+          fields: [
+            {
+              name: "image",
+              type: "image",
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: "alt",
+                  title: "Alternative Text",
+                  type: "string",
+                  validation: (Rule) => Rule.required(),
+                },
+              ],
+            },
+          ],
+          preview: {
+            select: {
+              alt: "image.alt",
+              image: "image",
+            },
+            prepare(selection) {
+              const { alt, image } = selection;
+              return {
+                title: alt,
+                media: image,
+              };
+            },
+          },
         },
       ],
       group: "photos",
@@ -176,9 +211,10 @@ export default {
       name: "name",
       addressLine1: "address.addressLine1",
       addressLine2: "address.addressLine2",
+      featuredPhoto: "featuredPhoto",
     },
     prepare(selection) {
-      const { name, addressLine1, addressLine2 } = selection;
+      const { name, addressLine1, addressLine2, featuredPhoto } = selection;
       const formattedAddress = addressLine2
         ? `${addressLine1} #${addressLine2}`
         : addressLine1;
@@ -186,6 +222,7 @@ export default {
       return {
         title: formattedAddress,
         subtitle: name,
+        media: featuredPhoto,
       };
     },
   },

@@ -31,7 +31,7 @@ export default async function PropertyDetailPage({ params }) {
       "city": address.city,
       "state": address.state,
       "zip": address.zip,
-      photo,
+      additionalPhotos,
       isExternallyLinked,
       url,
     }

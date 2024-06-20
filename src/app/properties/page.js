@@ -48,7 +48,7 @@ export default async function PropertiesPage() {
       "city": address.city,
       "state": address.state,
       "zip": address.zip,
-      photo,
+      featuredPhoto,
       isExternallyLinked,
       url,
     } | order(available desc)
