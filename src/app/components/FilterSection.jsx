@@ -195,6 +195,7 @@ export default function FilterSection({ properties }) {
               onChange={handleChange}
               placeholder="Min Price"
               className="bg-transparent w-[100px] p-1 font-medium"
+              min={0}
             />
           </label>
           <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
@@ -207,6 +208,7 @@ export default function FilterSection({ properties }) {
               onChange={handleChange}
               placeholder="Max Price"
               className="bg-transparent w-[100px] p-1 font-medium"
+              min={0}
             />
           </label>
           <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
@@ -219,6 +221,7 @@ export default function FilterSection({ properties }) {
               onChange={handleChange}
               placeholder="Min ft²"
               className="bg-transparent w-[100px] p-1 font-medium"
+              min={0}
             />
           </label>
           <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
@@ -231,6 +234,7 @@ export default function FilterSection({ properties }) {
               onChange={handleChange}
               placeholder="Max ft²"
               className="bg-transparent w-[100px] p-1 font-medium"
+              min={0}
             />
           </label>
           <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
@@ -242,6 +246,8 @@ export default function FilterSection({ properties }) {
               onChange={handleChange}
               placeholder="Bedrooms"
               className="bg-transparent flex w-[100px] p-1 font-medium"
+              min={0}
+              max={5}
             />
           </label>
           <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
@@ -253,6 +259,8 @@ export default function FilterSection({ properties }) {
               onChange={handleChange}
               placeholder="Bathrooms"
               className="bg-transparent w-[100px] p-1 font-medium"
+              min={0}
+              max={5}
             />
           </label>
           <div className="grid grid-cols-2 gap-5">

@@ -7,10 +7,13 @@ export default function PropertyCard({ property }) {
     return Math.floor(amount);
   };
 
-  const formattedPrice = roundToNearestDollar(property.price).toLocaleString(
-    "en-US",
-    { style: "currency", currency: "USD", maximumFractionDigits: 0 }
-  );
+  const formattedPrice = property.price
+    ? `${roundToNearestDollar(property.price).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      })}/mo`
+    : "Contact for pricing";
 
   return (
     <div
@@ -35,7 +38,7 @@ export default function PropertyCard({ property }) {
               <Image
                 src={property.imageUrl}
                 alt={property.altText}
-                className="object-cover w-full h-auto"
+                className="object-cover w-full h-auto max-h-[250px]"
                 placeholder="blur"
                 blurDataURL={property.blurDataURL}
                 height={property.height}
@@ -45,25 +48,25 @@ export default function PropertyCard({ property }) {
               <Image
                 src={placeholder}
                 alt="placeholder"
-                className="object-fit w-full h-auto"
+                className="object-cover w-full h-auto max-h-[250px]"
               />
             )}
 
             <div className="flex flex-col gap-2 p-3">
-              {formattedPrice && (
-                <div className="flex flex-row justify-between items-center">
-                  <h3 className="font-medium text-3xl">{formattedPrice}/mo</h3>
-                  {property.available ? (
-                    <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-primaryBlue">
-                      Available
-                    </div>
-                  ) : (
-                    <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-500/80">
-                      Leased
-                    </div>
-                  )}
-                </div>
-              )}
+              <div className="flex flex-row justify-between items-center">
+                {formattedPrice && (
+                  <h3 className="font-medium text-3xl">{formattedPrice}</h3>
+                )}
+                {property.available ? (
+                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-primaryBlue">
+                    Available
+                  </div>
+                ) : (
+                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-500/80">
+                    Leased
+                  </div>
+                )}
+              </div>
 
               <div className="flex flex-row items-center justify-between">
                 {property.type === "residential" && (
@@ -87,7 +90,7 @@ export default function PropertyCard({ property }) {
       ) : (
         <Link href={`properties/${property.slug}`}>
           <div className="flex flex-col">
-            <div className="flex flex-col gap-0.5 p-3">
+            <div className="flex flex-col gap-0.5 items-start p-3">
               {property.name && (
                 <>
                   <p className="font-medium text-xl">{property.name}</p>
@@ -102,7 +105,7 @@ export default function PropertyCard({ property }) {
               <Image
                 src={property.imageUrl}
                 alt={property.altText}
-                className="object-cover w-full h-auto"
+                className="object-cover w-full h-auto max-h-[250px]"
                 placeholder="blur"
                 blurDataURL={property.blurDataURL}
                 height={property.height}
@@ -112,25 +115,25 @@ export default function PropertyCard({ property }) {
               <Image
                 src={placeholder}
                 alt="placeholder"
-                className="object-fit w-full h-auto"
+                className="object-cover w-full h-auto max-h-[250px]"
               />
             )}
 
             <div className="flex flex-col gap-2 p-3">
-              {formattedPrice && (
-                <div className="flex flex-row justify-between items-center">
-                  <h3 className="font-medium text-3xl">{formattedPrice}/mo</h3>
-                  {property.available ? (
-                    <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-primaryBlue">
-                      Available
-                    </div>
-                  ) : (
-                    <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-500/80">
-                      Leased
-                    </div>
-                  )}
-                </div>
-              )}
+              <div className="flex flex-row justify-between items-center">
+                {formattedPrice && (
+                  <h3 className="font-medium text-3xl">{formattedPrice}</h3>
+                )}
+                {property.available ? (
+                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-primaryBlue">
+                    Available
+                  </div>
+                ) : (
+                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-500/80">
+                    Leased
+                  </div>
+                )}
+              </div>
 
               <div className="flex flex-row items-center justify-between">
                 {property.type === "residential" && (
