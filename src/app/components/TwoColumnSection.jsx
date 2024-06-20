@@ -1,5 +1,8 @@
 import Image from "next/image";
-import sectionPhoto from "../../../public/images/cherry-city-commercial.png";
+import sectionPhoto1 from "../../../public/images/cherry-city-commercial.png";
+import sectionPhoto2 from "../../../public/images/cherry-city-hero.png";
+import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function TwoColumnSection({
   id,
@@ -25,12 +28,37 @@ export default function TwoColumnSection({
             </div>
           </div>
 
-          <div className="flex flex-col items-end justify-end w-full h-1/2 lg:h-full lg:w-1/2 p-5">
-            <Image
-              src={sectionPhoto}
-              alt="Verda Crossing apartments aerial view"
-              className="object-cover w-full h-auto rounded-lg"
-            />
+          <div className="flex flex-col gap-5 items-end justify-end w-full h-1/2 lg:h-full lg:w-1/2 py-24  px-5">
+            <Link
+              href={`/properties?type=commercial`}
+              className="relative hover:brightness-90 transition-all duration-300"
+            >
+              <h5 className="text-xl md:text-3xl lg:text-2xl xl:text-3xl flex flex-row gap-2 items-center absolute bottom-5 left-5 text-primaryLight font-medium">
+                View Commercial Properties
+                <FaArrowRight className="text-lg md:text-2xl lg:text-xl xl:text-2xl" />
+              </h5>
+              <Image
+                src={sectionPhoto1}
+                alt="Verda Crossing apartments aerial view"
+                className="object-cover w-full h-auto rounded-lg"
+                placeholder="blur"
+              />
+            </Link>
+            <Link
+              href={`/properties?type=residential`}
+              className="relative hover:brightness-90 transition-all duration-300"
+            >
+              <h5 className="text-xl md:text-3xl lg:text-2xl xl:text-3xl flex flex-row gap-2 items-center absolute bottom-5 left-5 text-primaryLight font-medium">
+                View Residential Properties
+                <FaArrowRight className="text-lg md:text-2xl lg:text-xl xl:text-2xl" />
+              </h5>
+              <Image
+                src={sectionPhoto2}
+                alt="Verda Crossing apartments aerial view"
+                className="object-cover w-full h-auto rounded-lg"
+                placeholder="blur"
+              />
+            </Link>
           </div>
         </div>
       </div>

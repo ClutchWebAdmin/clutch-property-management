@@ -1,6 +1,6 @@
 import Image from "next/image";
 import mainPhoto from "../../../public/images/edgewater-aerial-view.png";
-import secondaryPhoto from "../../../public/images/cherry-city-hero.png";
+import secondaryPhoto from "../../../public/images/verda-crossing-residential.png";
 import LinkButton from "./UI/LinkButton";
 
 export default function Hero({ subheading }) {

@@ -284,7 +284,7 @@ export default function FilterSection({ properties }) {
           {filteredProperties.length > 0 ? (
             <>
               <div className="mb-10">
-                <p className="text-2xl md:text-3xl lg:text-4xl">
+                <p className="text-2xl md:text-3xl lg:text-4xl font-medium">
                   {filteredProperties.length} results.
                 </p>
               </div>
