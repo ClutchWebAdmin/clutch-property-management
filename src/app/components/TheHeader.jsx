@@ -85,7 +85,7 @@ export default function TheHeader() {
           <LinkButton
             variant={`secondary`}
             text={`Pay Rent`}
-            linkTo={`https://appfolio.com`}
+            linkTo={`https://passport.appf.io/sign_in?idp_type=property&vhostless=true`}
             isExternalLink={true}
           />
         </div>

@@ -290,7 +290,7 @@ export default function FilterSection({ properties }) {
                 <button
                   onClick={handlePreviousPage}
                   disabled={currentPage === 1}
-                  className={`px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200 border border-primaryBlue bg-primaryBlue text-primaryLight hover:bg-primaryLight hover:text-primaryDark hover:border-primaryBlue ${
+                  className={`px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200 border border-primaryBlue bg-primaryBlue text-primaryLight hover:bg-secondaryBlue hover:border-secondaryBlue ${
                     currentPage === 1 ? "invisible" : ""
                   }`}
                 >
@@ -304,7 +304,7 @@ export default function FilterSection({ properties }) {
                 <button
                   onClick={handleNextPage}
                   disabled={currentPage === totalPages}
-                  className={`px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200 border border-primaryBlue bg-primaryBlue text-primaryLight hover:bg-primaryLight hover:text-primaryDark hover:border-primaryBlue ${
+                  className={`px-8 py-2 w-fit h-fit text-lg font-medium rounded-full transition-colors duration-200 border border-primaryBlue bg-primaryBlue text-primaryLight hover:bg-secondaryBlue hover:border-secondaryBlue ${
                     currentPage === totalPages ? "invisible" : ""
                   }`}
                 >

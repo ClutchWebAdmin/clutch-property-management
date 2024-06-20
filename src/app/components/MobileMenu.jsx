@@ -89,13 +89,15 @@ export default function MobileMenu() {
             >
               Commercial
             </Link>
-            <Link
-              href={`/contact`}
+            <a
+              href={`https://passport.appf.io/sign_in?idp_type=property&vhostless=true`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="border-b border-secondaryBlue w-full p-5"
               onClick={toggleMobileMenu}
             >
               Contact Us
-            </Link>
+            </a>
             <a
               href={`https://appfolio.com`}
               target="_blank"
