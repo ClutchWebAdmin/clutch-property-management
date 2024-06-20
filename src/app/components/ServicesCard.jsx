@@ -26,7 +26,7 @@ export default function ServicesCard({ service, variant }) {
           <div className="text-4xl font-medium w-fit h-fit">{service.icon}</div>
         </div>
 
-        <p className="flex flex-row gap-2 items-center p-5 w-1/2 lg:w-5/12 h-fit font-medium text-3xl">
+        <p className="flex flex-row gap-2 items-center p-5 w-full lg:w-5/12 h-fit font-medium text-3xl">
           {service.name}
         </p>
 

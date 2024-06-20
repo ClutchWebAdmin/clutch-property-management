@@ -33,9 +33,7 @@ export default function ServicesPage() {
     <main>
       <AlternateHero
         heading={`Our Services`}
-        text={`Faucibus et molestie ac feugiat sed lectus vestibulum mattis
-              ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
-              eget.`}
+        text={`With over 12 properties and more than 350 residential and commercial spaces under our care, we excel in exceptional property management. Our team boasts extensive experience, ensuring top-notch service and meticulous care for all our residential and commercial spaces.`}
         linkTo={`/services/#view-all-services`}
         linkText={`View All Services`}
       />
