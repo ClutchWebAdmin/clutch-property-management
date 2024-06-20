@@ -42,6 +42,7 @@ export default function TwoColumnSection({
                 alt="Verda Crossing apartments aerial view"
                 className="object-cover w-full h-auto rounded-lg"
                 placeholder="blur"
+                priority
               />
             </Link>
             <Link
@@ -57,6 +58,7 @@ export default function TwoColumnSection({
                 alt="Verda Crossing apartments aerial view"
                 className="object-cover w-full h-auto rounded-lg"
                 placeholder="blur"
+                priority
               />
             </Link>
           </div>

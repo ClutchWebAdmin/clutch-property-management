@@ -31,12 +31,14 @@ export default function Hero({ subheading }) {
               alt="Edgewater aerial view"
               className="w-full lg:w-3/5 h-auto max-h-[200px] md:max-h-[375px] lg::max-h-max object-cover rounded-xl"
               priority
+              placeholder="blur"
             />
             <Image
               src={secondaryPhoto}
               alt="Cherry City apartments street view"
               className="hidden lg:flex w-2/5 h-auto object-cover rounded-xl"
               priority
+              placeholder="blur"
             />
           </div>
         </div>

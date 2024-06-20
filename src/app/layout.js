@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`min-h-svh max-w-screen flex flex-col mx-auto relative ${switzer.className} antialiased`}
+        className={`min-h-svh w-screen flex flex-col mx-auto relative ${switzer.className} antialiased`}
       >
         {children}
         <TheFooter />
