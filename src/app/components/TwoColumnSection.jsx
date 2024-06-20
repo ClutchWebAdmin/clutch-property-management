@@ -1,5 +1,5 @@
 import Image from "next/image";
-import placeholder from "../../../public/images/hero.jpg";
+import sectionPhoto from "../../../public/images/cherry-city-commercial.png";
 
 export default function TwoColumnSection({
   id,
@@ -27,8 +27,8 @@ export default function TwoColumnSection({
 
           <div className="flex flex-col items-end justify-end w-full h-1/2 lg:h-full lg:w-1/2 p-5">
             <Image
-              src={placeholder}
-              alt="placeholder"
+              src={sectionPhoto}
+              alt="Verda Crossing apartments aerial view"
               className="object-cover w-full h-auto rounded-lg"
             />
           </div>

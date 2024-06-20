@@ -36,16 +36,15 @@ export default function HomePage() {
     <>
       <TheHeader variant="light" />
       <main>
-        <Hero />
+        <Hero
+          subheading={`We are your experts in seamless property operations, providing you
+              with peace of mind and a well-managed investment.`}
+        />
         <HeadingSection variant={`white`} text={`About Us`} />
         <TwoColumnSection
           id={`about-us`}
-          text={`Faucibus et molestie ac feugiat sed lectus vestibulum mattis
-              ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
-              eget. Faucibus et molestie ac feugiat sed lectus vestibulum mattis
-              ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
-              eget.`}
-          metric1={`8+`}
+          text={`With over 12 properties and more than 350 residential and commercial spaces under our care, we excel in exceptional property management. Our team boasts extensive experience, ensuring top-notch service and meticulous care for all our residential and commercial spaces.`}
+          metric1={`12+`}
           metric1Text={`Properties managed`}
           metric2={`350+`}
           metric2Text={`Residential and commercial spaces`}
