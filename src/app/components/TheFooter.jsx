@@ -129,9 +129,12 @@ export default function TheFooter() {
                 <AiOutlineMail className="text-2xl hover:text-accentBlue transition-colors duration-200" />
               </a>
 
-              <a href="mailto:office@clutchindustries.com" target="_blank">
+              <a
+                href="mailto:propertymanager@clutchindustries.com "
+                target="_blank"
+              >
                 <p className="text-primaryLight hover:text-accentBlue transition-colors duration-200">
-                  office@clutchindustries.com
+                  Email Us
                 </p>
               </a>
             </div>
