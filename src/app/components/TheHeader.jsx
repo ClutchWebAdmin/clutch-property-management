@@ -12,6 +12,7 @@ import { PiWarehouseLight } from "react-icons/pi";
 import { BsHouses } from "react-icons/bs";
 
 import services from "./data/services";
+import ContactButton from "./UI/ContactButton";
 
 export default function TheHeader() {
   const [dropdown, setDropdown] = useState(null);
@@ -81,7 +82,7 @@ export default function TheHeader() {
           </Link>
         </div>
         <div className="hidden lg:flex flex-row justify-end items-center gap-10 w-fit p-5">
-          <Link href={`/contact`}>Contact Us</Link>
+          <ContactButton buttonText={`Contact Us`} />
           <LinkButton
             variant={`secondary`}
             text={`Pay Rent`}

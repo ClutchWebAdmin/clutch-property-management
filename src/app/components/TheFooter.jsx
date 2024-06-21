@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa6";
 import { AiOutlineMail } from "react-icons/ai";
 import services from "./data/services";
+import ContactButton from "./UI/ContactButton";
 
 export default function TheFooter() {
   return (
@@ -93,7 +94,7 @@ export default function TheFooter() {
         <div className="col-span-full md:col-span-1 flex flex-col gap-3 p-5 xl:p-10 border-b lg:border-b-0 lg:border-r border-secondaryBlue">
           <div className="flex flex-col text-base lg:text-lg gap-3">
             <p className="font-medium text-xl lg:text-2xl text-accentBlue mb-1">
-              Contact Us
+              <ContactButton buttonText={`Contact Us`} />
             </p>
             <div className="flex flex-row items-start gap-3">
               <a

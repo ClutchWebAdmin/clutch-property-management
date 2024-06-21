@@ -6,6 +6,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import Image from "next/image";
 import clutchLogo from "../../../public/logos/clutch-logo-light.png";
+import ContactButton from "./UI/ContactButton";
 
 export default function MobileMenu() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,18 +90,13 @@ export default function MobileMenu() {
             >
               Commercial
             </Link>
+            <div className="border-b border-secondaryBlue w-full p-5">
+              <ContactButton buttonText={`Contact Us`} />
+            </div>
             <a
               href={`https://passport.appf.io/sign_in?idp_type=property&vhostless=true`}
               target="_blank"
               rel="noopener noreferrer"
-              className="border-b border-secondaryBlue w-full p-5"
-              onClick={toggleMobileMenu}
-            >
-              Contact Us
-            </a>
-            <a
-              href={`https://appfolio.com`}
-              target="_blank"
               className="border-b border-secondaryBlue w-full p-5"
               onClick={toggleMobileMenu}
             >
