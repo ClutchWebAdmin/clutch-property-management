@@ -7,13 +7,19 @@ export default function PropertyCard({ property }) {
     return Math.floor(amount);
   };
 
-  const formattedPrice = property.price
-    ? `${roundToNearestDollar(property.price).toLocaleString("en-US", {
+  const formattedPrice = property.price ? (
+    <h3 className="font-medium text-3xl">
+      {`${roundToNearestDollar(property.price).toLocaleString("en-US", {
         style: "currency",
         currency: "USD",
         maximumFractionDigits: 0,
-      })}/mo`
-    : "Contact for pricing";
+      })}/mo`}
+    </h3>
+  ) : (
+    <h3 className="font-medium text-2xl lg:text-xl xl:text-3xl">
+      Contact for pricing
+    </h3>
+  );
 
   return (
     <div
@@ -54,15 +60,13 @@ export default function PropertyCard({ property }) {
 
             <div className="flex flex-col gap-2 p-3">
               <div className="flex flex-row justify-between items-center">
-                {formattedPrice && (
-                  <h3 className="font-medium text-3xl">{formattedPrice}</h3>
-                )}
+                {formattedPrice && formattedPrice}
                 {property.available ? (
                   <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-primaryBlue">
                     Available
                   </div>
                 ) : (
-                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-500/80">
+                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-400">
                     Leased
                   </div>
                 )}
@@ -121,15 +125,13 @@ export default function PropertyCard({ property }) {
 
             <div className="flex flex-col gap-2 p-3">
               <div className="flex flex-row justify-between items-center">
-                {formattedPrice && (
-                  <h3 className="font-medium text-3xl">{formattedPrice}</h3>
-                )}
+                {formattedPrice && formattedPrice}
                 {property.available ? (
                   <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-primaryBlue">
                     Available
                   </div>
                 ) : (
-                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-500/80">
+                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-400">
                     Leased
                   </div>
                 )}
