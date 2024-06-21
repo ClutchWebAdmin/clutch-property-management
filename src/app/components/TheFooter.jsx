@@ -22,7 +22,7 @@ export default function TheFooter() {
           </Link>
         </div>
 
-        <ul className="flex flex-col text-base lg:text-lg gap-2 p-5 xl:p-10 border-r border-b border-secondaryBlue">
+        <ul className="flex flex-col col-span-full md:col-span-1 text-base lg:text-lg gap-2 p-5 xl:p-10 md:border-r border-b border-secondaryBlue">
           <Link href={`/properties`}>
             <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
               Properties
@@ -34,6 +34,12 @@ export default function TheFooter() {
             className="hover:text-accentBlue transition-colors duration-200"
           >
             <li>All Properties</li>
+          </Link>
+          <Link
+            href={`/properties?available=true`}
+            className="hover:text-accentBlue transition-colors duration-200"
+          >
+            <li>Available Properties</li>
           </Link>
           <Link
             href={`/properties?type=residential`}
@@ -49,7 +55,7 @@ export default function TheFooter() {
           </Link>
         </ul>
 
-        <ul className="flex flex-col text-base lg:text-lg gap-2 p-5 xl:p-10 border-b border-secondaryBlue">
+        <ul className="flex flex-col col-span-full md:col-span-1 text-base lg:text-lg gap-2 p-5 xl:p-10 border-b border-secondaryBlue">
           <Link href={`/services`}>
             <li className="font-medium text-xl lg:text-2xl text-accentBlue mb-2">
               Services
@@ -148,16 +154,25 @@ export default function TheFooter() {
             Follow Us
           </p>
           <div className="flex flex-row items-baseline gap-5 text-2xl text-primaryLight">
-            <Link href={`https://facebook.com`} target="_blank">
+            <Link
+              href={`https://www.facebook.com/Clutch.Industries.Oregon/`}
+              target="_blank"
+            >
               <FaFacebook className="hover:text-secondaryBlue transition-colors duration-200" />
             </Link>
-            <Link href={`https://instagram.com`} target="_blank">
+            <Link
+              href={`https://www.instagram.com/theclutchindustries/`}
+              target="_blank"
+            >
               <FaInstagram className="hover:text-secondaryBlue transition-colors duration-200" />
             </Link>
-            <Link href={`https://linkedin.com`} target="_blank">
+            <Link
+              href={`https://www.linkedin.com/company/clutch-industries-inc/`}
+              target="_blank"
+            >
               <FaLinkedin className="hover:text-secondaryBlue transition-colors duration-200" />
             </Link>
-            <Link href={`https://twitter.com`} target="_blank">
+            <Link href={`https://twitter.com/clutch90588373`} target="_blank">
               <FaTwitter className="hover:text-secondaryBlue transition-colors duration-200" />
             </Link>
           </div>
