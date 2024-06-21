@@ -43,7 +43,7 @@ export default function TermsPage() {
     {
       heading: "Contact Us",
       paragraph:
-        "If you have any questions about these Terms, please contact us at office@clutchindustries.com.",
+        "If you have any questions about these Terms, please contact us at propertymanager@clutchindustries.com.",
     },
   ];
 
