@@ -29,7 +29,6 @@ export async function generateMetadata({ params }) {
       "zip": address.zip,
       "featuredPhoto": featuredPhoto.asset->url,
       additionalPhotos,
-      isExternallyLinked,
       url,
     }
   `,
@@ -38,7 +37,7 @@ export async function generateMetadata({ params }) {
 
   const propertySlug = data[0].slug;
   const propertyType = data[0].type;
-  const propertyName = data[0].name; // Change from data[0].siteName to data[0].name
+  const propertyName = data[0].name;
   const propertyLine1 = data[0].addressLine1;
   const propertyLine2 = data[0].addressLine2;
   const propertyCity = data[0].city;
@@ -47,16 +46,7 @@ export async function generateMetadata({ params }) {
   const formattedProperty = propertyLine2
     ? `${propertyLine1}, #${propertyLine2}, ${propertyCity}, ${propertyState} ${propertyZip}`
     : `${propertyLine1}, ${propertyCity}, ${propertyState} ${propertyZip}`;
-  const isExternal = data[0].isExternallyLinked;
   const propertyPhoto = data[0].featuredPhoto;
-  let propertyURL = data[0].url;
-
-  let metaURL;
-  if (isExternal) {
-    metaURL = propertyURL;
-  } else {
-    metaURL = `https://clutchpropertymanagement.com/properties/${propertySlug}`;
-  }
 
   let isAnApartment;
   propertyType === "residential"
@@ -73,7 +63,7 @@ export async function generateMetadata({ params }) {
       siteName: "Clutch Property Management",
       type: "website",
       locale: "en_US",
-      url: `${metaURL}`,
+      url: `https://clutchpropertymanagement.com/properties/${propertySlug}`,
       images: [
         {
           url: `${propertyPhoto}`,
