@@ -1,5 +1,6 @@
 import { client } from "../../../../sanity/lib/client";
 import Image from "next/image";
+import placeholder from "../../../../public/images/placeholder.png";
 
 export async function generateStaticParams() {
   const data = await client.fetch(`
@@ -136,15 +137,24 @@ export default async function PropertyDetailPage({ params }) {
             {formattedAddress}
           </div>
 
-          <Image
-            src={property.imageUrl}
-            className="w-full lg:w-1/2 h-auto object-cover py-10 px-5"
-            alt={property.altText}
-            placeholder="blur"
-            blurDataURL={property.blurDataURL}
-            height={property.height}
-            width={property.width}
-          />
+          {property.imageUrl ? (
+            <Image
+              src={property.imageUrl}
+              className="w-full lg:w-1/2 h-auto object-cover py-10 px-5"
+              alt={property.altText}
+              placeholder="blur"
+              blurDataURL={property.blurDataURL}
+              height={property.height}
+              width={property.width}
+            />
+          ) : (
+            <Image
+              src={placeholder}
+              className="w-full lg:w-1/2 h-auto object-cover py-10 px-5"
+              alt={property.name}
+              placeholder="blur"
+            />
+          )}
         </div>
       </section>
     </main>
