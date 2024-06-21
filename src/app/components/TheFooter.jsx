@@ -17,7 +17,7 @@ export default function TheFooter() {
     <footer className="flex flex-col w-full h-fit">
       <div className="grid grid-cols-2 lg:grid-cols-3">
         <div className="flex flex-col col-span-full lg:col-span-1 border-b lg:border-r border-secondaryBlue">
-          <Link href="/" className="p-5 md:p-10 lg:p-5 xl:p-10">
+          <Link href="/" className="p-5 lg:p-5 xl:p-10">
             <Image src={clutchLogoLight} alt="Clutch Property Management" />
           </Link>
         </div>
