@@ -29,7 +29,6 @@ export async function generateMetadata({ params }) {
       "state": address.state,
       "zip": address.zip,
       "featuredPhoto": featuredPhoto.asset->url,
-      additionalPhotos,
       url,
     }
   `,
@@ -114,47 +113,102 @@ export default async function PropertyDetailPage({ params }) {
 
   const property = data[0];
 
-  const formattedAddress = property.addressLine2 ? (
-    <div className="flex flex-col">
-      <p className="text-xl">
-        {`${property.addressLine1} #${property.addressLine2}`} <br />
-        {property.city}, {property.state} {property.zip}
-      </p>
-    </div>
-  ) : (
-    <p className="text-xl">
-      {`${property.addressLine1}`} <br />
-      {property.city}, {property.state} {property.zip}
-    </p>
-  );
+  const propertyStatus = property.available ? "Available" : "Leased";
+
+  const roundToNearestDollar = (amount) => {
+    return Math.floor(amount);
+  };
+
+  const formattedPrice = property.price
+    ? `${roundToNearestDollar(property.price).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      })}/mo`
+    : "Contact for pricing";
 
   return (
     <main>
-      <section className="pt-[var(--header-height)] border-b border-secondaryBlue">
-        <div className="flex flex-col lg:flex-row h-[600px]">
-          <div className="flex flex-col w-full lg:w-1/2 py-10 px-5">
-            <h3 className="text-3xl font-medium">{property.name}</h3>
-            {formattedAddress}
+      <section className="pt-[var(--header-height)] border-b border-secondaryBlue flex flex-col">
+        <div className="flex flex-col gap-2 w-full border-b border-secondaryBlue p-5">
+          <h6 className="uppercase text-sm font-medium text-accentBlue">
+            Location
+          </h6>
+          <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">
+            {property.name}
+          </p>
+        </div>
+
+        <div className="flex flex-col lg:flex-row w-full">
+          <div className="flex flex-col w-full lg:w-1/2 border-b md:border-b-0 md:border-r border-secondaryBlue p-5">
+            <div className="grid gap-5 grid-cols-2 md:grid-cols-4">
+              <div className="flex flex-col gap-2 col-span-2">
+                <h6 className="uppercase text-sm font-medium text-accentBlue">
+                  Address
+                </h6>
+                <p className="text-xl">{property.addressLine1}</p>
+              </div>
+              {property.addressLine2 && (
+                <div className="flex flex-col gap-2 col-span-2">
+                  <h6 className="uppercase text-sm font-medium text-accentBlue">
+                    Unit
+                  </h6>
+                  <p className="text-xl">{property.addressLine2}</p>
+                </div>
+              )}
+              <div className="flex flex-col gap-2 col-span-2">
+                <h6 className="uppercase text-sm font-medium text-accentBlue md:col-span-2">
+                  City
+                </h6>
+                <p className="text-xl">{property.city}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h6 className="uppercase text-sm font-medium text-accentBlue">
+                  State
+                </h6>
+                <p className="text-xl">{property.state}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h6 className="uppercase text-sm font-medium text-accentBlue">
+                  Zip Code
+                </h6>
+                <p className="text-xl">{property.zip}</p>
+              </div>
+              <div className="flex flex-col gap-2 md:col-span-2">
+                <h6 className="uppercase text-sm font-medium text-accentBlue md:col-span-2">
+                  Price
+                </h6>
+                <p className="text-xl">{formattedPrice}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h6 className="uppercase text-sm font-medium text-accentBlue">
+                  Status
+                </h6>
+                <p className="text-xl">{propertyStatus}</p>
+              </div>
+            </div>
           </div>
 
-          {property.imageUrl ? (
-            <Image
-              src={property.imageUrl}
-              className="w-full lg:w-1/2 h-auto object-cover py-10 px-5"
-              alt={property.altText}
-              placeholder="blur"
-              blurDataURL={property.blurDataURL}
-              height={property.height}
-              width={property.width}
-            />
-          ) : (
-            <Image
-              src={placeholder}
-              className="w-full lg:w-1/2 h-auto object-cover py-10 px-5"
-              alt={property.name}
-              placeholder="blur"
-            />
-          )}
+          <div className="flex w-full lg:w-1/2 p-5">
+            {property.imageUrl ? (
+              <Image
+                src={property.imageUrl}
+                className="w-full h-auto object-cove rounded-lg"
+                alt={property.altText}
+                placeholder="blur"
+                blurDataURL={property.blurDataURL}
+                height={property.height}
+                width={property.width}
+              />
+            ) : (
+              <Image
+                src={placeholder}
+                className="w-full h-auto object-cover rounded-lg"
+                alt={property.name}
+                placeholder="blur"
+              />
+            )}
+          </div>
         </div>
       </section>
     </main>
