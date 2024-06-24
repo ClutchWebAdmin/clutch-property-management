@@ -118,9 +118,9 @@ export default function TheFooter() {
               <a href="tel:+15039675228" target="_blank">
                 <FaPhone className="text-2xl hover:text-secondaryBlue transition-colors duration-200" />
               </a>
-              <a href="tel:+15039675228" target="_blank">
+              <a href="tel:+15035077605" target="_blank">
                 <p className="text-primaryLight hover:text-accentBlue transition-colors duration-200">
-                  503-967-5228
+                  503-507-7605
                 </p>
               </a>
             </div>
