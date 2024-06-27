@@ -8,14 +8,20 @@ export default function Hero({ subheading }) {
     <section id="hero" className="h-svh relative">
       <div className="absolute z-10 flex flex-col items-start justify-between w-full h-full border-b border-secondaryBlue pt-[var(--header-height)]">
         <div className="flex w-full h-full p-5">
-          <h1 className="text-4xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl h-fit">
+          <h1
+            className="text-4xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl h-fit"
+            data-aos="fade-up"
+          >
             Premier properties,
             <br />
             professionally managed.
           </h1>
         </div>
         <div className="flex flex-col lg:flex-row gap-5 lg:justify-between w-full h-fit p-5 border-t border-secondaryBlue">
-          <div className="w-full flex flex-col gap-5 items-start lg:w-[37%] xl:w-[45%] order-2 lg:order-1">
+          <div
+            className="w-full flex flex-col gap-5 items-start lg:w-[37%] xl:w-[45%] order-2 lg:order-1"
+            data-aos="fade-up"
+          >
             <p className="md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
               {subheading}
             </p>
@@ -25,7 +31,10 @@ export default function Hero({ subheading }) {
               text={`View Properties`}
             />
           </div>
-          <div className="w-full flex flex-row gap-5 lg:w-1/2 lg:pr-5 order-1 lg:order-3">
+          <div
+            className="w-full flex flex-row gap-5 lg:w-1/2 lg:pr-5 order-1 lg:order-3"
+            data-aos="fade-up"
+          >
             <Image
               src={mainPhoto}
               alt="Edgewater aerial view"

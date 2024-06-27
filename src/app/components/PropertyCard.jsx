@@ -25,6 +25,7 @@ export default function PropertyCard({ property }) {
     <div
       key={property._id}
       className="rounded border hover:shadow-md hover:brightness-105 transition duration-300 h-fit w-auto"
+      data-aos="fade-up"
     >
       {property.isExternallyLinked ? (
         <a href={property.url} target="_blank">

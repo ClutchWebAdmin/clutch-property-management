@@ -3,18 +3,28 @@ export default function HeadingSection({ variant, id, text }) {
     return (
       <section
         id={id}
-        className="grid h-fit w-full border-b border-accentBlue bg-primaryLight text-primaryDark px-5 pt-[180px] pb-[60px] text-4xl lg:text-5xl xl:text-7xl"
+        className="grid h-fit w-full border-b border-accentBlue bg-primaryLight"
       >
-        {text}
+        <p
+          className="text-primaryDark px-5 pt-[180px] pb-[60px] text-4xl lg:text-5xl xl:text-7xl"
+          data-aos="fade-up"
+        >
+          {text}
+        </p>
       </section>
     );
   } else if (variant === "blue") {
     return (
       <section
         id={id}
-        className="grid h-fit w-full border-b border-secondaryBlue px-5 pt-[180px] pb-[60px] text-4xl lg:text-5xl xl:text-7xl"
+        className="grid h-fit w-full border-b border-secondaryBlue"
       >
-        {text}
+        <p
+          className="px-5 pt-[180px] pb-[60px] text-4xl lg:text-5xl xl:text-7xl"
+          data-aos="fade-up"
+        >
+          {text}
+        </p>
       </section>
     );
   }

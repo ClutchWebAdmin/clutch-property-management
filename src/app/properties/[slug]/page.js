@@ -134,7 +134,10 @@ export default async function PropertyDetailPage({ params }) {
           <h6 className="uppercase text-sm font-medium text-accentBlue">
             Location
           </h6>
-          <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">
+          <p
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium"
+            data-aos="fade-up"
+          >
             {property.name}
           </p>
         </div>
@@ -146,45 +149,59 @@ export default async function PropertyDetailPage({ params }) {
                 <h6 className="uppercase text-sm font-medium text-accentBlue">
                   Address
                 </h6>
-                <p className="text-xl">{property.addressLine1}</p>
+                <p className="text-xl" data-aos="fade-up">
+                  {property.addressLine1}
+                </p>
               </div>
               {property.addressLine2 && (
                 <div className="flex flex-col gap-2 col-span-2">
                   <h6 className="uppercase text-sm font-medium text-accentBlue">
                     Unit
                   </h6>
-                  <p className="text-xl">{property.addressLine2}</p>
+                  <p className="text-xl" data-aos="fade-up">
+                    {property.addressLine2}
+                  </p>
                 </div>
               )}
               <div className="flex flex-col gap-2 col-span-2">
                 <h6 className="uppercase text-sm font-medium text-accentBlue md:col-span-2">
                   City
                 </h6>
-                <p className="text-xl">{property.city}</p>
+                <p className="text-xl" data-aos="fade-up">
+                  {property.city}
+                </p>
               </div>
               <div className="flex flex-col gap-2">
                 <h6 className="uppercase text-sm font-medium text-accentBlue">
                   State
                 </h6>
-                <p className="text-xl">{property.state}</p>
+                <p className="text-xl" data-aos="fade-up">
+                  {property.state}
+                </p>
               </div>
               <div className="flex flex-col gap-2">
                 <h6 className="uppercase text-sm font-medium text-accentBlue">
                   Zip Code
                 </h6>
-                <p className="text-xl">{property.zip}</p>
+                <p className="text-xl" data-aos="fade-up">
+                  {property.zip}
+                </p>
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
                 <h6 className="uppercase text-sm font-medium text-accentBlue md:col-span-2">
                   Price
                 </h6>
-                <p className="text-xl">{formattedPrice}</p>
+                <p className="text-xl" data-aos="fade-up">
+                  {formattedPrice}
+                </p>
               </div>
               <div className="flex flex-col gap-2">
                 <h6 className="uppercase text-sm font-medium text-accentBlue">
                   Status
                 </h6>
-                <p className="text-xl">{propertyStatus}</p>
+                <p className="text-xl" data-aos="fade-up">
+                  {propertyStatus}
+                </p>
               </div>
             </div>
           </div>
@@ -199,6 +216,7 @@ export default async function PropertyDetailPage({ params }) {
                 blurDataURL={property.blurDataURL}
                 height={property.height}
                 width={property.width}
+                data-aos="fade-up"
               />
             ) : (
               <Image
@@ -206,6 +224,7 @@ export default async function PropertyDetailPage({ params }) {
                 className="w-full h-auto object-cover rounded-lg"
                 alt={property.name}
                 placeholder="blur"
+                data-aos="fade-up"
               />
             )}
           </div>

@@ -6,7 +6,10 @@ import { useEffect } from "react";
 
 export default function AOSLoader() {
   useEffect(() => {
-    Aos.init();
+    Aos.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
 
   return;
