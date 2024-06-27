@@ -4,7 +4,6 @@ export default function ServicesCard({ service, variant }) {
       <div
         id={service.sectionId}
         className="flex flex-col h-full w-full lg:aspect-square bg-primaryMid text-primaryDark rounded-lg"
-        data-aos="fade-up"
       >
         <div className="flex flex-col justify-between border-b border-primaryLight m-5">
           <div className="text-4xl mb-10 p-2 rounded-lg border border-primaryLight w-fit h-auto">
@@ -23,7 +22,7 @@ export default function ServicesCard({ service, variant }) {
         id={service.sectionId}
         className="flex flex-col lg:flex-row h-full w-full border-b border-secondaryBlue bg-primaryBlue text-primaryLight"
       >
-        <div data-aos="fade-up">
+        <div className="flex w-full" data-aos="fade-up">
           <div className="flex w-1/2 lg:w-2/12 p-5">
             <div className="text-4xl font-medium w-fit h-fit">
               {service.icon}
