@@ -14,9 +14,9 @@ export default function TwoColumnSection({
 }) {
   return (
     <section id={id}>
-      <div className="flex flex-col z-10 w-full h-full bg-primaryLight text-primaryDark border-b border-secondaryBlue">
+      <div className="flex flex-col z-10 w-full h-full bg-primaryLight text-primaryDark border-b border-accentBlue">
         <div className="flex flex-col lg:flex-row h-full">
-          <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-secondaryBlue p-5">
+          <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-accentBlue p-5">
             <p className="md:text-2xl 2xl:text-3xl pb-32">{text}</p>
             <div className="flex flex-col w-full h-[250px] justify-end items-start bg-primaryMid text-primaryDark rounded-lg p-5 mb-5">
               <h3 className="text-9xl -ml-1.5">{metric1}</h3>
@@ -31,7 +31,7 @@ export default function TwoColumnSection({
           <div className="flex flex-col gap-5 items-end justify-end w-full h-1/2 lg:h-full lg:w-1/2 py-24  px-5">
             <Link
               href={`/properties?type=commercial`}
-              className="relative hover:brightness-90 transition-all duration-300"
+              className="flex relative hover:brightness-90 transition-all duration-300"
             >
               <h5 className="text-xl md:text-3xl lg:text-2xl xl:text-3xl flex flex-row gap-2 items-center absolute bottom-5 left-5 text-primaryLight font-medium">
                 View Commercial Properties
@@ -40,14 +40,14 @@ export default function TwoColumnSection({
               <Image
                 src={sectionPhoto1}
                 alt="Verda Crossing apartments aerial view"
-                className="object-cover w-full h-auto rounded-lg"
+                className="object-cover !w-full h-auto rounded-lg"
                 placeholder="blur"
                 priority
               />
             </Link>
             <Link
               href={`/properties?type=residential`}
-              className="relative hover:brightness-90 transition-all duration-300"
+              className="flex relative hover:brightness-90 transition-all duration-300"
             >
               <h5 className="text-xl md:text-3xl lg:text-2xl xl:text-3xl flex flex-row gap-2 items-center absolute bottom-5 left-5 text-primaryLight font-medium">
                 View Residential Properties
@@ -56,7 +56,7 @@ export default function TwoColumnSection({
               <Image
                 src={sectionPhoto2}
                 alt="Verda Crossing apartments aerial view"
-                className="object-cover w-full h-auto rounded-lg"
+                className="object-cover !w-full h-auto rounded-lg"
                 placeholder="blur"
                 priority
               />
