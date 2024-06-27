@@ -280,7 +280,7 @@ export default function FilterSection({ properties }) {
           </div>
         </form>
 
-        <div className="px-5 py-10 border-b border-secondaryBlue">
+        <div className="w-full px-5 py-10 border-b border-secondaryBlue">
           {filteredProperties.length > 0 ? (
             <>
               <div className="mb-10">
@@ -288,7 +288,7 @@ export default function FilterSection({ properties }) {
                   {filteredProperties.length} results.
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
                 {displayedProperties.map((property) => (
                   <PropertyCard key={property._id} property={property} />
                 ))}
