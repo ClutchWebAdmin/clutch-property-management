@@ -64,9 +64,7 @@ export default async function PropertiesPage() {
     <main>
       <AlternateHero
         heading={`Our Properties`}
-        text={`Faucibus et molestie ac feugiat sed lectus vestibulum mattis
-              ullamcorper velit sed ullamcorper morbi tincidunt ornare massa
-              eget.`}
+        text={`We offer a variety of different spaces, from townhouses and apartments to warehouses and commerical spaces, and more. Let us help you find a space that fits your needs.`}
         linkTo={`#search-properties`}
         linkText={`Search Properties`}
       />
