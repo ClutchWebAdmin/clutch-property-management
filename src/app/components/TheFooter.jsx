@@ -84,6 +84,12 @@ export default function TheFooter() {
             <li>Terms of Service</li>
           </Link>
           <Link
+            href={`/privacy`}
+            className="hover:text-accentBlue transition-colors duration-200"
+          >
+            <li>Privacy Policy</li>
+          </Link>
+          <Link
             href={`/sitemap.xml`}
             className="hover:text-accentBlue transition-colors duration-200"
           >

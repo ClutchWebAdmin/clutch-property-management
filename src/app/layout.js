@@ -4,6 +4,7 @@ import "./globals.css";
 import TheFooter from "@/app/components/TheFooter";
 import AOSLoader from "@/app/utils/AOSLoader";
 import { Analytics } from "@vercel/analytics/react";
+import CookieModal from "./components/CookieModal";
 
 export default function RootLayout({ children }) {
   return (
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
         <TheFooter />
         <AOSLoader />
         <Analytics />
+        <CookieModal />
       </body>
     </html>
   );
