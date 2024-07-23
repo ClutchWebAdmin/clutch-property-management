@@ -37,7 +37,7 @@ export default function HomePage() {
       <TheHeader variant="light" />
       <main>
         <Hero
-          subheading={`We are your experts in seamless property operations, providing dependable service and care for all of our properties.`}
+          subheading={`We are your Salem, Oregon experts in seamless property operations, providing dependable service and care for all of our properties.`}
         />
         <HeadingSection variant={`white`} text={`About Us`} />
         <TwoColumnSection
