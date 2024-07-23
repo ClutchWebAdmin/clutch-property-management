@@ -280,7 +280,10 @@ export default function FilterSection({ properties }) {
           </div>
         </form>
 
-        <div className="w-full px-5 py-10 border-b border-secondaryBlue">
+        <div
+          id="results"
+          className="w-full px-5 py-10 border-b border-secondaryBlue"
+        >
           {filteredProperties.length > 0 ? (
             <>
               <div className="mb-10">
