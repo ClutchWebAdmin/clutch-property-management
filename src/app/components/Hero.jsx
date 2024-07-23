@@ -1,7 +1,9 @@
 import Image from "next/image";
 import mainPhoto from "../../../public/images/edgewater-aerial-view.png";
-import secondaryPhoto from "../../../public/images/verda-crossing-residential.png";
+import secondaryPhoto from "../../../public/images/lockwood.png";
+import Link from "next/link";
 import LinkButton from "./UI/LinkButton";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Hero({ subheading }) {
   return (
@@ -19,36 +21,54 @@ export default function Hero({ subheading }) {
         </div>
         <div className="flex flex-col lg:flex-row gap-5 lg:justify-between w-full h-fit p-5 border-t border-secondaryBlue">
           <div
-            className="w-full flex flex-col gap-5 items-start lg:w-[37%] xl:w-[45%] order-2 lg:order-1"
+            className="w-fit flex flex-col justify-between gap-5 items-start order-2 lg:order-1"
             data-aos="fade-up"
           >
             <p className="md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
               {subheading}
             </p>
-            <LinkButton
-              variant={`primary`}
-              linkTo={`/properties`}
-              text={`View Properties`}
-            />
+            <div className="flex flex-row gap-2 md:gap-5 w-full">
+              <LinkButton
+                variant={`primary`}
+                linkTo={`/properties#results`}
+                text={`View all properties`}
+              />
+            </div>
           </div>
           <div
-            className="w-full flex flex-row gap-5 lg:w-1/2 lg:pr-5 order-1 lg:order-3"
+            className="w-full flex flex-row gap-5 lg:pr-5 order-1 lg:order-3"
             data-aos="fade-up"
           >
-            <Image
-              src={mainPhoto}
-              alt="Edgewater aerial view"
-              className="w-full lg:w-3/5 h-auto max-h-[200px] md:max-h-[375px] lg::max-h-max object-cover rounded-xl"
-              priority
-              placeholder="blur"
-            />
-            <Image
-              src={secondaryPhoto}
-              alt="Cherry City apartments street view"
-              className="hidden lg:flex w-2/5 h-auto object-cover rounded-xl"
-              priority
-              placeholder="blur"
-            />
+            <Link
+              href={`/properties?type=commercial#results`}
+              className="w-full lg:w-1/2 h-auto relative"
+            >
+              <Image
+                src={mainPhoto}
+                alt="Edgewater exterior view"
+                className="aspect-square object-cover rounded-xl"
+                priority
+                placeholder="blur"
+              />
+              <p className="absolute bottom-0 left-0 p-2 md:p-5 flex flex-row items-center gap-2 font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                Commercial <FaArrowRight />
+              </p>
+            </Link>
+            <Link
+              href={`/properties?type=residential#results`}
+              className="w-full lg:w-1/2 h-auto relative"
+            >
+              <Image
+                src={secondaryPhoto}
+                alt="Lockwood exterior"
+                className="aspect-square object-cover rounded-xl"
+                priority
+                placeholder="blur"
+              />
+              <p className="absolute bottom-0 left-0 p-2 md:p-5 flex flex-row items-center gap-2 font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                Residential <FaArrowRight />
+              </p>
+            </Link>
           </div>
         </div>
       </div>
