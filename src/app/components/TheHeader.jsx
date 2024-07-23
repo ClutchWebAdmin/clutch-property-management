@@ -82,6 +82,12 @@ export default function TheHeader() {
           </Link>
         </div>
         <div className="hidden lg:flex flex-row justify-end items-center gap-10 w-fit p-5">
+          <a
+            href={`tel:+15035077605`}
+            className="flex flex-col justify-between "
+          >
+            Call Us
+          </a>
           <ContactButton buttonText={`Contact Us`} />
           <LinkButton
             variant={`secondary`}

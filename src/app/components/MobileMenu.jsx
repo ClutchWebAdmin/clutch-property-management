@@ -63,20 +63,6 @@ export default function MobileMenu() {
           />
           <div className="flex flex-col h-full items-start justify-start text-4xl border-t border-secondaryBlue">
             <Link
-              href={`/services`}
-              className="border-b border-secondaryBlue w-full p-5"
-              onClick={toggleMobileMenu}
-            >
-              Services
-            </Link>
-            <Link
-              href={`/properties`}
-              className="border-b border-secondaryBlue w-full p-5"
-              onClick={toggleMobileMenu}
-            >
-              All Properties
-            </Link>
-            <Link
               href={`/properties?type=residential`}
               className="border-b border-secondaryBlue w-full p-5"
               onClick={toggleMobileMenu}
@@ -89,6 +75,20 @@ export default function MobileMenu() {
               onClick={toggleMobileMenu}
             >
               Commercial
+            </Link>
+            <Link
+              href={`/properties`}
+              className="border-b border-secondaryBlue w-full p-5"
+              onClick={toggleMobileMenu}
+            >
+              All Properties
+            </Link>
+            <Link
+              href={`/services`}
+              className="border-b border-secondaryBlue w-full p-5"
+              onClick={toggleMobileMenu}
+            >
+              Services
             </Link>
             <div className="border-b border-secondaryBlue w-full p-5">
               <ContactButton buttonText={`Contact Us`} />
