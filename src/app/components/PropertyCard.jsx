@@ -158,6 +158,13 @@ export default function PropertyCard({ property }) {
           </div>
         </Link>
       )}
+      
+              {property.manager === "neighborly" && (
+                <div className="py-1 px-2.5 text-lg font-semibold text-primaryLight bg-primaryGreen flex justify-center">
+                  Managed By Neighborly
+                </div>
+              )}
+            
     </div>
   );
 }

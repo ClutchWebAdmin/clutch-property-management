@@ -43,6 +43,7 @@ export default async function PropertiesPage() {
       bathrooms,
       type,
       "slug": slug.current,
+      "manager": manager,
       "addressLine1": address.addressLine1,
       "addressLine2": address.addressLine2,
       "city": address.city,
