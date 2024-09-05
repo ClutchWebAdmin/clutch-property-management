@@ -36,6 +36,18 @@ export default {
       validation: (Rule) => Rule.required().error("Type is required"),
     },
     {
+      name: "manager",
+      title: "Manager",
+      type: "string",
+      options: {
+        list: [
+          { title: "Clutch", value: "clutch" },
+          { title: "Neighborly", value: "neighborly" },
+        ],
+      },
+      validation: (Rule) => Rule.required().error("Manager is required"),
+    },
+    {
       name: "address",
       title: "Address",
       type: "object",
