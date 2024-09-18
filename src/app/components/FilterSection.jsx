@@ -26,6 +26,7 @@ export default function FilterSection({ properties }) {
     bedrooms: "",
     bathrooms: "",
     type: "",
+    manager:"",
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4); // default value
@@ -77,6 +78,7 @@ export default function FilterSection({ properties }) {
         ? parseInt(query.bathrooms, 10) <= property.bathrooms
         : true;
       const type = query.type ? property.type === query.type : true;
+      const manager = query.manager ? property.manager === query.manager : true;
 
       return (
         available &&
@@ -86,7 +88,8 @@ export default function FilterSection({ properties }) {
         maxSqFootage &&
         bedrooms &&
         bathrooms &&
-        type
+        type &&
+        manager
       );
     });
 
@@ -125,6 +128,7 @@ export default function FilterSection({ properties }) {
       bedrooms: "",
       bathrooms: "",
       type: "",
+      manager: "",
     });
     router.push(`/properties`, { scroll: false });
     setCurrentPage(1); // Reset to first page on clear filters
@@ -183,6 +187,19 @@ export default function FilterSection({ properties }) {
               <option value="">Any</option>
               <option value="residential">Residential</option>
               <option value="commercial">Commercial</option>
+            </select>
+          </label>
+          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
+            Managed By:
+            <select
+              name="manager"
+              value={filters.manager}
+              onChange={handleChange}
+              className="bg-transparent w-fit p-1 font-medium"
+            >
+              <option value="">Any</option>
+              <option value="clutch">Clutch</option>
+              <option value="neighborly">Neighborly</option>
             </select>
           </label>
           <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
