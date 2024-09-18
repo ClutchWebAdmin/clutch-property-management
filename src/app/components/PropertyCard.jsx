@@ -8,7 +8,7 @@ export default function PropertyCard({ property }) {
   };
 
   const formattedPrice = property.price ? (
-    <h3 className="font-medium text-3xl">
+    <h3 className="font-medium text-2xl">
       {`${roundToNearestDollar(property.price).toLocaleString("en-US", {
         style: "currency",
         currency: "USD",
@@ -16,7 +16,7 @@ export default function PropertyCard({ property }) {
       })}/mo`}
     </h3>
   ) : (
-    <h3 className="font-medium text-2xl lg:text-xl xl:text-3xl">
+    <h3 className="font-medium text-2xl  ">
       Contact for pricing
     </h3>
   );
@@ -24,7 +24,7 @@ export default function PropertyCard({ property }) {
   return (
     <div
       key={property._id}
-      className="rounded border hover:shadow-md hover:brightness-105 transition duration-300 h-auto w-full"
+      className="flex flex-col  rounded border hover:shadow-md hover:brightness-105 transition duration-300 h-auto w-full"
       data-aos="fade-up"
     >
       {property.isExternallyLinked ? (
@@ -158,12 +158,14 @@ export default function PropertyCard({ property }) {
           </div>
         </Link>
       )}
-      
+            <div>
               {property.manager === "neighborly" && (
                 <div className="py-1 px-2.5 text-lg font-semibold text-primaryLight bg-primaryGreen flex justify-center">
                   Managed By Neighborly
                 </div>
               )}
+            </div>
+              
             
     </div>
   );
