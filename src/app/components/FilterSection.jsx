@@ -93,8 +93,16 @@ export default function FilterSection({ properties }) {
       );
     });
 
+     // Sort properties: prioritize properties managed by "Clutch"
+  const sorted = filtered.sort((a, b) => {
+    if (a.manager === "clutch" && b.manager !== "clutch") return -1;
+    if (a.manager !== "clutch" && b.manager === "clutch") return 1;
+    return 0;
+  });
+
     setFilteredProperties(filtered);
   }, [searchParams, properties]);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
