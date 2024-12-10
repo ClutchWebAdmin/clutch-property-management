@@ -3,6 +3,8 @@
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import PropertyCard from "./PropertyCard";
+import { FaSearch, FaFilter } from "react-icons/fa";
+import Filter from "./Filter";
 
 const breakpoints = [
   { width: 1536, itemsPerPage: 12 }, // 2xl
@@ -28,8 +30,10 @@ export default function FilterSection({ properties }) {
     type: "",
     manager:"",
   });
+  const [searchQuery, setSearchQuery] = useState(""); // State for search bar
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4); // default value
+  const [isFilterOpen, setIsFilterOpen] = useState(false); // Slide-over visibility
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,6 +59,9 @@ export default function FilterSection({ properties }) {
     }));
 
     const filtered = properties.filter((property) => {
+      const matchesSearchQuery = property.name
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
       const available = query.available
         ? property.available != null &&
           property.available?.toString() === query.available
@@ -81,6 +88,7 @@ export default function FilterSection({ properties }) {
       const manager = query.manager ? property.manager === query.manager : true;
 
       return (
+        matchesSearchQuery &&
         available &&
         minPrice &&
         maxPrice &&
@@ -101,8 +109,15 @@ export default function FilterSection({ properties }) {
   });
 
     setFilteredProperties(filtered);
-  }, [searchParams, properties]);
+  }, [searchParams, properties, searchQuery]);
   
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const toggleFilter = () => {
+    setIsFilterOpen(!isFilterOpen);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -138,8 +153,10 @@ export default function FilterSection({ properties }) {
       type: "",
       manager: "",
     });
+    setSearchQuery(""); // Clear search query
     router.push(`/properties`, { scroll: false });
     setCurrentPage(1); // Reset to first page on clear filters
+    setIsFilterOpen(false); // Close the filter form
   };
 
   const handlePreviousPage = () => {
@@ -167,143 +184,46 @@ export default function FilterSection({ properties }) {
         id="search-properties"
         className="bg-primaryLight text-primaryDark"
       >
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
-        >
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Available:
-            <select
-              name="available"
-              value={filters.available}
-              onChange={handleChange}
-              className="bg-transparent w-fit p-1 font-medium"
-            >
-              <option value="">Any</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Type:
-            <select
-              name="type"
-              value={filters.type}
-              onChange={handleChange}
-              className="bg-transparent w-fit p-1 font-medium"
-            >
-              <option value="">Any</option>
-              <option value="residential">Residential</option>
-              <option value="commercial">Commercial</option>
-            </select>
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Managed By:
-            <select
-              name="manager"
-              value={filters.manager}
-              onChange={handleChange}
-              className="bg-transparent w-fit p-1 font-medium"
-            >
-              <option value="">Any</option>
-              <option value="clutch">Clutch</option>
-              <option value="neighborly">Neighborly</option>
-            </select>
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Min Price:
+        {/* Search Bar */}
+        
+        <div className="px-5 py-5">
+          <div className="relative flex items-center">
             <input
-              type="number"
-              step={100}
-              name="minPrice"
-              value={filters.minPrice}
-              onChange={handleChange}
-              placeholder="Min Price"
-              className="bg-transparent w-[100px] p-1 font-medium"
-              min={0}
+              type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              placeholder="Search by property name"
+              className="w-full lg:w-1/4 px-4 py-2 pl-12 rounded-full border border-primaryBlue text-sm"
             />
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Max Price:
-            <input
-              type="number"
-              step={100}
-              name="maxPrice"
-              value={filters.maxPrice}
-              onChange={handleChange}
-              placeholder="Max Price"
-              className="bg-transparent w-[100px] p-1 font-medium"
-              min={0}
+            <FaSearch
+              className="absolute left-4 text-gray-400"
+              size={20} // Adjust size as needed
             />
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Min ft²:
-            <input
-              type="number"
-              step={100}
-              name="minSqFootage"
-              value={filters.minSqFootage}
-              onChange={handleChange}
-              placeholder="Min ft²"
-              className="bg-transparent w-[100px] p-1 font-medium"
-              min={0}
-            />
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Max ft²:
-            <input
-              type="number"
-              step={100}
-              name="maxSqFootage"
-              value={filters.maxSqFootage}
-              onChange={handleChange}
-              placeholder="Max ft²"
-              className="bg-transparent w-[100px] p-1 font-medium"
-              min={0}
-            />
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Bedrooms:
-            <input
-              type="number"
-              name="bedrooms"
-              value={filters.bedrooms}
-              onChange={handleChange}
-              placeholder="Bedrooms"
-              className="bg-transparent flex w-[100px] p-1 font-medium"
-              min={0}
-              max={5}
-            />
-          </label>
-          <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-            Bathrooms:
-            <input
-              type="number"
-              name="bathrooms"
-              value={filters.bathrooms}
-              onChange={handleChange}
-              placeholder="Bathrooms"
-              className="bg-transparent w-[100px] p-1 font-medium"
-              min={0}
-              max={5}
-            />
-          </label>
-          <div className="grid grid-cols-2 gap-5">
-            <button
-              type="submit"
-              className="flex items-center bg-primaryBlue text-primaryLight hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
-            >
-              Apply Filters
-            </button>
-            <button
-              type="button"
-              className="flex items-center bg-accentBlue text-primaryLight hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
-              onClick={clearFilters}
-            >
-              Clear Filters
-            </button>
           </div>
-        </form>
+        </div>
+
+        {/* Filters */}
+
+        {/* Slide-Over Button */}
+        <div className="px-5 pb-5 lg:hidden">
+          <button
+            onClick={toggleFilter}
+            className="flex items-center bg-primaryBlue text-primaryLight hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
+          >
+            <FaFilter className="mr-2" />
+            Filters
+          </button>
+        </div>
+
+         {/* Filter Component */}
+        <Filter
+          filters={filters}
+          setFilters={setFilters}
+          handleSubmit={handleSubmit}
+          clearFilters={clearFilters}
+          isFilterOpen={isFilterOpen}
+          toggleFilter={toggleFilter}
+        />
 
         <div
           id="results"
