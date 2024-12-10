@@ -1,4 +1,5 @@
 "use client";
+import CustomDropdown from "./CustomDropdown";
 
 export default function Filter({
   filters,
@@ -38,45 +39,41 @@ export default function Filter({
           className="flex flex-col gap-4 px-5 py-10 text-sm"
         >
           {/* Filter Fields */}
-          <label>
-            Available:
-            <select
-              name="available"
-              value={filters.available}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            >
-              <option value="">Any</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </label>
-          <label>
-            Type:
-            <select
-              name="type"
-              value={filters.type}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            >
-              <option value="">Any</option>
-              <option value="residential">Residential</option>
-              <option value="commercial">Commercial</option>
-            </select>
-          </label>
-          <label>
-            Managed By:
-            <select
-              name="manager"
-              value={filters.manager}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            >
-              <option value="">Any</option>
-              <option value="clutch">Clutch</option>
-              <option value="neighborly">Neighborly</option>
-            </select>
-          </label>
+          {/* CustomDropdown for Available */}
+          <CustomDropdown
+            label="Available"
+            value={filters.available}
+            onChange={(value) => setFilters((prev) => ({ ...prev, available: value }))}
+            options={[
+              { value: "", label: "Any" },
+              { value: "true", label: "Yes" },
+              { value: "false", label: "No" },
+            ]}
+          />
+
+          {/* CustomDropdown for Type */}
+          <CustomDropdown
+            label="Type"
+            value={filters.type}
+            onChange={(value) => setFilters((prev) => ({ ...prev, type: value }))}
+            options={[
+              { value: "", label: "Any" },
+              { value: "residential", label: "Residential" },
+              { value: "commercial", label: "Commercial" },
+            ]}
+          />
+
+          {/* CustomDropdown for Managed By */}
+          <CustomDropdown
+            label="Managed By"
+            value={filters.manager}
+            onChange={(value) => setFilters((prev) => ({ ...prev, manager: value }))}
+            options={[
+              { value: "", label: "Any" },
+              { value: "clutch", label: "Clutch" },
+              { value: "neighborly", label: "Neighborly" },
+            ]}
+          />
           <label>
             Min Price:
             <input
