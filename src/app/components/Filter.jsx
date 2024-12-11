@@ -173,45 +173,37 @@ export default function Filter({
         onSubmit={handleSubmit}
         className="hidden lg:flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
       >
-        <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-          Available:
-          <select
-            name="available"
-            value={filters.available}
-            onChange={handleChange}
-            className="bg-transparent w-fit p-1 font-medium"
-          >
-            <option value="">Any</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
-        </label>
-        <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-          Type:
-          <select
-            name="type"
-            value={filters.type}
-            onChange={handleChange}
-            className="bg-transparent w-fit p-1 font-medium"
-          >
-            <option value="">Any</option>
-            <option value="residential">Residential</option>
-            <option value="commercial">Commercial</option>
-          </select>
-        </label>
-        <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-          Managed By:
-          <select
-            name="manager"
-            value={filters.manager}
-            onChange={handleChange}
-            className="bg-transparent w-fit p-1 font-medium"
-          >
-            <option value="">Any</option>
-            <option value="clutch">Clutch</option>
-            <option value="neighborly">Neighborly</option>
-          </select>
-        </label>
+         <CustomDropdown
+          label="Available"
+          value={filters.available}
+          onChange={(value) => setFilters((prev) => ({ ...prev, available: value }))}
+          options={[
+            { value: "", label: "Any" },
+            { value: "true", label: "Yes" },
+            { value: "false", label: "No" },
+          ]}
+        />
+        <CustomDropdown
+          label="Type"
+          value={filters.type}
+          onChange={(value) => setFilters((prev) => ({ ...prev, type: value }))}
+          options={[
+            { value: "", label: "Any" },
+            { value: "residential", label: "Residential" },
+            { value: "commercial", label: "Commercial" },
+          ]}
+        />
+        <CustomDropdown
+          label="Managed By"
+          value={filters.manager}
+          onChange={(value) => setFilters((prev) => ({ ...prev, manager: value }))}
+          options={[
+            { value: "", label: "Any" },
+            { value: "clutch", label: "Clutch" },
+            { value: "neighborly", label: "Neighborly" },
+          ]}
+        />
+        
         {/* Additional Filters */}
         <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
           Min Price:
