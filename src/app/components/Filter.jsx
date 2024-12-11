@@ -17,6 +17,13 @@ export default function Filter({
     }));
   };
 
+  // Updated submit handler to close slide-over
+  const handleSubmitAndClose = (e) => {
+    e.preventDefault();
+    handleSubmit(e); // Apply filters logic
+    toggleFilter(); // Close the slide-over
+  };
+
   return (
     <>
       {/* Slide-Over for Filters (Mobile View) */}
@@ -35,10 +42,9 @@ export default function Filter({
           </button>
         </div>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmitAndClose}
           className="flex flex-col gap-4 px-5 py-10 text-sm"
         >
-          {/* Filter Fields */}
           {/* CustomDropdown for Available */}
           <CustomDropdown
             label="Available"
@@ -74,6 +80,8 @@ export default function Filter({
               { value: "neighborly", label: "Neighborly" },
             ]}
           />
+
+          {/* Additional Filters */}
           <label>
             Min Price:
             <input
@@ -142,19 +150,21 @@ export default function Filter({
               max={5}
             />
           </label>
-          <button
-            type="submit"
-            className="mt-4 bg-primaryBlue text-primaryLight px-6 py-2 rounded-full"
-          >
-            Apply Filters
-          </button>
-          <button
-            type="button"
-            onClick={clearFilters}
-            className="mt-2 bg-gray-200 text-gray-800 px-6 py-2 rounded-full"
-          >
-            Clear Filters
-          </button>
+          <div className="flex justify-between items-center">
+            <button
+              type="submit"
+              className="mt-4 bg-primaryBlue text-primaryLight px-6 py-2 rounded-full"
+            >
+              Apply Filters
+            </button>
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="mt-2 bg-gray-200 text-gray-800 px-6 py-2 rounded-full"
+            >
+              Clear Filters
+            </button>
+          </div>
         </form>
       </div>
 
@@ -163,45 +173,37 @@ export default function Filter({
         onSubmit={handleSubmit}
         className="hidden lg:flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
       >
-        <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-          Available:
-          <select
-            name="available"
-            value={filters.available}
-            onChange={handleChange}
-            className="bg-transparent w-fit p-1 font-medium"
-          >
-            <option value="">Any</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
-        </label>
-        <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-          Type:
-          <select
-            name="type"
-            value={filters.type}
-            onChange={handleChange}
-            className="bg-transparent w-fit p-1 font-medium"
-          >
-            <option value="">Any</option>
-            <option value="residential">Residential</option>
-            <option value="commercial">Commercial</option>
-          </select>
-        </label>
-        <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
-          Managed By:
-          <select
-            name="manager"
-            value={filters.manager}
-            onChange={handleChange}
-            className="bg-transparent w-fit p-1 font-medium"
-          >
-            <option value="">Any</option>
-            <option value="clutch">Clutch</option>
-            <option value="neighborly">Neighborly</option>
-          </select>
-        </label>
+        <CustomDropdown
+          label="Available"
+          value={filters.available}
+          onChange={(value) => setFilters((prev) => ({ ...prev, available: value }))}
+          options={[
+            { value: "", label: "Any" },
+            { value: "true", label: "Yes" },
+            { value: "false", label: "No" },
+          ]}
+        />
+        <CustomDropdown
+          label="Type"
+          value={filters.type}
+          onChange={(value) => setFilters((prev) => ({ ...prev, type: value }))}
+          options={[
+            { value: "", label: "Any" },
+            { value: "residential", label: "Residential" },
+            { value: "commercial", label: "Commercial" },
+          ]}
+        />
+        <CustomDropdown
+          label="Managed By"
+          value={filters.manager}
+          onChange={(value) => setFilters((prev) => ({ ...prev, manager: value }))}
+          options={[
+            { value: "", label: "Any" },
+            { value: "clutch", label: "Clutch" },
+            { value: "neighborly", label: "Neighborly" },
+          ]}
+        />
+        {/* Additional Filters */}
         <label className="flex items-center border border-primaryBlue px-4 py-2 rounded-full w-fit h-fit gap-1">
           Min Price:
           <input
@@ -289,7 +291,7 @@ export default function Filter({
           </button>
           <button
             type="button"
-            className="flex items-center bg-accentBlue text-primaryLight hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
+            className="flex items-center bg-gray-200 text-gray-800 hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
             onClick={clearFilters}
           >
             Clear Filters
