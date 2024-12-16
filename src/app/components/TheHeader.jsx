@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation"; // Import useRouter
 import { useState } from "react";
 import clutchLogoLight from "../../../public/logos/clutch-logo-light.png";
 import MobileMenu from "./MobileMenu";
@@ -17,6 +18,7 @@ import ContactButton from "./UI/ContactButton";
 export default function TheHeader() {
   const [dropdown, setDropdown] = useState(null);
   const [hoveredButton, setHoveredButton] = useState(null);
+  const pathname = usePathname(); // Properly initialize useRouter here
 
   const handleMouseEnter = (buttonType) => {
     setHoveredButton(buttonType);
@@ -46,23 +48,25 @@ export default function TheHeader() {
           </Link>
         </div>
         <div className="hidden lg:flex flex-grow flex-row justify-start gap-10 pl-5">
-          <Link
-            href={`/properties`}
-            onMouseEnter={() => handleMouseEnter("properties")}
-            onMouseLeave={handleMouseLeave}
-            className="flex flex-row items-start gap-2 h-2/3 mt-auto"
-          >
-            <div className="flex flex-row gap-2 items-center">
-              Properties
-              <FaArrowDownLong
-                className={`text-sm ${
-                  hoveredButton === "properties"
-                    ? "mb-2 transition-all duration-300"
-                    : ""
-                }`}
-              />
-            </div>
-          </Link>
+          {pathname !== "/" && ( // Conditionally render the /properties link
+            <Link
+              href={`/properties`}
+              onMouseEnter={() => handleMouseEnter("properties")}
+              onMouseLeave={handleMouseLeave}
+              className="flex flex-row items-start gap-2 h-2/3 mt-auto"
+            >
+              <div className="flex flex-row gap-2 items-center">
+                Properties
+                <FaArrowDownLong
+                  className={`text-sm ${
+                    hoveredButton === "properties"
+                      ? "mb-2 transition-all duration-300"
+                      : ""
+                  }`}
+                />
+              </div>
+            </Link>
+          )}
           <Link
             href={`/services`}
             onMouseEnter={() => handleMouseEnter("services")}
