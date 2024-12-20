@@ -25,7 +25,7 @@ export default function Filter({
 
   return (
     <>
-      {/* Slide-Over for Filters (Mobile View) */}
+      {/* Slide-Over for Filters for Mobile View */}
       <div
         className={`fixed top-0 left-0 w-full h-full bg-white z-50 transition-transform duration-300 ${
           isFilterOpen ? "translate-x-0" : "-translate-x-full"
