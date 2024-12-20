@@ -17,7 +17,6 @@ export default function Filter({
     }));
   };
 
-  // Updated submit handler to close slide-over
   const handleSubmitAndClose = (e) => {
     e.preventDefault();
     handleSubmit(e); // Apply filters logic
