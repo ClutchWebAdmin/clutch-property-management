@@ -197,7 +197,7 @@ export default function PropertyCard({ property }) {
   // Card content
   const cardContent = (
     <div
-      className="flex flex-col items-center border-2 border-black rounded-md bg-white w-full p-2 border hover:shadow-lg hover:shadow-black hover:brightness-110 transition duration-300"
+      className="flex flex-col items-center border-2 border-black rounded-md bg-white w-full h-full p-2 border hover:shadow-lg hover:shadow-black hover:brightness-110 transition duration-300"
       style={{ fontFamily: "'Georgia', serif" }}
     >
       {/* Color Band with Conditional Text */}
