@@ -19,7 +19,19 @@ module.exports = {
         accentGreen: "var(--accentGreen)",
         monopolyRoyalBlue: '#2A4F88',
       },
+      textShadow: {
+        'outline': '1px 1px 2px black',  // You can customize this value
+      },
+
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.text-outline': {
+          textShadow: '2px 2px 4px black',
+        },
+      });
+    },
+  ],
 };
