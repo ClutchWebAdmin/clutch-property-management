@@ -30,86 +30,86 @@ export default function Hero({ subheading }) {
           >
             <Link
               href={`/properties?type=commercial#results`}
-              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white p-2 border"
+              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white  border"
             >
               <div
-                className={`w-full h-8 lg:h-14 mb-2 flex items-center justify-center bg-monopolyRoyalBlue`}
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-monopolyRoyalBlue`}
               ></div>
               
               <Image
                 src={mainPhoto}
                 alt="Edgewater exterior view"
-                className="aspect-square object-cover rounded-lg h-2/3"
+                className="aspect-square object-cover h-2/3"
                 priority
                 placeholder="blur"
               />
-              <p className="absolute bottom-0 left-0 p-2 md:p-5 flex flex-row items-center gap-2 text-outline text-white font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 left-0 p-1 md:p-5 flex flex-row items-center gap-2 text-outline text-white font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 Commercial 
               </p>
-              <p className="absolute bottom-0 right-0 p-2 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 right-0 p-1 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 <FaArrowCircleRight />
               </p>
             </Link>
             <Link
               href={`/properties?type=commercial#results`}
-              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white p-2 border"
+              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white border"
             >
               <div
-                className={`w-full h-8 lg:h-14 mb-2 flex items-center justify-center bg-green-700`}
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-green-700`}
               ></div>
               <Image
                 src={warehouse}
                 alt="Edgewater exterior view"
-                className="aspect-square object-cover rounded-lg h-2/3"
+                className="aspect-square object-cover h-2/3"
                 priority
                 placeholder="blur"
               />
-              <p className="absolute bottom-0 left-0 p-2 md:p-5 flex flex-row items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 left-0 p-1 md:p-5 flex flex-row items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 Warehouse
               </p>
-              <p className="absolute bottom-0 right-0 p-2 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 right-0 p-1 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 <FaArrowCircleRight />
               </p>
             </Link>
             <Link
               href={`/properties?type=residential#results`}
-              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white p-2 border"
+              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white border"
             >
               <div
-                className={`w-full h-8 lg:h-14 mb-2 flex items-center justify-center bg-red-600`}
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-red-600`}
               ></div>
               <Image
                 src={residential}
                 alt="Lockwood exterior"
-                className="aspect-square object-cover rounded-lg h-2/3"
+                className="aspect-square object-cover h-2/3"
                 priority
                 placeholder="blur"
               />
-              <p className="absolute bottom-0 left-0 p-2 md:p-5 flex flex-row items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 left-0 p-1 md:p-5 flex flex-row items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 Residential
               </p>
-              <p className="absolute bottom-0 right-0 p-2 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 right-0 p-1 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 <FaArrowCircleRight />
               </p>
             </Link>
             <Link
               href={`/properties`}
-              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white p-2 border"
+              className="w-full lg:w-1/2 h-auto hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white border"
             >
               <div
-                className={`w-full h-8 lg:h-14 mb-2 flex items-center justify-center bg-fuchsia-700`}
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-fuchsia-700`}
               ></div>
               <Image
                 src={all}
                 alt="Lockwood exterior"
-                className="aspect-square object-cover rounded-lg h-2/3"
+                className="aspect-square object-cover h-2/3"
                 priority
                 placeholder="blur"
               />
-              <p className="absolute bottom-0 left-0 p-2 md:p-5 flex flex-row items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 left-0 p-1 md:p-5 flex flex-row items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 All Properties
               </p>
-              <p className="absolute bottom-0 right-0 p-2 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+              <p className="absolute bottom-0 right-0 p-1 md:p-5 flex flex-row items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
                 <FaArrowCircleRight />
               </p>
             </Link>
