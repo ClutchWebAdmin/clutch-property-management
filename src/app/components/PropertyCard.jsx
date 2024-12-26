@@ -202,7 +202,7 @@ export default function PropertyCard({ property }) {
     >
       {/* Color Band with Conditional Text */}
       <div
-        className={`w-full h-14 mb-2 flex items-center justify-center ${colorBandClass}`}
+        className={`w-full h-14 mb-2 flex items-center justify-center border-2 border-black ${colorBandClass}`}
       >
         {isNeighborly && (
           <span className="text-white font-bold text-md">
