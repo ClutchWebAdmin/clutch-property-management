@@ -17,6 +17,7 @@ module.exports = {
         primaryGreen: "var(--primaryGreen)",
         secondaryGreen: "var(--secondaryGreen)",
         accentGreen: "var(--accentGreen)",
+        monopolyRoyalBlue: '#2A4F88',
       },
     },
   },
