@@ -18,6 +18,7 @@ module.exports = {
         secondaryGreen: "var(--secondaryGreen)",
         accentGreen: "var(--accentGreen)",
         monopolyRoyalBlue: '#2A4F88',
+        monopolyBoard: '#DFF3E3',
       },
       textShadow: {
         'outline': '1px 1px 2px black',  // You can customize this value

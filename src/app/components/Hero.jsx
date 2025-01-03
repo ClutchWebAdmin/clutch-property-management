@@ -22,123 +22,116 @@ export default function Hero({ subheading }) {
             professionally managed.
           </h1>
         </div>
-        <div className="grid-cols-2 lg:flex-row gap-5 lg:justify-between w-full h-fit py-2 px-5 border-t border-secondaryBlue">
+        <div className="grid-cols-2 lg:flex-row  lg:justify-between w-full h-fit py-5  border-y-4 border-black bg-monopolyBoard">
+          <div
+            className="w-full grid grid-cols-2 lg:flex lg:flex-row   order-1 lg:order-3"
+            data-aos="fade-up"
+          >
+            <Link
+              href={`/properties?type=commercial#results`}
+              className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white hover:-translate-y-2 transition duration-300 relative border-x-4 border-y-8 border-black  bg-monopolyBoard overflow-hidden"
+            >
+              <div
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-4 border-black justify-center bg-monopolyRoyalBlue`}
+              ></div>
+              <div className="w-full aspect-[4/3]">
+                <Image
+                  src={mainPhoto}
+                  alt="Edgewater exterior view"
+                  className="object-cover w-full h-full"
+                  priority
+                  placeholder="blur"
+                />
+              </div>
+              <div className="flex justify-between items-center p-1 md:p-5">
+                <p className="flex items-center gap-2 text-outline text-white font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  Commercial
+                </p>
+                <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  <FaArrowCircleRight />
+                </p>
+              </div>
+            </Link>
 
-        <div
-  className="w-full grid grid-cols-2 lg:flex lg:flex-row gap-5 lg:pr-5 order-1 lg:order-3"
-  data-aos="fade-up"
->
-  <Link
-    href={`/properties?type=commercial#results`}
-    className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white overflow-hidden"
-  >
-    <div
-      className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-monopolyRoyalBlue`}
-    ></div>
-    <div className="w-full aspect-[4/3]">
-      <Image
-        src={mainPhoto}
-        alt="Edgewater exterior view"
-        className="object-cover w-full h-full"
-        priority
-        placeholder="blur"
-      />
-    </div>
-    <div className="flex justify-between items-center p-1 md:p-5">
-      <p className="flex items-center gap-2 text-outline text-white font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        Commercial
-      </p>
-      <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        <FaArrowCircleRight />
-      </p>
-    </div>
-  </Link>
+            <Link
+              href={`/properties?type=commercial#results`}
+              className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white hover:-translate-y-2 transition duration-300 relative border-x-4 border-y-8 border-black  bg-monopolyBoard overflow-hidden"
+            >
+              <div
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-4 border-black justify-center bg-green-700`}
+              ></div>
+              <div className="w-full aspect-[4/3]">
+                <Image
+                  src={warehouse}
+                  alt="Edgewater exterior view"
+                  className="object-cover w-full h-full"
+                  priority
+                  placeholder="blur"
+                />
+              </div>
+              <div className="flex justify-between items-center p-1 md:p-5">
+                <p className="flex items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  Warehouse
+                </p>
+                <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  <FaArrowCircleRight />
+                </p>
+              </div>
+            </Link>
 
-  <Link
-    href={`/properties?type=commercial#results`}
-    className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white overflow-hidden"
-  >
-    <div
-      className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-green-700`}
-    ></div>
-    <div className="w-full aspect-[4/3]">
-      <Image
-        src={warehouse}
-        alt="Edgewater exterior view"
-        className="object-cover w-full h-full"
-        priority
-        placeholder="blur"
-      />
-    </div>
-    <div className="flex justify-between items-center p-1 md:p-5">
-      <p className="flex items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        Warehouse
-      </p>
-      <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        <FaArrowCircleRight />
-      </p>
-    </div>
-  </Link>
+            <Link
+              href={`/properties?type=residential#results`}
+              className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white hover:-translate-y-2 transition duration-300 relative border-x-4 border-y-8 border-black  bg-monopolyBoard overflow-hidden"
+            >
+              <div
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-4 border-black justify-center bg-red-600`}
+              ></div>
+              <div className="w-full aspect-[4/3]">
+                <Image
+                  src={residential}
+                  alt="Lockwood exterior"
+                  className="object-cover w-full h-full"
+                  priority
+                  placeholder="blur"
+                />
+              </div>
+              <div className="flex justify-between items-center p-1 md:p-5">
+                <p className="flex items-center gap-2 text-outline text-white font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  Residential
+                </p>
+                <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  <FaArrowCircleRight />
+                </p>
+              </div>
+            </Link>
 
-  <Link
-    href={`/properties?type=residential#results`}
-    className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white overflow-hidden"
-  >
-    <div
-      className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-red-600`}
-    ></div>
-    <div className="w-full aspect-[4/3]">
-      <Image
-        src={residential}
-        alt="Lockwood exterior"
-        className="object-cover w-full h-full"
-        priority
-        placeholder="blur"
-      />
-    </div>
-    <div className="flex justify-between items-center p-1 md:p-5">
-      <p className="flex items-center gap-2 text-outline text-white font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        Residential
-      </p>
-      <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        <FaArrowCircleRight />
-      </p>
-    </div>
-  </Link>
-
-  <Link
-    href={`/properties`}
-    className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white relative border-2 border-black rounded-md bg-white overflow-hidden"
-  >
-    <div
-      className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-2 border-black justify-center bg-fuchsia-700`}
-    ></div>
-    <div className="w-full aspect-[4/3]">
-      <Image
-        src={all}
-        alt="Lockwood exterior"
-        className="object-cover w-full h-full"
-        priority
-        placeholder="blur"
-      />
-    </div>
-    <div className="flex justify-between items-center p-1 md:p-5">
-      <p className="flex items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        All Properties
-      </p>
-      <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
-        <FaArrowCircleRight />
-      </p>
-    </div>
-  </Link>
-</div>
-
-
-
-
-
-
-        </div>
+            <Link
+              href={`/properties`}
+              className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white hover:-translate-y-2 transition duration-300 relative border-x-4 border-y-8 border-black  bg-monopolyBoard overflow-hidden"
+            >
+              <div
+                className={`w-full h-8 lg:h-16 mb-2 flex items-center border-b-4 border-black justify-center bg-fuchsia-700`}
+              ></div>
+              <div className="w-full aspect-[4/3]">
+                <Image
+                  src={all}
+                  alt="Lockwood exterior"
+                  className="object-cover w-full h-full"
+                  priority
+                  placeholder="blur"
+                />
+              </div>
+              <div className="flex justify-between items-center p-1 md:p-5">
+                <p className="flex items-center gap-2 text-outline font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  All Properties
+                </p>
+                <p className="flex items-center gap-2 text-black font-medium text-xl md:text-3xl lg:text-2xl 2xl:text-3xl">
+                  <FaArrowCircleRight />
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>        
       </div>
     </section>
   );
