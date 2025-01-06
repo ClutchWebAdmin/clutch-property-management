@@ -26,7 +26,6 @@ export default function CustomDropdown({ label, value, onChange, options }) {
 
   return (
     <div className="relative" ref={dropdownRef} >
-      {/* Label */}
       <label className="block lg:hidden font-medium text-gray-700">{label}:</label>
 
       {/* Dropdown Trigger */}
