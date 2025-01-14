@@ -45,7 +45,7 @@ export default function Filter({
           className="flex flex-col gap-4 px-5 pt-4 pb-14 text-sm"
         >
           {/* CustomDropdown for Available */}
-          <CustomDropdown
+          {/* <CustomDropdown
             label="Available"
             value={filters.available}
             onChange={(value) => setFilters((prev) => ({ ...prev, available: value }))}
@@ -54,7 +54,7 @@ export default function Filter({
               { value: "true", label: "Yes" },
               { value: "false", label: "No" },
             ]}
-          />
+          /> */}
 
           {/* CustomDropdown for Type */}
           <CustomDropdown
@@ -172,7 +172,7 @@ export default function Filter({
         onSubmit={handleSubmit}
         className="hidden lg:flex flex-wrap gap-5 px-5 py-10 border-b border-secondaryBlue text-sm"
       >
-         <CustomDropdown
+         {/* <CustomDropdown
           label="Available"
           value={filters.available}
           onChange={(value) => setFilters((prev) => ({ ...prev, available: value }))}
@@ -181,7 +181,7 @@ export default function Filter({
             { value: "true", label: "Yes" },
             { value: "false", label: "No" },
           ]}
-        />
+        /> */}
         <CustomDropdown
           label="Type"
           value={filters.type}
