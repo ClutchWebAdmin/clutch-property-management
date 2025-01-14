@@ -28,12 +28,12 @@ export default function FilterSection({ properties }) {
     bedrooms: "",
     bathrooms: "",
     type: "",
-    manager:"",
+    manager: "",
   });
-  const [searchQuery, setSearchQuery] = useState(""); // State for search bar
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(4); // default value
-  const [isFilterOpen, setIsFilterOpen] = useState(false); // Slide-over visibility
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,7 +44,7 @@ export default function FilterSection({ properties }) {
       setItemsPerPage(itemsPerPage);
     };
 
-    handleResize(); // Set initial value
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -59,12 +59,13 @@ export default function FilterSection({ properties }) {
     }));
 
     const filtered = properties.filter((property) => {
+      if (property.available === false) return false;
+
       const matchesSearchQuery = property.name
         .toLowerCase()
         .includes(searchQuery.toLowerCase());
       const available = query.available
-        ? property.available != null &&
-          property.available?.toString() === query.available
+        ? property.available?.toString() === query.available
         : true;
       const minPrice = query.minPrice
         ? parseFloat(query.minPrice) <= property.price
@@ -101,30 +102,21 @@ export default function FilterSection({ properties }) {
       );
     });
 
-     // Sort properties: prioritize properties managed by "Clutch"
-  const sorted = filtered.sort((a, b) => {
-    if (a.manager === "clutch" && b.manager !== "clutch") return -1;
-    if (a.manager !== "clutch" && b.manager === "clutch") return 1;
-    return 0;
-  });
+    const sorted = filtered.sort((a, b) => {
+      if (a.manager === "clutch" && b.manager !== "clutch") return -1;
+      if (a.manager !== "clutch" && b.manager === "clutch") return 1;
+      return 0;
+    });
 
-    setFilteredProperties(filtered);
+    setFilteredProperties(sorted);
   }, [searchParams, properties, searchQuery]);
-  
+
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
   const toggleFilter = () => {
     setIsFilterOpen(!isFilterOpen);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value,
-    }));
   };
 
   const handleSubmit = (e) => {
@@ -138,7 +130,7 @@ export default function FilterSection({ properties }) {
     });
 
     router.push(`/properties?${query.toString()}`, { scroll: false });
-    setCurrentPage(1); // Reset to first page on new filter submission
+    setCurrentPage(1);
   };
 
   const clearFilters = () => {
@@ -153,10 +145,10 @@ export default function FilterSection({ properties }) {
       type: "",
       manager: "",
     });
-    setSearchQuery(""); // Clear search query
+    setSearchQuery("");
     router.push(`/properties`, { scroll: false });
-    setCurrentPage(1); // Reset to first page on clear filters
-    setIsFilterOpen(false); // Close the filter form
+    setCurrentPage(1);
+    setIsFilterOpen(false);
   };
 
   const handlePreviousPage = () => {
@@ -180,12 +172,7 @@ export default function FilterSection({ properties }) {
 
   return (
     <Suspense>
-      <section
-        id="search-properties"
-        className="bg-primaryLight text-primaryDark"
-      >
-        {/* Search Bar */}
-        
+      <section className="bg-primaryLight text-primaryDark">
         <div className="px-5 py-5">
           <div className="relative flex items-center">
             <input
@@ -195,27 +182,18 @@ export default function FilterSection({ properties }) {
               placeholder="Search by property name"
               className="w-full lg:w-1/4 px-4 py-2 pl-12 rounded-full border border-primaryBlue text-sm"
             />
-            <FaSearch
-              className="absolute left-4 text-gray-400"
-              size={20} // Adjust size as needed
-            />
+            <FaSearch className="absolute left-4 text-gray-400" size={20} />
           </div>
         </div>
-
-        {/* Filters */}
-
-        {/* Slide-Over Button */}
         <div className="px-5 pb-5 lg:hidden">
           <button
             onClick={toggleFilter}
-            className="flex items-center bg-primaryBlue text-primaryLight hover:brightness-110 transition duration-200 px-6 py-2 rounded-full font-medium text-base"
+            className="flex items-center bg-primaryBlue text-primaryLight px-6 py-2 rounded-full font-medium"
           >
             <FaFilter className="mr-2" />
             Filters
           </button>
         </div>
-
-         {/* Filter Component */}
         <Filter
           filters={filters}
           setFilters={setFilters}
@@ -224,24 +202,24 @@ export default function FilterSection({ properties }) {
           isFilterOpen={isFilterOpen}
           toggleFilter={toggleFilter}
         />
-
-        <div
-          id="results"
-          className="w-full px-5 py-10 border-b border-secondaryBlue"
-        >
+        <div className="w-full px-5 py-10 border-b border-secondaryBlue">
           {filteredProperties.length > 0 ? (
             <>
+              {/* Results Count */}
               <div className="mb-10">
-                <p className="text-2xl md:text-3xl lg:text-4xl font-medium">
-                  {filteredProperties.length} results.
+                <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-primaryDark">
+                  {filteredProperties.length} results found.
                 </p>
               </div>
+
+              {/* Grid Layout for Properties */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
                 {displayedProperties.map((property) => (
                   <PropertyCard key={property._id} property={property} />
                 ))}
               </div>
 
+              {/* Pagination Controls */}
               <div className="flex flex-row justify-between md:justify-center items-center gap-5 mt-10">
                 <button
                   onClick={handlePreviousPage}
@@ -253,7 +231,7 @@ export default function FilterSection({ properties }) {
                   Prev
                 </button>
 
-                <span className="font-medium">
+                <span className="font-medium text-lg text-primaryDark">
                   {currentPage} of {totalPages}
                 </span>
 
@@ -268,12 +246,15 @@ export default function FilterSection({ properties }) {
                 </button>
               </div>
             </>
-          ) : (
-            <div className="col-span-full">
-              <p className="text-3xl xl:text-4xl">No results.</p>
-            </div>
-          )}
+              ) : (
+                <div className="col-span-full text-center">
+                  <p className="text-3xl xl:text-4xl font-medium text-primaryDark">
+                    No results found.
+                  </p>
+                </div>
+                )}
         </div>
+
       </section>
     </Suspense>
   );
