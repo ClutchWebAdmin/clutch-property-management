@@ -31,6 +31,7 @@ export default {
         list: [
           { title: "Residential", value: "residential" },
           { title: "Commercial", value: "commercial" },
+          { title: "Warehouse", value: "warehouse"}
         ],
       },
       validation: (Rule) => Rule.required().error("Type is required"),

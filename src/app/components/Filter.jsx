@@ -65,6 +65,7 @@ export default function Filter({
               { value: "", label: "Any" },
               { value: "residential", label: "Residential" },
               { value: "commercial", label: "Commercial" },
+              { value: "warehouse", label: "Warehouse" },
             ]}
           />
 
@@ -190,6 +191,7 @@ export default function Filter({
             { value: "", label: "Any" },
             { value: "residential", label: "Residential" },
             { value: "commercial", label: "Commercial" },
+            { value: "warehouse", label: "Warehouse" },
           ]}
         />
         <CustomDropdown
