@@ -54,7 +54,7 @@ export default function Hero({ subheading }) {
             </Link>
 
             <Link
-              href={`/properties?type=commercial#results`}
+              href={`/properties?type=warehouse#results`}
               className="w-full lg:w-1/2 h-full hover:shadow-lg hover:shadow-white hover:-translate-y-2 transition duration-300 relative border-x-4 border-y-8 border-black  bg-monopolyBoard overflow-hidden"
             >
               <div
