@@ -194,7 +194,7 @@ export default function PropertyCard({ property }) {
   const isNeighborly = property.manager === "neighborly";
   const colorBandClass = isNeighborly ? "bg-green-600" : "bg-monopolyRoyalBlue";
 
-  // Card content
+  
   const cardContent = (
     <div
       className="flex flex-col items-center border-2 border-black rounded-md bg-white w-full h-full p-2 border shadow-black shadow-md hover:shadow-xl hover:shadow-black hover:brightness-110 transition duration-300"
@@ -256,7 +256,7 @@ export default function PropertyCard({ property }) {
         </div>
       </div>
 
-      {/* Additional Info */}
+      
       <div className="text-center text-lg">
         {property.type === "residential" && (
           <p>
