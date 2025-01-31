@@ -24,7 +24,7 @@ export default function PropertyCard({ property }) {
   return (
     <div
       key={property._id}
-      className="flex flex-col bg-whitesmoke rounded border hover:shadow-md hover:brightness-105 transition duration-300 w-full h-full"
+      className="flex flex-col bg-slate-50 rounded border hover:shadow-md hover:brightness-105 transition duration-300 w-full h-full"
       data-aos="fade-up"
     >
       {property.isExternallyLinked ? (
@@ -45,10 +45,10 @@ export default function PropertyCard({ property }) {
               <Image
   src={property.imageUrl}
   alt={property.altText || "Property Image"}
-  width={450} 
+  width={400} 
   height={250}
   layout="fixed"
-  className="w-[450px] h-[250px] object-cover"
+  className="w-[400px] h-[250px] object-cover"
 />
 
             ) : (
