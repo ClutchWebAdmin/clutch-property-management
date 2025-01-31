@@ -48,7 +48,7 @@ export default function TheHeader() {
           </Link>
         </div>
         <div className="hidden lg:flex flex-grow flex-row justify-start gap-10 pl-5">
-          {pathname !== "/" && ( // Conditionally render the /properties link
+          
             <Link
               href={`/properties`}
               onMouseEnter={() => handleMouseEnter("properties")}
@@ -66,7 +66,7 @@ export default function TheHeader() {
                 />
               </div>
             </Link>
-          )}
+          
           <Link
             href={`/services`}
             onMouseEnter={() => handleMouseEnter("services")}
@@ -156,6 +156,16 @@ export default function TheHeader() {
               <PiWarehouseLight />
             </div>
             <h4 className="text-2xl font-medium">Commercial Properties</h4>
+          </Link>
+          <Link
+            href={`/properties?type=warehouse`}
+            className="flex flex-col justify-between w-1/3 h-[250px] bg-secondaryBlue rounded-lg hover:opacity-80 p-5 hover:-translate-y-3 transition duration-300"
+            onClick={closeDropdown}
+          >
+            <div className="text-3xl p-2 border border-secondaryBlue w-fit h-auto rounded-lg">
+              <PiWarehouseLight />
+            </div>
+            <h4 className="text-2xl font-medium">Warehouse Properties</h4>
           </Link>
         </nav>
       )}

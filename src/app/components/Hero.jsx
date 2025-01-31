@@ -1,5 +1,5 @@
 import Image from "next/image";
-import mainPhoto from "../../../public/images/edgewater-aerial-view.png";
+import mainPhoto from "../../../public/images/edgewater-featured-photo.png";
 import secondaryPhoto from "../../../public/images/lockwood.png";
 import Link from "next/link";
 import LinkButton from "./UI/LinkButton";
@@ -12,9 +12,9 @@ export default function Hero({ subheading }) {
   return (
     <section id="hero" className="h-svh relative">
       <div className="absolute z-10 flex flex-col items-start justify-between w-full h-full border-b border-secondaryBlue pt-[var(--header-height)]">
-        <div className="flex w-full h-1/3 py-2 px-5 mb-6">
+        <div className="flex w-full h-1/3 py-2 px-2 md:px-5 mb-6">
           <h1
-            className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl h-fit"
+            className="text-6xl md:text-6xl lg:text-9xl xl:text-9xl 2xl:text-9xl h-fit"
             data-aos="fade-up"
           >
             Premier properties,
