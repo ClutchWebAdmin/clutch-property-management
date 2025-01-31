@@ -24,7 +24,7 @@ export default function PropertyCard({ property }) {
   return (
     <div
       key={property._id}
-      className="flex flex-col  rounded border hover:shadow-md hover:brightness-105 transition duration-300 h-auto w-full"
+      className="flex flex-col bg-whitesmoke rounded border hover:shadow-md hover:brightness-105 transition duration-300 w-full h-full"
       data-aos="fade-up"
     >
       {property.isExternallyLinked ? (
@@ -43,20 +43,23 @@ export default function PropertyCard({ property }) {
 
             {property.imageUrl ? (
               <Image
-                src={property.imageUrl}
-                alt={property.altText}
-                className="object-cover w-full h-auto max-h-[250px]"
-                placeholder="blur"
-                blurDataURL={property.blurDataURL}
-                height={property.height}
-                width={property.width}
-              />
+  src={property.imageUrl}
+  alt={property.altText || "Property Image"}
+  width={450} 
+  height={250}
+  layout="fixed"
+  className="w-[450px] h-[250px] object-cover"
+/>
+
             ) : (
-              <Image
-                src={placeholder}
-                alt="placeholder"
-                className="object-cover w-full h-auto max-h-[250px]"
-              />
+<Image
+  src={placeholder}
+  alt="placeholder"
+  className="object-cover w-full h-[250px]" 
+  width={400}
+  height={250}
+/>
+
             )}
 
             <div className="flex flex-col gap-2 p-3">
@@ -121,6 +124,8 @@ export default function PropertyCard({ property }) {
                 src={placeholder}
                 alt="placeholder"
                 className="object-cover w-full h-auto max-h-[250px]"
+                height={property.height}
+                width={property.width}
               />
             )}
 
@@ -134,15 +139,6 @@ export default function PropertyCard({ property }) {
         >
           {property.available ? "Available" : "Leased"}
         </div>
-                {/* {property.available ? (
-                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-primaryBlue">
-                    Available
-                  </div>
-                ) : (
-                  <div className="py-1 px-2.5 text-sm font-medium rounded-full text-primaryLight bg-gray-400">
-                    Leased
-                  </div>
-                )} */}
               </div>
 
               <div className="flex flex-row items-center justify-between">
@@ -172,8 +168,6 @@ export default function PropertyCard({ property }) {
                 </div>
               )}
             </div>
-              
-            
     </div>
   );
 }
