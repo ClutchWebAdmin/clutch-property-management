@@ -19,7 +19,7 @@ export default function Hero({ subheading }) {
           >
             Premier properties,
             <br />
-            professionally managed.
+            professionally managed
           </h1>
         </div>
         <div className="grid-cols-2 lg:flex-row gap-5 lg:justify-between w-full h-fit py-2 px-5 border-t border-secondaryBlue">
