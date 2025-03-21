@@ -8,7 +8,7 @@ export const metadata = {
   title: "Clutch Property Management",
   description: "Premier properties, professionally managed.",
   keywords:
-    "property management, best property managers in Salem, property management in Salem OR, commercial property management, residential property management,clutch management, clutch property management, Salem rental property management, rental management company in Salem, Salem OR property managers for landlords",
+      "property management, Salem Oregon, commercial property management, residential property management, tenant placement, tenant screening, lease enforcement, property maintenance, rent collection, Clutch Property Management, Salem rental properties, Willamette Valley property management",
   openGraph: {
     title: "Clutch Property Management",
     description: "Premier properties, professionally managed.",
