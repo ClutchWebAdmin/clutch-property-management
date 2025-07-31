@@ -12,17 +12,18 @@ const client = createClient(config);
 
 export async function fetchProperties() {
   console.log("Fetching properties from Sanity...");
+  console.log("All property nameSlugs:", properties.map(p => p.nameSlug));
 
   return await client.fetch(`
-    *[_type == "properties" && defined(name) && defined(nameSlug.current)]{
+    *[_type == "properties" && defined(nameSlug.current)]{
       _id,
       name,
+      "nameSlug": nameSlug.current,
       slug,
       address,
       price,
       bedrooms,
       bathrooms,
-      "nameSlug": nameSlug.current,
       "imageUrl": featuredPhoto.asset->url,
       "altText": featuredPhoto.alt,
       "blurDataURL": featuredPhoto.asset->metadata.lqip,
