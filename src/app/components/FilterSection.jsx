@@ -21,6 +21,13 @@ export default function FilterSection({ properties }) {
     console.log("PROPERTIES:", properties);
     console.log("SAMPLE property:", properties[0]);
   }, [properties]);
+
+// addressLine1
+// : 
+// "1127 Broadway St NE"
+// addressLine2
+// : 
+// "Suite 135B"
   
   const router = useRouter();
   const searchParams = useSearchParams();
