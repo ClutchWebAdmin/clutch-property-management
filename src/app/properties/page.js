@@ -31,7 +31,7 @@ export const metadata = {
 
 export default async function PropertiesPage() {
   const data = await client.fetch(`
-    *[_type == "properties"]{
+    *[_type == "properties" && defined(nameSlug.current)]{
       _createdAt,
       _updatedAt,
       _id,
@@ -43,6 +43,7 @@ export default async function PropertiesPage() {
       bathrooms,
       type,
       "slug": slug.current,
+      "nameSlug": nameSlug.current,
       "manager": manager,
       "addressLine1": address.addressLine1,
       "addressLine2": address.addressLine2,
