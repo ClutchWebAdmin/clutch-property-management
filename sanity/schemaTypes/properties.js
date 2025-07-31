@@ -111,6 +111,21 @@ export default {
       validation: (Rule) => Rule.required().error("Slug is required"),
     },
     {
+      name: "nameSlug",
+      title: "Name Slug",
+      type: "slug",
+      options: {
+        source: "name",
+        maxLength: 100,
+        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 100),
+        isUnique: () => true
+      },
+      validation: (Rule) => Rule.required().error("Name slug is required")
+    },
+    
+    
+    
+    {
       name: "featuredPhoto",
       title: "Featured Photo",
       type: "image",
