@@ -200,9 +200,8 @@ export default function FilterSection({ properties }) {
     <Suspense>
       <section className="bg-primaryLight text-primaryDark">
 
-    {/* PROPERTY GROUPS SECTION */}
-
-    <section className="flex flex-col gap-4 py-8 px-5">
+{/* PROPERTY GROUPS SECTION */}
+<section className="flex flex-col gap-4 py-8 px-5">
   <h2 className="text-2xl font-bold text-primaryDark mb-2">Property Groups</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
     {[
@@ -212,6 +211,11 @@ export default function FilterSection({ properties }) {
           .map((p) => [p.nameSlug, p])
       ).values(),
     ]
+      .filter((group) => {
+        const queryType = searchParams.get("type");
+        if (!queryType) return true; // if no type is specified, show all
+        return group.type === queryType;
+      })
       .map((group) => {
         const groupProperties = properties.filter(
           (p) => p.nameSlug === group.nameSlug
@@ -256,8 +260,6 @@ export default function FilterSection({ properties }) {
       })}
   </div>
 </section>
-
-
 
 
         {/* <div className="px-5 py-5">
