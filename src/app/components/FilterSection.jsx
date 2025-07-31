@@ -186,26 +186,26 @@ export default function FilterSection({ properties }) {
     <Suspense>
       <section className="bg-primaryLight text-primaryDark">
 
-      {/* <section className="flex flex-col gap-4 py-8">
+      <section className="flex flex-col gap-4 py-8">
   <h2 className="text-2xl font-bold">Property Groups</h2>
   <div className="flex flex-wrap gap-2">
     {[
       ...new Map(
         properties
-          .filter((p) => p.name && p.nameSlug)
-          .map((p) => [p.nameSlug, p])
+          .filter((p) => p.name && p.name)
+          .map((p) => [p.name, p])
       ).values(),
     ].map((property) => (
       <a
         key={property._id}
-        href={`/properties/group/${property.nameSlug}`}
+        href={`/properties/group/${property.name}`}
         className="bg-white text-primaryDark px-3 py-1 rounded-full border border-primaryBlue hover:bg-primaryBlue hover:text-white transition-colors duration-200"
       >
         {property.name}
       </a>
     ))}
   </div>
-</section> */}
+</section>
 
 
         <div className="px-5 py-5">
