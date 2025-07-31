@@ -27,11 +27,12 @@ export default async function PropertiesByGroupPage({ params }) {
 
   const properties = await client.fetch(
     `
-    *[_type == "properties" && nameSlug.current == $slug] | order(name asc) {
+    *[_type == "properties" && lower(nameSlug.current) == $slug] | order(name asc) {
       _id,
       name,
       slug,
       type,
+      "nameSlug": nameSlug.current,
       manager,
       price,
       bedrooms,
@@ -52,8 +53,9 @@ export default async function PropertiesByGroupPage({ params }) {
       "zip": address.zip
     }
     `,
-    { slug }
+    { slug: slug.toLowerCase() }
   );
+  
 
   if (!properties || properties.length === 0) {
     return (
