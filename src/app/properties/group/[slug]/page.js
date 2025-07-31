@@ -1,5 +1,4 @@
 import { client } from "../../../../../sanity/lib/client";
-import PropertyCard from "../../../components/PropertyCard";
 
 export async function generateStaticParams() {
   const data = await client.fetch(`
@@ -29,54 +28,72 @@ export default async function PropertiesByGroupPage({ params }) {
     `
     *[_type == "properties" && lower(nameSlug.current) == $slug] | order(name asc) {
       _id,
-      name,
       slug,
       type,
-      "nameSlug": nameSlug.current,
       manager,
       price,
       bedrooms,
       bathrooms,
       sqFootage,
-      available,
-      isExternallyLinked,
-      url,
-      "imageUrl": featuredPhoto.asset->url,
-      "altText": featuredPhoto.alt,
-      "height": featuredPhoto.asset->metadata.dimensions.height,
-      "width": featuredPhoto.asset->metadata.dimensions.width,
-      "blurDataURL": featuredPhoto.asset->metadata.lqip,
-      "addressLine1": address.addressLine1,
-      "addressLine2": address.addressLine2,
-      "city": address.city,
-      "state": address.state,
-      "zip": address.zip
+      available
     }
     `,
     { slug: slug.toLowerCase() }
   );
-  
 
   if (!properties || properties.length === 0) {
     return (
       <main className="p-10 text-center">
         <h1 className="text-4xl font-bold text-red-600">Group not found</h1>
-        <p className="text-lg mt-4">
-          No properties were found for this group.
-        </p>
+        <p className="text-lg mt-4">No properties were found for this group.</p>
       </main>
     );
   }
 
   return (
     <main className="px-5 py-10">
-      <h1 className="text-3xl md:text-4xl font-bold mb-8">
-        {properties[0].name}
+      <h1 className="text-3xl md:text-4xl font-bold mb-8 capitalize">
+        {params.slug.replace(/-/g, " ")}
       </h1>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
         {properties.map((property) => (
-          <PropertyCard key={property._id} property={property} />
+          <div
+            key={property._id}
+            className="bg-white border rounded-lg shadow-sm p-4 hover:shadow-md transition"
+          >
+            <div className="flex flex-col gap-2">
+              <p className="text-lg font-bold">
+                {property.price
+                  ? `$${Math.floor(property.price).toLocaleString()}/mo`
+                  : "Contact for pricing"}
+              </p>
+
+              <div className="text-sm text-gray-600 flex flex-col gap-1">
+                {property.sqFootage && (
+                  <p>
+                    <strong>Size:</strong> {property.sqFootage.toLocaleString()} sqft
+                  </p>
+                )}
+                {property.bedrooms !== undefined && property.bathrooms !== undefined && (
+                  <p>
+                    <strong>Layout:</strong> {property.bedrooms} bd / {property.bathrooms} ba
+                  </p>
+                )}
+                {property.type && (
+                  <p>
+                    <strong>Type:</strong> {property.type}
+                  </p>
+                )}
+                {property.available !== undefined && (
+                  <p className={`inline-block px-3 py-1 mt-1 text-sm font-semibold rounded-full text-white w-fit
+                    ${property.available ? "bg-primaryBlue" : "bg-gray-400"}`}>
+                    {property.available ? "Available" : "Leased"}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </main>
