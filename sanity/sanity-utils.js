@@ -11,6 +11,8 @@ const config = {
 const client = createClient(config);
 
 export async function fetchProperties() {
+  console.log("Fetching properties from Sanity...");
+
   return await client.fetch(`
     *[_type == "properties" && defined(name) && defined(nameSlug.current)]{
       _id,
