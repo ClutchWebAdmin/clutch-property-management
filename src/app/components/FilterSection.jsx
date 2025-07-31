@@ -23,7 +23,8 @@ export default function FilterSection({ properties }) {
     
   }, [properties]);
 
-console.log("Fetched properties:", properties);
+  console.log("All property nameSlugs:", properties.map(p => p.nameSlug));
+
 
 
 // addressLine1
