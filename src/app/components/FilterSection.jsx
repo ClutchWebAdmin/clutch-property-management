@@ -6,6 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import PropertyCard from "./PropertyCard";
 import { FaSearch, FaFilter } from "react-icons/fa";
 import Filter from "./Filter";
+import Image from "next/image";
+import placeholder from "../../../public/images/placeholder.png"; // make sure path is correct
 
 const breakpoints = [
   { width: 1536, itemsPerPage: 12 },
@@ -198,29 +200,67 @@ export default function FilterSection({ properties }) {
     <Suspense>
       <section className="bg-primaryLight text-primaryDark">
 
-      <section className="flex flex-col gap-4 py-8">
-  <h2 className="text-2xl font-bold">Property Groups</h2>
-  <div className="flex flex-wrap gap-2">
+    {/* PROPERTY GROUPS SECTION */}
+
+    <section className="flex flex-col gap-4 py-8 px-5">
+  <h2 className="text-2xl font-bold text-primaryDark mb-2">Property Groups</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
     {[
       ...new Map(
         properties
           .filter((p) => p.name && p.nameSlug)
           .map((p) => [p.nameSlug, p])
       ).values(),
-    ].map((property) => (
-      <a
-        key={property._id}
-        href={`/properties/group/${property.nameSlug}`}
-        className="bg-white text-primaryDark px-3 py-1 rounded-full border border-primaryBlue hover:bg-primaryBlue hover:text-white transition-colors duration-200"
-      >
-        {property.name}
-      </a>
-    ))}
+    ]
+      .map((group) => {
+        const groupProperties = properties.filter(
+          (p) => p.nameSlug === group.nameSlug
+        );
+        const availableCount = groupProperties.filter((p) => p.available).length;
+
+        return (
+          <Link
+            key={group.nameSlug}
+            href={`/properties/group/${group.nameSlug}`}
+            className="flex flex-col bg-white rounded border hover:shadow-md transition duration-300 overflow-hidden"
+          >
+            {group.imageUrl ? (
+              <Image
+                src={group.imageUrl}
+                alt={group.altText || "Property Group Image"}
+                width={400}
+                height={250}
+                className="w-full h-[200px] object-cover"
+              />
+            ) : (
+              <Image
+                src={placeholder}
+                alt="placeholder"
+                width={400}
+                height={250}
+                className="w-full h-[200px] object-cover"
+              />
+            )}
+
+            <div className="p-4 flex flex-col gap-1">
+              <h3 className="text-xl font-semibold text-primaryDark">
+                {group.name}
+              </h3>
+              <p className="text-sm text-gray-500 capitalize">{group.type}</p>
+              <div className="mt-2 py-1 px-2 w-fit text-xs font-semibold rounded-full bg-primaryBlue text-white">
+                {availableCount} available {availableCount === 1 ? "unit" : "units"}
+              </div>
+            </div>
+          </Link>
+        );
+      })}
   </div>
 </section>
 
 
-        <div className="px-5 py-5">
+
+
+        {/* <div className="px-5 py-5">
           <div className="relative flex items-center">
             <input
               type="text"
@@ -300,7 +340,7 @@ export default function FilterSection({ properties }) {
               </p>
             </div>
           )}
-        </div>
+        </div> */}
       </section>
     </Suspense>
   );
