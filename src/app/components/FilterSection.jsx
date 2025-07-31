@@ -18,9 +18,13 @@ const breakpoints = [
 
 export default function FilterSection({ properties }) {
   useEffect(() => {
-    console.log("PROPERTIES:", properties);
+    
     console.log("SAMPLE property:", properties[0]);
+    
   }, [properties]);
+
+console.log("Fetched properties:", properties);
+
 
 // addressLine1
 // : 
