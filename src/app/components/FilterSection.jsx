@@ -192,13 +192,13 @@ export default function FilterSection({ properties }) {
     {[
       ...new Map(
         properties
-          .filter((p) => p.name && p.name)
-          .map((p) => [p.name, p])
+          .filter((p) => p.name && p.nameSlug)
+          .map((p) => [p.nameSlug, p])
       ).values(),
     ].map((property) => (
       <a
         key={property._id}
-        href={`/properties/group/${property.name}`}
+        href={`/properties/group/${property.nameSlug}`}
         className="bg-white text-primaryDark px-3 py-1 rounded-full border border-primaryBlue hover:bg-primaryBlue hover:text-white transition-colors duration-200"
       >
         {property.name}
