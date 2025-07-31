@@ -12,20 +12,21 @@ const client = createClient(config);
 
 export async function fetchProperties() {
   return await client.fetch(`
-    *[_type == "properties" && defined(name)]{
+    *[_type == "properties" && defined(name) && defined(nameSlug.current)]{
       _id,
       name,
       slug,
-      nameSlug,
       address,
       price,
       bedrooms,
       bathrooms,
+      "nameSlug": nameSlug.current,
       "imageUrl": featuredPhoto.asset->url,
       "altText": featuredPhoto.alt,
       "blurDataURL": featuredPhoto.asset->metadata.lqip,
       "height": featuredPhoto.asset->metadata.dimensions.height,
       "width": featuredPhoto.asset->metadata.dimensions.width,
     }
+
   `);
 }
