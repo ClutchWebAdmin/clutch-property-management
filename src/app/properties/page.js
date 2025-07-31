@@ -52,10 +52,7 @@ export default async function PropertiesPage() {
       "zip": address.zip,
       "imageUrl": featuredPhoto.asset->url,
       "altText": featuredPhoto.alt,
-      "additionalPhotos": additionalPhotos[]{
-        "imageUrl": image.asset->url,
-        "alt": image.alt
-      },
+
       "height": featuredPhoto.asset->metadata.dimensions.height,
       "width": featuredPhoto.asset->metadata.dimensions.width,
       "blurDataURL": featuredPhoto.asset->metadata.lqip,

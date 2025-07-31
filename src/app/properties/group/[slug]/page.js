@@ -35,7 +35,7 @@ export default async function PropertiesByGroupPage({ params }) {
       bedrooms,
       bathrooms,
       sqFootage,
-      additionalPhotos,
+
       available
     }
     `,
@@ -100,7 +100,7 @@ export default async function PropertiesByGroupPage({ params }) {
             </div>
 
             {/* Right: Additional Photos Count */}
-            {property.additionalPhotos && property.additionalPhotos.length > 0 && (
+            {/* {property.additionalPhotos && property.additionalPhotos.length > 0 && (
   <div className="mt-3 grid grid-cols-2 gap-2">
     {property.additionalPhotos.map((photo, index) => (
       <img
@@ -111,7 +111,7 @@ export default async function PropertiesByGroupPage({ params }) {
       />
     ))}
   </div>
-)}
+)} */}
 
           </div>
         ))}
