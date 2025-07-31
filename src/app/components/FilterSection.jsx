@@ -1,21 +1,27 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import PropertyCard from "./PropertyCard";
 import { FaSearch, FaFilter } from "react-icons/fa";
 import Filter from "./Filter";
 
 const breakpoints = [
-  { width: 1536, itemsPerPage: 12 }, // 2xl
-  { width: 1280, itemsPerPage: 9 }, // xl
-  { width: 1024, itemsPerPage: 9 }, // lg
-  { width: 768, itemsPerPage: 6 }, // md
-  { width: 640, itemsPerPage: 4 }, // sm
-  { width: 0, itemsPerPage: 4 }, // xs and default
+  { width: 1536, itemsPerPage: 12 },
+  { width: 1280, itemsPerPage: 9 },
+  { width: 1024, itemsPerPage: 9 },
+  { width: 768, itemsPerPage: 6 },
+  { width: 640, itemsPerPage: 4 },
+  { width: 0, itemsPerPage: 4 },
 ];
 
 export default function FilterSection({ properties }) {
+  useEffect(() => {
+    console.log("PROPERTIES:", properties);
+    console.log("SAMPLE property:", properties[0]);
+  }, [properties]);
+  
   const router = useRouter();
   const searchParams = useSearchParams();
   const [filteredProperties, setFilteredProperties] = useState(properties);
@@ -29,6 +35,7 @@ export default function FilterSection({ properties }) {
     bathrooms: "",
     type: "",
     manager: "",
+    name: "",
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -87,6 +94,7 @@ export default function FilterSection({ properties }) {
         : true;
       const type = query.type ? property.type === query.type : true;
       const manager = query.manager ? property.manager === query.manager : true;
+      const name = query.name ? property.name === query.name : true;
 
       return (
         matchesSearchQuery &&
@@ -98,7 +106,8 @@ export default function FilterSection({ properties }) {
         bedrooms &&
         bathrooms &&
         type &&
-        manager
+        manager &&
+        name
       );
     });
 
@@ -144,6 +153,7 @@ export default function FilterSection({ properties }) {
       bathrooms: "",
       type: "",
       manager: "",
+      name: "",
     });
     setSearchQuery("");
     router.push(`/properties`, { scroll: false });
@@ -170,9 +180,34 @@ export default function FilterSection({ properties }) {
     currentPage * itemsPerPage
   );
 
+
+
   return (
     <Suspense>
       <section className="bg-primaryLight text-primaryDark">
+
+      {/* <section className="flex flex-col gap-4 py-8">
+  <h2 className="text-2xl font-bold">Property Groups</h2>
+  <div className="flex flex-wrap gap-2">
+    {[
+      ...new Map(
+        properties
+          .filter((p) => p.name && p.nameSlug)
+          .map((p) => [p.nameSlug, p])
+      ).values(),
+    ].map((property) => (
+      <a
+        key={property._id}
+        href={`/properties/group/${property.nameSlug}`}
+        className="bg-white text-primaryDark px-3 py-1 rounded-full border border-primaryBlue hover:bg-primaryBlue hover:text-white transition-colors duration-200"
+      >
+        {property.name}
+      </a>
+    ))}
+  </div>
+</section> */}
+
+
         <div className="px-5 py-5">
           <div className="relative flex items-center">
             <input
@@ -185,6 +220,7 @@ export default function FilterSection({ properties }) {
             <FaSearch className="absolute left-4 text-gray-400" size={20} />
           </div>
         </div>
+
         <div className="px-5 pb-5 lg:hidden">
           <button
             onClick={toggleFilter}
@@ -194,6 +230,7 @@ export default function FilterSection({ properties }) {
             Filters
           </button>
         </div>
+
         <Filter
           filters={filters}
           setFilters={setFilters}
@@ -202,24 +239,22 @@ export default function FilterSection({ properties }) {
           isFilterOpen={isFilterOpen}
           toggleFilter={toggleFilter}
         />
+
         <div className="w-full px-5 py-10 border-b border-secondaryBlue">
           {filteredProperties.length > 0 ? (
             <>
-              {/* Results Count */}
               <div className="mb-10">
                 <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-primaryDark">
                   {filteredProperties.length} results found.
                 </p>
               </div>
 
-              {/* Grid Layout for Properties */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 w-full">
                 {displayedProperties.map((property) => (
                   <PropertyCard key={property._id} property={property} />
                 ))}
               </div>
 
-              {/* Pagination Controls */}
               <div className="flex flex-row justify-between md:justify-center items-center gap-5 mt-10">
                 <button
                   onClick={handlePreviousPage}
@@ -246,15 +281,14 @@ export default function FilterSection({ properties }) {
                 </button>
               </div>
             </>
-              ) : (
-                <div className="col-span-full text-center">
-                  <p className="text-3xl xl:text-4xl font-medium text-primaryDark">
-                    No results found.
-                  </p>
-                </div>
-                )}
+          ) : (
+            <div className="col-span-full text-center">
+              <p className="text-3xl xl:text-4xl font-medium text-primaryDark">
+                No results found.
+              </p>
+            </div>
+          )}
         </div>
-
       </section>
     </Suspense>
   );
