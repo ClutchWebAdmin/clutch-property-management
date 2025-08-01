@@ -35,6 +35,7 @@ export default async function PropertiesByGroupPage({ params }) {
       bedrooms,
       bathrooms,
       sqFootage,
+
       available
     }
     `,
@@ -51,7 +52,7 @@ export default async function PropertiesByGroupPage({ params }) {
   }
 
   return (
-    <main className="px-5 py-10">
+    <main className="px-5 py-28">
       <h1 className="text-3xl md:text-4xl font-bold mb-8 capitalize">
         {params.slug.replace(/-/g, " ")}
       </h1>
@@ -60,8 +61,9 @@ export default async function PropertiesByGroupPage({ params }) {
         {properties.map((property) => (
           <div
             key={property._id}
-            className="bg-white border rounded-lg shadow-sm p-4 hover:shadow-md transition"
+            className="bg-transparent border rounded-lg shadow-sm p-4 hover:shadow-md transition flex justify-between items-start"
           >
+            {/* Left info block */}
             <div className="flex flex-col gap-2">
               <p className="text-lg font-bold">
                 {property.price
@@ -86,13 +88,31 @@ export default async function PropertiesByGroupPage({ params }) {
                   </p>
                 )}
                 {property.available !== undefined && (
-                  <p className={`inline-block px-3 py-1 mt-1 text-sm font-semibold rounded-full text-white w-fit
-                    ${property.available ? "bg-primaryBlue" : "bg-gray-400"}`}>
+                  <p
+                    className={`inline-block px-3 py-1 mt-1 text-sm font-semibold rounded-full text-white w-fit ${
+                      property.available ? "bg-green-600" : "bg-gray-400"
+                    }`}
+                  >
                     {property.available ? "Available" : "Leased"}
                   </p>
                 )}
               </div>
             </div>
+
+            {/* Right: Additional Photos Count */}
+            {/* {property.additionalPhotos && property.additionalPhotos.length > 0 && (
+  <div className="mt-3 grid grid-cols-2 gap-2">
+    {property.additionalPhotos.map((photo, index) => (
+      <img
+        key={index}
+        src={photo.imageUrl}
+        alt={photo.alt}
+        className="w-full h-auto rounded"
+      />
+    ))}
+  </div>
+)} */}
+
           </div>
         ))}
       </div>

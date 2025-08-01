@@ -103,7 +103,8 @@ export default async function PropertyDetailPage({ params }) {
       "height": featuredPhoto.asset->metadata.dimensions.height,
       "width": featuredPhoto.asset->metadata.dimensions.width,
       "blurDataURL": featuredPhoto.asset->metadata.lqip,
-      additionalPhotos,
+
+
       isExternallyLinked,
       url,
     }

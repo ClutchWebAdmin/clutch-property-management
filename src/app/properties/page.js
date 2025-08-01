@@ -52,13 +52,15 @@ export default async function PropertiesPage() {
       "zip": address.zip,
       "imageUrl": featuredPhoto.asset->url,
       "altText": featuredPhoto.alt,
+
       "height": featuredPhoto.asset->metadata.dimensions.height,
       "width": featuredPhoto.asset->metadata.dimensions.width,
       "blurDataURL": featuredPhoto.asset->metadata.lqip,
       isExternallyLinked,
-      url,
+      url
     } | order(available desc)
-    `);
+  `);
+  
 
   const properties = data;
 

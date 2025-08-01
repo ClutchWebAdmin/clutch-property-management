@@ -26,6 +26,7 @@ export async function fetchProperties() {
       bathrooms,
       "imageUrl": featuredPhoto.asset->url,
       "altText": featuredPhoto.alt,
+
       "blurDataURL": featuredPhoto.asset->metadata.lqip,
       "height": featuredPhoto.asset->metadata.dimensions.height,
       "width": featuredPhoto.asset->metadata.dimensions.width,
