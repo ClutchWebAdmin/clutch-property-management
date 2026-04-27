@@ -13,6 +13,12 @@ export default function RootLayout({ children }) {
       <body
         className={`min-h-svh w-screen max-w-full flex flex-col mx-auto relative ${switzer.className} antialiased`}
       >
+
+      {/* ✅ HubSpot Tracking Code */} 
+
+       <Script src="//js-na2.hs-scripts.com/245171564.js" strategy="afterInteractive" id="hs-script-loader" />
+
+
         {children}
         <TheFooter />
         <AOSLoader />
