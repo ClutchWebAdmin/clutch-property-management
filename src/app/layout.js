@@ -6,6 +6,7 @@ import AOSLoader from "@/app/utils/AOSLoader";
 import { Analytics } from "@vercel/analytics/react";
 import CookieModal from "./components/CookieModal";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 export default function RootLayout({ children }) {
   return (
