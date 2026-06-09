@@ -53,7 +53,7 @@ export default function ContactButton({ buttonText }) {
             {/* Logo Header */}
             <div className="flex justify-between items-center px-6 pt-6 pb-4">
               <Image
-                src="/images/clutch-logo.png"
+                src="/images/logos/clutch-logo-light.png"
                 alt="Clutch Property Management"
                 width={160}
                 height={55}
